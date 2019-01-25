@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Window.h"
 #include "Game.h"
+#include "HungryDot.h"
 using namespace std;
 
 
