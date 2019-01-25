@@ -1,6 +1,8 @@
 CPP_SOURCE_FILES = main.cpp 
 CPP_SOURCE_FILES += Window.cpp
 CPP_SOURCE_FILES += Game.cpp
+CPP_SOURCE_FILES += HungryDot.cpp 
+CPP_SOURCE_FILES += World.cpp 
 
 
 EXECUTABLE = HungryDot

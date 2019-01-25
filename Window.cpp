@@ -84,3 +84,8 @@ void Window::Draw(sf::Drawable& drawable)
 {
 	m_window.draw(drawable);
 }
+
+sf::RenderWindow& Window::GetRenderWindow()
+{
+	return m_window;
+}

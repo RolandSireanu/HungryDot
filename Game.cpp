@@ -3,7 +3,7 @@
 void Game::Render()
 {
 	m_window.BeginDraw();
-	m_window.Draw(m_hungryDotSprite);
+	m_hungryDot.Render(m_window.GetRenderWindow());
 	m_window.EndDraw();
 }
 
