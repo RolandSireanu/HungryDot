@@ -1,8 +1,9 @@
 #include "Window.h"
+#include "FpsRegulator.h"
 
 Window::Window()
 {
-	Setup("Window" , sf::Vector2u(640,480));
+	Setup("Window" , FpsRegulator::resolution);
 }
 
 Window::Window(const std::string& title , const sf::Vector2u& windowSize )

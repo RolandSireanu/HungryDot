@@ -8,7 +8,7 @@ class Game
 {
 	public: 
 		//Call the world constructor here with all the properties
-		Game() : m_window("Hungry dot" , sf::Vector2u(1600,1200))
+		Game() : m_window("Hungry dot" , sf::Vector2u(800,600))
 		{
 			
 		}

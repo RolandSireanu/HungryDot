@@ -2,8 +2,10 @@
 #include "Window.h"
 #include "Game.h"
 #include "HungryDot.h"
+#include "FpsRegulator.h"
 using namespace std;
 
+FpsRegulator useless;
 
 int main()
 {
@@ -15,6 +17,7 @@ int main()
 
 		game.Update();
 		game.Render();
+		sf::sleep(sf::milliseconds(FpsRegulator::GetMsOfSleepApp()));
 	}
 
 
