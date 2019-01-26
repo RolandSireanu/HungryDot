@@ -1,6 +1,6 @@
 #ifndef WORLD_H
 #define WORLD_H
-
+#include "SFML/Graphics.hpp"
 
 
 class World
@@ -10,10 +10,13 @@ class World
 
 		World();
 
-		void Render();
+		void Render(sf::RenderWindow&);
 		void Update();
 		
-		
+	private:
+
+		sf::Sprite fruit;
+		sf::Texture fruitsTexture;
 
 };
 

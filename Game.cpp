@@ -4,6 +4,7 @@ void Game::Render()
 {
 	m_window.BeginDraw();
 	m_hungryDot.Render(m_window.GetRenderWindow());
+	m_world.Render(m_window.GetRenderWindow());
 	m_window.EndDraw();
 }
 
