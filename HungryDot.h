@@ -34,13 +34,20 @@ class HungryDot
 		void Update();
 		void Reset();
 		void Render(sf::RenderWindow& window);
-		bool WallCollision();
+		void WallCollision();
 
-	private:
+	private:		
+
+		void KeepTheDotInPlay(int& , int&);
 
 		Direction direction;
 		unsigned int score;
 		unsigned int lives;
+		unsigned int wallsCollision;
+		bool leftWallCollision;
+		bool rightWallCollision;
+		bool upWallCollision;
+		bool downWallCollision;
 		int xSpeed;
 		int ySpeed;		
 		std::vector<sf::Texture> m_hungryDotTextures;
@@ -51,6 +58,10 @@ class HungryDot
 		const unsigned int NR_OF_SPRITES = 4;
 		const float DEFAULT_X_SPEED = 10.0f;
 		const float DEFAULT_Y_SPEED = 10.0f;
+		const unsigned int LEFT_WALL_MASK = 0x01;
+		const unsigned int RIGHT_WALL_MASK = 0x02;
+		const unsigned int UP_WALL_MASK = 0x04;
+		const unsigned int DOWN_WALL_MASK = 0x08;
 
 };
 

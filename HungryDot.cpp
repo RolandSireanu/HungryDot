@@ -17,18 +17,33 @@ HungryDot::HungryDot()
 	Reset();
 }
 
+void HungryDot::KeepTheDotInPlay(int& arg_xSpeed , int& arg_ySpeed)
+{
+	if(wallsCollision & RIGHT_WALL_MASK)
+		arg_xSpeed = arg_xSpeed > 0 ? 0 : arg_xSpeed;
+
+	if(wallsCollision & LEFT_WALL_MASK)
+		arg_xSpeed = arg_xSpeed < 0 ? 0 : arg_xSpeed;		
+
+	if(wallsCollision & UP_WALL_MASK)
+		arg_ySpeed = arg_ySpeed < 0 ? 0 : arg_ySpeed;
+
+	if(wallsCollision & DOWN_WALL_MASK)
+		arg_ySpeed = arg_ySpeed > 0 ? 0 : arg_ySpeed;
+}
+
 void HungryDot::Move()
 {
 	static unsigned int counter = 1;
 
 	if(counter % FpsRegulator::GetFpsDivDot() == 0)
 	{
-		if(direction == Direction::LEFT)
+		if(direction == Direction::LEFT && !leftWallCollision)
 		{
 			xSpeed = -DEFAULT_X_SPEED;
 			ySpeed = 0;
 		}
-		else if(direction == Direction::RIGHT)
+		else if(direction == Direction::RIGHT && !rightWallCollision)
 		{
 			xSpeed = DEFAULT_X_SPEED;
 			ySpeed = 0;	
@@ -52,27 +67,48 @@ void HungryDot::Move()
 	}
 
 	counter++;
+
+
+	KeepTheDotInPlay(xSpeed , ySpeed);
 	m_hungryDotSprite.move(sf::Vector2f(xSpeed,ySpeed));
 }
 
-bool HungryDot::WallCollision()
-{
+void HungryDot::WallCollision()
+{	
 	sf::Vector2f tempPos = m_hungryDotSprite.getPosition();
+	sf::Vector2u sizeOfSprite = m_hungryDotSprite.getTexture()->getSize();
 
-	if(tempPos.x > FpsRegulator::resolution.x || tempPos.x < 0)
-		return true;
-	if(tempPos.y > FpsRegulator::resolution.y || tempPos.y < 0)
-		return true;
 	
-	return false;
+	std::cout<<"tempPos.x = "<<tempPos.x<<" and resolution.x = "<<FpsRegulator::resolution.x<<std::endl;
+	if(tempPos.x >= FpsRegulator::resolution.x - sizeOfSprite.x)
+		wallsCollision |= RIGHT_WALL_MASK;	
+	else
+		wallsCollision &= (~RIGHT_WALL_MASK);		
 
+	if(tempPos.x <= 0)
+		wallsCollision |= LEFT_WALL_MASK;	
+	else
+		wallsCollision &= (~LEFT_WALL_MASK);
+
+	if(tempPos.y >= FpsRegulator::resolution.y - sizeOfSprite.y)
+		wallsCollision |= DOWN_WALL_MASK;		
+	else
+		wallsCollision &= (~DOWN_WALL_MASK);
+
+	if(tempPos.y <= 0)
+		wallsCollision |= UP_WALL_MASK;		
+	else
+		wallsCollision &= (~UP_WALL_MASK);		
 }
+
+
+
 
 void HungryDot::Update()
 {
 	Move();
-	if(WallCollision())
-		std::cout<<"WALL COLLISION !!!" <<std::endl;
+	WallCollision();
+		
 }
 
 void HungryDot::Reset()
@@ -83,6 +119,12 @@ void HungryDot::Reset()
 	lives = DEFAULT_NR_OF_LIVES;
 	xSpeed = 10.0f;
 	ySpeed = 0.0f;
+	leftWallCollision = false;
+	rightWallCollision = false;
+	upWallCollision = false;
+	downWallCollision = false;
+
+	m_hungryDotSprite.setPosition(sf::Vector2f(0.0f , 0.0f));
 
 }
 

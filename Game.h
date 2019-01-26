@@ -3,12 +3,13 @@
 #include "Window.h"
 #include "HungryDot.h"
 #include "World.h"
+#include "FpsRegulator.h"
 
 class Game
 {
 	public: 
 		//Call the world constructor here with all the properties
-		Game() : m_window("Hungry dot" , sf::Vector2u(800,600))
+		Game() : m_window("Hungry dot" , FpsRegulator::resolution)
 		{
 			
 		}
