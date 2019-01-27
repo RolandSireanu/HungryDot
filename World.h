@@ -12,12 +12,17 @@ class World
 
 		void Render(sf::RenderWindow&);
 		void Update();
+
+		void Level1();
+
 		
 	private:
-
-		sf::Sprite fruit;
+		
 		sf::Texture fruitsTexture;
 
+		std::vector<sf::Sprite> vegSprites;
+
+		const unsigned int DEFAULT_NR_OF_VEG = 12;
 };
 
 

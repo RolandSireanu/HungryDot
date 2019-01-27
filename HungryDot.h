@@ -29,7 +29,6 @@ class HungryDot
 		unsigned int GetScore() { return score; }
 		unsigned int ResetScore() { score = 0; }
 
-
 		void Move();
 		void Update();
 		void Reset();
@@ -56,8 +55,8 @@ class HungryDot
 
 		const unsigned int DEFAULT_NR_OF_LIVES = 3;
 		const unsigned int NR_OF_SPRITES = 4;
-		const float DEFAULT_X_SPEED = 10.0f;
-		const float DEFAULT_Y_SPEED = 10.0f;
+		const float DEFAULT_X_SPEED = 50.0f;
+		const float DEFAULT_Y_SPEED = 50.0f;
 		const unsigned int LEFT_WALL_MASK = 0x01;
 		const unsigned int RIGHT_WALL_MASK = 0x02;
 		const unsigned int UP_WALL_MASK = 0x04;

@@ -13,6 +13,8 @@ HungryDot::HungryDot()
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT].loadFromFile("Media/RightDot.png");
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
 	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)Direction::RIGHT]);	
+	
+	std::cout<<"Size x = "<<m_hungryDotSprite.getTexture()->getSize().x<<std::endl;
 
 	Reset();
 }
@@ -78,7 +80,7 @@ void HungryDot::WallCollision()
 	sf::Vector2f tempPos = m_hungryDotSprite.getPosition();
 	sf::Vector2u sizeOfSprite = m_hungryDotSprite.getTexture()->getSize();
 
-	
+	std::cout<<"sizeOfSprite.x = "<<sizeOfSprite.x<<std::endl;
 	std::cout<<"tempPos.x = "<<tempPos.x<<" and resolution.x = "<<FpsRegulator::resolution.x<<std::endl;
 	if(tempPos.x >= FpsRegulator::resolution.x - sizeOfSprite.x)
 		wallsCollision |= RIGHT_WALL_MASK;	
@@ -155,5 +157,3 @@ void HungryDot::Render(sf::RenderWindow& window)
 	}
 
 }
-
-
