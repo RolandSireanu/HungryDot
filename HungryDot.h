@@ -35,6 +35,9 @@ class HungryDot
 		void Render(sf::RenderWindow& window);
 		void WallCollision();
 
+		sf::Vector2f GetCurrentPosition() const;
+
+
 	private:		
 
 		void KeepTheDotInPlay(int& , int&);
@@ -42,11 +45,7 @@ class HungryDot
 		Direction direction;
 		unsigned int score;
 		unsigned int lives;
-		unsigned int wallsCollision;
-		bool leftWallCollision;
-		bool rightWallCollision;
-		bool upWallCollision;
-		bool downWallCollision;
+		unsigned int wallsCollision;		
 		int xSpeed;
 		int ySpeed;		
 		std::vector<sf::Texture> m_hungryDotTextures;

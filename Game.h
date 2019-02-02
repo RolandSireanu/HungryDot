@@ -4,6 +4,7 @@
 #include "HungryDot.h"
 #include "World.h"
 #include "FpsRegulator.h"
+#include "Arrow.h"
 
 class Game
 {

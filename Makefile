@@ -4,6 +4,7 @@ CPP_SOURCE_FILES += Game.cpp
 CPP_SOURCE_FILES += HungryDot.cpp 
 CPP_SOURCE_FILES += World.cpp 
 CPP_SOURCE_FILES += FpsRegulator.cpp 
+CPP_SOURCE_FILES += Arrow.cpp 
 
 EXECUTABLE = HungryDot
 

@@ -14,7 +14,7 @@ HungryDot::HungryDot()
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
 	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)Direction::RIGHT]);	
 	
-	std::cout<<"Size x = "<<m_hungryDotSprite.getTexture()->getSize().x<<std::endl;
+//	std::cout<<"Size x = "<<m_hungryDotSprite.getTexture()->getSize().x<<std::endl;
 
 	Reset();
 }
@@ -40,12 +40,12 @@ void HungryDot::Move()
 
 	if(counter % FpsRegulator::GetFpsDivDot() == 0)
 	{
-		if(direction == Direction::LEFT && !leftWallCollision)
+		if(direction == Direction::LEFT)
 		{
 			xSpeed = -DEFAULT_X_SPEED;
 			ySpeed = 0;
 		}
-		else if(direction == Direction::RIGHT && !rightWallCollision)
+		else if(direction == Direction::RIGHT)
 		{
 			xSpeed = DEFAULT_X_SPEED;
 			ySpeed = 0;	
@@ -80,8 +80,8 @@ void HungryDot::WallCollision()
 	sf::Vector2f tempPos = m_hungryDotSprite.getPosition();
 	sf::Vector2u sizeOfSprite = m_hungryDotSprite.getTexture()->getSize();
 
-	std::cout<<"sizeOfSprite.x = "<<sizeOfSprite.x<<std::endl;
-	std::cout<<"tempPos.x = "<<tempPos.x<<" and resolution.x = "<<FpsRegulator::resolution.x<<std::endl;
+//	std::cout<<"sizeOfSprite.x = "<<sizeOfSprite.x<<std::endl;
+//	std::cout<<"tempPos.x = "<<tempPos.x<<" and resolution.x = "<<FpsRegulator::resolution.x<<std::endl;
 	if(tempPos.x >= FpsRegulator::resolution.x - sizeOfSprite.x)
 		wallsCollision |= RIGHT_WALL_MASK;	
 	else
@@ -121,10 +121,6 @@ void HungryDot::Reset()
 	lives = DEFAULT_NR_OF_LIVES;
 	xSpeed = 10.0f;
 	ySpeed = 0.0f;
-	leftWallCollision = false;
-	rightWallCollision = false;
-	upWallCollision = false;
-	downWallCollision = false;
 
 	m_hungryDotSprite.setPosition(sf::Vector2f(0.0f , 0.0f));
 
@@ -156,4 +152,9 @@ void HungryDot::Render(sf::RenderWindow& window)
 		window.draw(m_hungryDotSprite);
 	}
 
+}
+
+sf::Vector2f HungryDot::GetCurrentPosition() const
+{
+	return m_hungryDotSprite.getPosition();
 }

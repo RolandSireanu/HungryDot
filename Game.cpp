@@ -13,6 +13,7 @@ void Game::Update()
 	HandleInput();
 	m_window.Update();
 	m_hungryDot.Update();
+	m_world.Update(m_hungryDot);
 }
 
 Window* Game::GetWindow()
