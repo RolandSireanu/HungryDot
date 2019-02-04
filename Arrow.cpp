@@ -2,7 +2,7 @@
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include "FpsRegulator.h"
-
+#include <iostream>
 /*
 	0 - RIGHT_LEFT
 	1 - LEFT_RIGHT
@@ -19,13 +19,14 @@ const std::vector<sf::Vector2f> Arrow::arrowMoves = {{-10.0,0.0} , {10.0,0.0} , 
 	direction : 3 arrow is poiting to the up
 	direction : 4 arrow is poiting to the down
 */
-Arrow::Arrow(DIRECTION direction , const sf::Texture& arg_arrowTexture)
+Arrow::Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture)
 {
 	texture = arg_arrowTexture;
-	direction = direction;
+	this->direction = arg_direction;	
+
 
 	arrowSprite.setTexture(arg_arrowTexture);
-	arrowSprite.setTextureRect(originPositions[(int)direction]);
+	arrowSprite.setTextureRect(originPositions[(unsigned int)direction]);
 
 	ResetArrow();
 }
@@ -33,6 +34,7 @@ Arrow::Arrow(DIRECTION direction , const sf::Texture& arg_arrowTexture)
 
 bool Arrow::MoveArrow()
 {
+	std::cout<<"MoveArrow"<<std::endl;
 	arrowSprite.move(arrowMoves[(int)direction]);
 	return true;
 }
@@ -42,18 +44,22 @@ void Arrow::ResetArrow()
 {
 	const sf::Vector2u tempPos = GenNewArrowPos(direction);
 
+
+	std::cout<<"tempPos.x , y = "<<tempPos.x<<" , "<<tempPos.y<<std::endl;
 	arrowSprite.setPosition((float)tempPos.x , (float)tempPos.y);
 
 }
 
 sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 {
+
+
 	switch(arg_direction)
 	{
 
 		//RIGHT_LEFT ARROW
 		case DIRECTION::RIGHT_LEFT:
-		{
+		{			
 			//Generate random number and put it in [0 , resolution.y]
 			unsigned int pos = rand() % FpsRegulator::resolution.y;
 			//Modulate it to be inline with MOACA
@@ -68,7 +74,7 @@ sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 
 		//LEFT_RIGHT Arrow ->
 		case DIRECTION::LEFT_RIGHT:
-		{
+		{			
 			//Generate random number 
 			unsigned int pos = rand() % FpsRegulator::resolution.y;
 			//Modulate it to in in line with MOACA
@@ -77,9 +83,34 @@ sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 			pos = pos - temp + 23;
 
 			return sf::Vector2u(0 , pos);
-
-			break;
+			
 		}
+
+
+		case DIRECTION::UP_DOWN:
+		{			
+			//Generate random number 
+			unsigned int pos = rand() % FpsRegulator::resolution.x;
+			//Modulate it to in in line with MOACA
+			unsigned int temp = (pos % FpsRegulator::sizeOfHungryDot.x);
+			//Put it in the middle of MOACA
+			pos = pos - temp + 18;
+
+			return sf::Vector2u(pos , 0);
+			
+		}
+
+		case DIRECTION::DOWN_UP:
+		{			
+			//Generate random number 
+			unsigned int pos = rand() % FpsRegulator::resolution.x;
+			//Modulate it to in in line with MOACA
+			unsigned int temp = (pos % FpsRegulator::sizeOfHungryDot.x);
+			//Put it in the middle of MOACA
+			pos = pos - temp + 18;
+
+			return sf::Vector2u(pos , FpsRegulator::resolution.y);
+		}	
 
 		default :
 			break;

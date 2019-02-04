@@ -5,6 +5,7 @@ CPP_SOURCE_FILES += HungryDot.cpp
 CPP_SOURCE_FILES += World.cpp 
 CPP_SOURCE_FILES += FpsRegulator.cpp 
 CPP_SOURCE_FILES += Arrow.cpp 
+CPP_SOURCE_FILES += ArrowsPool.cpp 
 
 EXECUTABLE = HungryDot
 
@@ -17,7 +18,7 @@ all :
 	 g++ $(CPP_SOURCE_FILES) -o $(EXECUTABLE) -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lOpenGL
 
 debug:
-	g++ $(CPP_SOURCE_FILES) -o $(EXECUTABLE) -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lOpenGL -DDEBUG -Os
+	g++  -g $(CPP_SOURCE_FILES) -o $(EXECUTABLE) -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lOpenGL -DDEBUG -Os
 
 run : all
 	./$(EXECUTABLE)

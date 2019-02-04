@@ -2,6 +2,8 @@
 #define WORLD_H
 #include "SFML/Graphics.hpp"
 #include "HungryDot.h"
+#include "ArrowsPool.h"
+
 
 class World
 {
@@ -27,13 +29,12 @@ class World
 		sf::Texture arrowsTexture;
 		
 		std::vector<sf::Sprite> vegSprites;
-		std::vector<sf::Sprite> arrowsToDraw;
+		std::vector<Arrow*> arrowsToDraw;
 
-
+		ArrowsObjectPool arrowsPool;
 
 		const unsigned int DEFAULT_NR_OF_VEG = 12;
-		const unsigned int DEFAULT_NR_OF_ARROWS = 4;
-		const std::vector<sf::Vector2f> arrowMoves;
+		const unsigned int DEFAULT_NR_OF_ARROWS = 4;		
 
 };
 

@@ -18,15 +18,20 @@ class Arrow
 
 		sf::Vector2u GenNewArrowPos(DIRECTION arg_direction);
 
+		DIRECTION direction;		
+
+		sf::Sprite GetSprite()
+		{
+			return arrowSprite;
+		}
+
 	private:
 
 		sf::Sprite arrowSprite;
 		sf::Texture texture;
 		static const std::vector<sf::IntRect> originPositions;
 		static const std::vector<sf::Vector2f> arrowMoves;
-		DIRECTION direction;
-
-
+		//static std::vector<
 };
 
 

@@ -3,8 +3,12 @@
 #include <time.h>       /* time */
 #include "FpsRegulator.h"
 #include <iostream>
+#include "Arrow.h"
 
-World::World(): arrowMoves{{-10,0} , {10,0} , {0,-10}, {0,10}}
+//Lungime latime 4341 x 1804  DUSTER
+//Golf 5 : 4204 1759
+
+World::World() : arrowsPool(arrowsTexture)
 {
 	const unsigned int xBoundery = FpsRegulator::resolution.x - FpsRegulator::sizeOfHungryDot.x;
 	const unsigned int yBoundery = FpsRegulator::resolution.y - FpsRegulator::sizeOfHungryDot.y;
@@ -57,36 +61,23 @@ void World::Update(const HungryDot& arg_hungryDot)
 		}
 	}
 
-	if(arrowsToDraw.size() == 0)
+	std::cout<<"arrowsToDraw.size = "<<arrowsToDraw.size()<<std::endl;
+	if(arrowsToDraw.size() < 4)
 	{
-		sf::Vector2u position = GenNewArrowPos(1);
+		Arrow *tempPtr;
+		bool acquired = false;
 
-		//Add arrow sprite to vector
-		//arrowsToDraw.push_back(tempSprite);
-
-
-		sf::Vector2u position2 = GenNewArrowPos(0);
-		
-		std::cout<<"x , y = "<<position2.x<<" , "<<position2.y<<std::endl;
-		//tempSprite2.setPosition((float)position2.x , (float)position2.y);
-		//arrowsToDraw.push_back(tempSprite2);
-
-
-		//std::cout<<"Generated positon = "<<position.x<<" , "<<position.y<<std::endl;
-	}
-	else
-	{	
-		//Move the arrow
-		for(int c = 0; c < arrowsToDraw.size(); c++)
+		acquired = arrowsPool.AcquireArrow(Arrow::DIRECTION::LEFT_RIGHT , &tempPtr);
+		if(acquired)
 		{
-			// arrowsToDraw[c]
-
+			arrowsToDraw.push_back(tempPtr);
+			std::cout<<"Arrow acquired and pushed into vector"<<std::endl;
 		}
+	}
 
-		for(auto itr = arrowsToDraw.begin(); itr != arrowsToDraw.end(); itr++)
-		{ 
-			itr->move(sf::Vector2f(10.0f , 0.0f));
-		}
+	for(auto it = arrowsToDraw.begin(); it != arrowsToDraw.end(); it++)
+	{
+		(*it)->MoveArrow();
 	}
 
 }
@@ -101,7 +92,8 @@ void World::Render(sf::RenderWindow& arg_window)
 
 	for(auto itr = arrowsToDraw.begin(); itr != arrowsToDraw.end(); itr++)
 	{
-		arg_window.draw(*itr);		
+		std::cout<<"Arrow draw !"<<std::endl;
+		arg_window.draw((*itr)->GetSprite());		
 	}
 }
 
@@ -129,49 +121,6 @@ void World::LoadArrows()
 
 void World::Level1()
 {
-
-
-}
-
-
-sf::Vector2u World::GenNewArrowPos(unsigned int startingDirection)
-{
-	//srand(time(NULL));
-
-	switch(startingDirection)
-	{
-
-		//RIGHT_LEFT ARROW
-		case 0:
-		{
-			//(x , y)
-
-
-			return sf::Vector2u(FpsRegulator::resolution.x-100,100);
-
-			break;
-		}
-
-		//LEFT_RIGHT Arrow ->
-		case 1:
-		{
-			unsigned int pos = rand() % FpsRegulator::resolution.y;
-			unsigned int temp = (pos % FpsRegulator::sizeOfHungryDot.y);
-			pos = pos - temp + 23;
-
-			return sf::Vector2u(0 , pos);
-
-			break;
-		}
-
-		
-
-
-		default :
-			break;
-	}
-
-	return sf::Vector2u(0,0);
 
 
 }
