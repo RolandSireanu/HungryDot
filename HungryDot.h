@@ -28,6 +28,9 @@ class HungryDot
 		void IncreaseScore() { score++; }
 		unsigned int GetScore() { return score; }
 		unsigned int ResetScore() { score = 0; }
+		unsigned int GetHeight() const { return HEIGHT_OF_HUNGRYDOT;}
+		unsigned int GetWidth() const { return WIDTH_OF_HUNGRYDOT;}
+
 
 		void Move();
 		void Update();
@@ -60,6 +63,8 @@ class HungryDot
 		const unsigned int RIGHT_WALL_MASK = 0x02;
 		const unsigned int UP_WALL_MASK = 0x04;
 		const unsigned int DOWN_WALL_MASK = 0x08;
+		const unsigned int WIDTH_OF_HUNGRYDOT = 50;
+		const unsigned int HEIGHT_OF_HUNGRYDOT = 50;
 
 };
 

@@ -11,7 +11,7 @@
 */
 const std::vector<sf::IntRect> Arrow::originPositions = {{50,0,17,11} , {31,0,17,11} , {0,0,8,17} , {16,0,10,17}};
 
-const std::vector<sf::Vector2f> Arrow::arrowMoves = {{-10.0,0.0} , {10.0,0.0} , {0.0 ,10.0} , {0.0,-10.0}};
+const std::vector<sf::Vector2f> Arrow::arrowMoves = {{-10.0,0.0} , {10.0,0.0} , {0.0 ,-10.0} , {0.0,10.0}};
 
 /*
 	direction : 1 arrow is poiting to the left
@@ -34,20 +34,31 @@ Arrow::Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture)
 
 bool Arrow::MoveArrow()
 {
-	std::cout<<"MoveArrow"<<std::endl;
-	arrowSprite.move(arrowMoves[(int)direction]);
-	return true;
+	bool retStatus = true;
+
+	unsigned int dr = (unsigned int)direction;
+	arrowSprite.move(arrowMoves[dr]);
+
+	sf::Vector2u tempPosition = (sf::Vector2u)arrowSprite.getPosition();
+	if(tempPosition.x >= FpsRegulator::resolution.x || tempPosition.x <= 0)
+	{
+
+		retStatus = false;
+	}
+	else if(tempPosition.y >= FpsRegulator::resolution.y || tempPosition.y <= 0)
+	{
+		retStatus = false;
+	}
+
+
+	return retStatus;
 }
 
 
 void Arrow::ResetArrow()
 {
 	const sf::Vector2u tempPos = GenNewArrowPos(direction);
-
-
-	std::cout<<"tempPos.x , y = "<<tempPos.x<<" , "<<tempPos.y<<std::endl;
 	arrowSprite.setPosition((float)tempPos.x , (float)tempPos.y);
-
 }
 
 sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
@@ -98,6 +109,7 @@ sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 
 			return sf::Vector2u(pos , 0);
 			
+
 		}
 
 		case DIRECTION::DOWN_UP:
@@ -108,6 +120,7 @@ sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 			unsigned int temp = (pos % FpsRegulator::sizeOfHungryDot.x);
 			//Put it in the middle of MOACA
 			pos = pos - temp + 18;
+
 
 			return sf::Vector2u(pos , FpsRegulator::resolution.y);
 		}	

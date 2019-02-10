@@ -13,8 +13,8 @@ class World
 		World();
 
 		void Render(sf::RenderWindow&);
-		void Update(const HungryDot& arg_hungryDot);
-
+		bool Update(const HungryDot& arg_hungryDot);
+		void Reset();
 		void Level1();
 
 		
@@ -22,8 +22,6 @@ class World
 
 
 		sf::Vector2u GenNewArrowPos(unsigned int startingDirection);
-		void LoadArrows();
-
 
 		sf::Texture fruitsTexture;
 		sf::Texture arrowsTexture;
@@ -33,7 +31,7 @@ class World
 
 		ArrowsObjectPool arrowsPool;
 
-		const unsigned int DEFAULT_NR_OF_VEG = 12;
+		const unsigned int DEFAULT_NR_OF_VEG = 60;
 		const unsigned int DEFAULT_NR_OF_ARROWS = 4;		
 
 };

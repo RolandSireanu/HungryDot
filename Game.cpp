@@ -10,10 +10,20 @@ void Game::Render()
 
 void Game::Update()
 {
-	HandleInput();
-	m_window.Update();
-	m_hungryDot.Update();
-	m_world.Update(m_hungryDot);
+	if(stop == false)
+	{
+		HandleInput();
+		m_window.Update();
+		m_hungryDot.Update();
+		stop = m_world.Update(m_hungryDot);
+
+	}
+	else
+	{
+		m_hungryDot.Reset();
+		m_world.Reset();
+		stop = false;
+	}
 }
 
 Window* Game::GetWindow()

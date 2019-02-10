@@ -11,7 +11,7 @@ ArrowsObjectPool::ArrowsObjectPool(const sf::Texture& arg_texture) : texture(arg
 	{
 		Arrow* tempArrow = new Arrow((Arrow::DIRECTION) (indexer % 4) , texture);
 
-		pool.push_back(tempArrow) ;
+		pool.push_back(tempArrow);
 		indexer++;
 	}   
 
@@ -19,13 +19,7 @@ ArrowsObjectPool::ArrowsObjectPool(const sf::Texture& arg_texture) : texture(arg
 
 bool ArrowsObjectPool::AcquireArrow(Arrow::DIRECTION arg_direction , Arrow** retArrow)
 {
-/*
-	for(auto it=pool.begin(); it != pool.end(); it++)
-	{
-		std::cout<<" (*it)->direction = "<<(unsigned int)(*it)->direction<<std::endl;
-	}
-*/	
-	std::cout<<"Trying to acquire arrow "<<std::endl;
+
 	auto it = std::find_if(pool.begin() , pool.end() , [=](Arrow* a){
 		return (arg_direction == a->direction) ? true : false;
 	});
@@ -34,14 +28,12 @@ bool ArrowsObjectPool::AcquireArrow(Arrow::DIRECTION arg_direction , Arrow** ret
 
 	if(it != pool.end())
 	{
-		std::cout<<"Arrow aquired !"<<std::endl;		
 		*retArrow = (*it);
 		pool.erase(it);
 		return true;
 	}
 	else
 	{
-		std::cout<<"Arrow not aquired !"<<std::endl;
 		return false;
 	}
 

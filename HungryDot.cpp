@@ -14,7 +14,7 @@ HungryDot::HungryDot()
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
 	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)Direction::RIGHT]);	
 	
-//	std::cout<<"Size x = "<<m_hungryDotSprite.getTexture()->getSize().x<<std::endl;
+
 
 	Reset();
 }
