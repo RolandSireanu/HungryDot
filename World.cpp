@@ -145,6 +145,16 @@ bool World::Update(const HungryDot& arg_hungryDot)
 		}
 	}
 
+	if(sf::Joystick::isConnected(0))
+	{
+		//std::cout<<"Joystick is connected and it has  !"<<sf::Joystick::getButtonCount(0)<<" buttons :D !"<<std::endl;
+		if(sf::Joystick::isButtonPressed(0,1))
+		{
+			std::cout<<"Button 0 was pressed !"<<std::endl;
+		}
+	}
+
+
 	return false;
 }
 

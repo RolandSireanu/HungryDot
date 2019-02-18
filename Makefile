@@ -6,6 +6,9 @@ CPP_SOURCE_FILES += World.cpp
 CPP_SOURCE_FILES += FpsRegulator.cpp 
 CPP_SOURCE_FILES += Arrow.cpp 
 CPP_SOURCE_FILES += ArrowsPool.cpp 
+CPP_SOURCE_FILES += EventManager.cpp
+CPP_SOURCE_FILES += StateManager.cpp
+CPP_SOURCE_FILES += StateIntro.cpp
 
 EXECUTABLE = HungryDot
 
@@ -15,7 +18,7 @@ show:
 
 
 all :
-	 g++ $(CPP_SOURCE_FILES) -o $(EXECUTABLE) -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lOpenGL
+	 g++ $(CPP_SOURCE_FILES) -o $(EXECUTABLE) -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lOpenGL -std=c++17
 
 debug:
 	g++  -g $(CPP_SOURCE_FILES) -o $(EXECUTABLE) -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-system -lOpenGL -DDEBUG -Os
