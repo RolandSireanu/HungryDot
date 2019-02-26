@@ -27,8 +27,8 @@ class SharedContext
 		}
 
 
-	sf::RenderWindow* sharedWindow;
-	SharedContext* sharedContext;
+	static sf::RenderWindow* sharedWindow;
+	static SharedContext* sharedContext;
 
 };
 
@@ -46,7 +46,7 @@ class BaseState
 		virtual void Update() = 0;
 		virtual void Render() = 0;
 
-		struct SharedContext& sharedContext;
+		//struct SharedContext& sharedContext;
 
 };
 
