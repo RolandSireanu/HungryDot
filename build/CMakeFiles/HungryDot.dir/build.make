@@ -57,246 +57,246 @@ include CMakeFiles/HungryDot.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/HungryDot.dir/flags.make
 
-CMakeFiles/HungryDot.dir/src/Arrow.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/Arrow.cpp.o: ../src/Arrow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HungryDot.dir/src/Arrow.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/Arrow.cpp.o -c /home/roland/HungryDot/src/Arrow.cpp
+CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o: ../sources/Arrow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o -c /home/roland/HungryDot/sources/Arrow.cpp
 
-CMakeFiles/HungryDot.dir/src/Arrow.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/Arrow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/Arrow.cpp > CMakeFiles/HungryDot.dir/src/Arrow.cpp.i
+CMakeFiles/HungryDot.dir/sources/Arrow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/Arrow.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/Arrow.cpp > CMakeFiles/HungryDot.dir/sources/Arrow.cpp.i
 
-CMakeFiles/HungryDot.dir/src/Arrow.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/Arrow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/Arrow.cpp -o CMakeFiles/HungryDot.dir/src/Arrow.cpp.s
+CMakeFiles/HungryDot.dir/sources/Arrow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/Arrow.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/Arrow.cpp -o CMakeFiles/HungryDot.dir/sources/Arrow.cpp.s
 
-CMakeFiles/HungryDot.dir/src/Arrow.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/Arrow.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/Arrow.cpp.o.provides: CMakeFiles/HungryDot.dir/src/Arrow.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Arrow.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/Arrow.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/Arrow.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/Arrow.cpp.o
+CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o
 
 
-CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o: ../src/ArrowsPool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o -c /home/roland/HungryDot/src/ArrowsPool.cpp
+CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o: ../sources/ArrowsPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o -c /home/roland/HungryDot/sources/ArrowsPool.cpp
 
-CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/ArrowsPool.cpp > CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.i
+CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/ArrowsPool.cpp > CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.i
 
-CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/ArrowsPool.cpp -o CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.s
+CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/ArrowsPool.cpp -o CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.s
 
-CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o.provides: CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o
+CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o
 
 
-CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o: ../src/FpsRegulator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o -c /home/roland/HungryDot/src/FpsRegulator.cpp
+CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o: ../sources/FpsRegulator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o -c /home/roland/HungryDot/sources/FpsRegulator.cpp
 
-CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/FpsRegulator.cpp > CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.i
+CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/FpsRegulator.cpp > CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.i
 
-CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/FpsRegulator.cpp -o CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.s
+CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/FpsRegulator.cpp -o CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.s
 
-CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o.provides: CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o
+CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o
 
 
-CMakeFiles/HungryDot.dir/src/Game.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/Game.cpp.o: ../src/Game.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HungryDot.dir/src/Game.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/Game.cpp.o -c /home/roland/HungryDot/src/Game.cpp
+CMakeFiles/HungryDot.dir/sources/Game.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/Game.cpp.o: ../sources/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/HungryDot.dir/sources/Game.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/Game.cpp.o -c /home/roland/HungryDot/sources/Game.cpp
 
-CMakeFiles/HungryDot.dir/src/Game.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/Game.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/Game.cpp > CMakeFiles/HungryDot.dir/src/Game.cpp.i
+CMakeFiles/HungryDot.dir/sources/Game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/Game.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/Game.cpp > CMakeFiles/HungryDot.dir/sources/Game.cpp.i
 
-CMakeFiles/HungryDot.dir/src/Game.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/Game.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/Game.cpp -o CMakeFiles/HungryDot.dir/src/Game.cpp.s
+CMakeFiles/HungryDot.dir/sources/Game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/Game.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/Game.cpp -o CMakeFiles/HungryDot.dir/sources/Game.cpp.s
 
-CMakeFiles/HungryDot.dir/src/Game.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/Game.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/Game.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/Game.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/Game.cpp.o.provides: CMakeFiles/HungryDot.dir/src/Game.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Game.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/Game.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/Game.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/Game.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Game.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/Game.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/Game.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/Game.cpp.o
+CMakeFiles/HungryDot.dir/sources/Game.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/Game.cpp.o
 
 
-CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o: ../src/HungryDot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o -c /home/roland/HungryDot/src/HungryDot.cpp
+CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o: ../sources/HungryDot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o -c /home/roland/HungryDot/sources/HungryDot.cpp
 
-CMakeFiles/HungryDot.dir/src/HungryDot.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/HungryDot.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/HungryDot.cpp > CMakeFiles/HungryDot.dir/src/HungryDot.cpp.i
+CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/HungryDot.cpp > CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.i
 
-CMakeFiles/HungryDot.dir/src/HungryDot.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/HungryDot.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/HungryDot.cpp -o CMakeFiles/HungryDot.dir/src/HungryDot.cpp.s
+CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/HungryDot.cpp -o CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.s
 
-CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o.provides: CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o
+CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o
 
 
-CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o: ../src/StateIntro.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o -c /home/roland/HungryDot/src/StateIntro.cpp
+CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o: ../sources/StateIntro.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o -c /home/roland/HungryDot/sources/StateIntro.cpp
 
-CMakeFiles/HungryDot.dir/src/StateIntro.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/StateIntro.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/StateIntro.cpp > CMakeFiles/HungryDot.dir/src/StateIntro.cpp.i
+CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/StateIntro.cpp > CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.i
 
-CMakeFiles/HungryDot.dir/src/StateIntro.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/StateIntro.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/StateIntro.cpp -o CMakeFiles/HungryDot.dir/src/StateIntro.cpp.s
+CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/StateIntro.cpp -o CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.s
 
-CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o.provides: CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o
+CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o
 
 
-CMakeFiles/HungryDot.dir/src/Window.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/Window.cpp.o: ../src/Window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HungryDot.dir/src/Window.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/Window.cpp.o -c /home/roland/HungryDot/src/Window.cpp
+CMakeFiles/HungryDot.dir/sources/Window.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/Window.cpp.o: ../sources/Window.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/HungryDot.dir/sources/Window.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/Window.cpp.o -c /home/roland/HungryDot/sources/Window.cpp
 
-CMakeFiles/HungryDot.dir/src/Window.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/Window.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/Window.cpp > CMakeFiles/HungryDot.dir/src/Window.cpp.i
+CMakeFiles/HungryDot.dir/sources/Window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/Window.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/Window.cpp > CMakeFiles/HungryDot.dir/sources/Window.cpp.i
 
-CMakeFiles/HungryDot.dir/src/Window.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/Window.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/Window.cpp -o CMakeFiles/HungryDot.dir/src/Window.cpp.s
+CMakeFiles/HungryDot.dir/sources/Window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/Window.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/Window.cpp -o CMakeFiles/HungryDot.dir/sources/Window.cpp.s
 
-CMakeFiles/HungryDot.dir/src/Window.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/Window.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/Window.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/Window.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/Window.cpp.o.provides: CMakeFiles/HungryDot.dir/src/Window.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Window.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/Window.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/Window.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/Window.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Window.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/Window.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/Window.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/Window.cpp.o
+CMakeFiles/HungryDot.dir/sources/Window.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/Window.cpp.o
 
 
-CMakeFiles/HungryDot.dir/src/World.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/World.cpp.o: ../src/World.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HungryDot.dir/src/World.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/World.cpp.o -c /home/roland/HungryDot/src/World.cpp
+CMakeFiles/HungryDot.dir/sources/World.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/World.cpp.o: ../sources/World.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/HungryDot.dir/sources/World.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/World.cpp.o -c /home/roland/HungryDot/sources/World.cpp
 
-CMakeFiles/HungryDot.dir/src/World.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/World.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/World.cpp > CMakeFiles/HungryDot.dir/src/World.cpp.i
+CMakeFiles/HungryDot.dir/sources/World.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/World.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/World.cpp > CMakeFiles/HungryDot.dir/sources/World.cpp.i
 
-CMakeFiles/HungryDot.dir/src/World.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/World.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/World.cpp -o CMakeFiles/HungryDot.dir/src/World.cpp.s
+CMakeFiles/HungryDot.dir/sources/World.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/World.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/World.cpp -o CMakeFiles/HungryDot.dir/sources/World.cpp.s
 
-CMakeFiles/HungryDot.dir/src/World.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/World.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/World.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/World.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/World.cpp.o.provides: CMakeFiles/HungryDot.dir/src/World.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/World.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/World.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/World.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/World.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/World.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/World.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/World.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/World.cpp.o
+CMakeFiles/HungryDot.dir/sources/World.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/World.cpp.o
 
 
-CMakeFiles/HungryDot.dir/src/main.cpp.o: CMakeFiles/HungryDot.dir/flags.make
-CMakeFiles/HungryDot.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/HungryDot.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/src/main.cpp.o -c /home/roland/HungryDot/src/main.cpp
+CMakeFiles/HungryDot.dir/sources/main.cpp.o: CMakeFiles/HungryDot.dir/flags.make
+CMakeFiles/HungryDot.dir/sources/main.cpp.o: ../sources/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/HungryDot.dir/sources/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/HungryDot.dir/sources/main.cpp.o -c /home/roland/HungryDot/sources/main.cpp
 
-CMakeFiles/HungryDot.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/src/main.cpp > CMakeFiles/HungryDot.dir/src/main.cpp.i
+CMakeFiles/HungryDot.dir/sources/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/HungryDot.dir/sources/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roland/HungryDot/sources/main.cpp > CMakeFiles/HungryDot.dir/sources/main.cpp.i
 
-CMakeFiles/HungryDot.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/src/main.cpp -o CMakeFiles/HungryDot.dir/src/main.cpp.s
+CMakeFiles/HungryDot.dir/sources/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/HungryDot.dir/sources/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roland/HungryDot/sources/main.cpp -o CMakeFiles/HungryDot.dir/sources/main.cpp.s
 
-CMakeFiles/HungryDot.dir/src/main.cpp.o.requires:
+CMakeFiles/HungryDot.dir/sources/main.cpp.o.requires:
 
-.PHONY : CMakeFiles/HungryDot.dir/src/main.cpp.o.requires
+.PHONY : CMakeFiles/HungryDot.dir/sources/main.cpp.o.requires
 
-CMakeFiles/HungryDot.dir/src/main.cpp.o.provides: CMakeFiles/HungryDot.dir/src/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/main.cpp.o.provides.build
-.PHONY : CMakeFiles/HungryDot.dir/src/main.cpp.o.provides
+CMakeFiles/HungryDot.dir/sources/main.cpp.o.provides: CMakeFiles/HungryDot.dir/sources/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/main.cpp.o.provides.build
+.PHONY : CMakeFiles/HungryDot.dir/sources/main.cpp.o.provides
 
-CMakeFiles/HungryDot.dir/src/main.cpp.o.provides.build: CMakeFiles/HungryDot.dir/src/main.cpp.o
+CMakeFiles/HungryDot.dir/sources/main.cpp.o.provides.build: CMakeFiles/HungryDot.dir/sources/main.cpp.o
 
 
 # Object files for target HungryDot
 HungryDot_OBJECTS = \
-"CMakeFiles/HungryDot.dir/src/Arrow.cpp.o" \
-"CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o" \
-"CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o" \
-"CMakeFiles/HungryDot.dir/src/Game.cpp.o" \
-"CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o" \
-"CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o" \
-"CMakeFiles/HungryDot.dir/src/Window.cpp.o" \
-"CMakeFiles/HungryDot.dir/src/World.cpp.o" \
-"CMakeFiles/HungryDot.dir/src/main.cpp.o"
+"CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o" \
+"CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o" \
+"CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o" \
+"CMakeFiles/HungryDot.dir/sources/Game.cpp.o" \
+"CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o" \
+"CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o" \
+"CMakeFiles/HungryDot.dir/sources/Window.cpp.o" \
+"CMakeFiles/HungryDot.dir/sources/World.cpp.o" \
+"CMakeFiles/HungryDot.dir/sources/main.cpp.o"
 
 # External object files for target HungryDot
 HungryDot_EXTERNAL_OBJECTS =
 
-HungryDot: CMakeFiles/HungryDot.dir/src/Arrow.cpp.o
-HungryDot: CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o
-HungryDot: CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o
-HungryDot: CMakeFiles/HungryDot.dir/src/Game.cpp.o
-HungryDot: CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o
-HungryDot: CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o
-HungryDot: CMakeFiles/HungryDot.dir/src/Window.cpp.o
-HungryDot: CMakeFiles/HungryDot.dir/src/World.cpp.o
-HungryDot: CMakeFiles/HungryDot.dir/src/main.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/Game.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/Window.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/World.cpp.o
+HungryDot: CMakeFiles/HungryDot.dir/sources/main.cpp.o
 HungryDot: CMakeFiles/HungryDot.dir/build.make
 HungryDot: CMakeFiles/HungryDot.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/roland/HungryDot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable HungryDot"
@@ -307,15 +307,15 @@ CMakeFiles/HungryDot.dir/build: HungryDot
 
 .PHONY : CMakeFiles/HungryDot.dir/build
 
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/Arrow.cpp.o.requires
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o.requires
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o.requires
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/Game.cpp.o.requires
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o.requires
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o.requires
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/Window.cpp.o.requires
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/World.cpp.o.requires
-CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/src/main.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/Game.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/Window.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/World.cpp.o.requires
+CMakeFiles/HungryDot.dir/requires: CMakeFiles/HungryDot.dir/sources/main.cpp.o.requires
 
 .PHONY : CMakeFiles/HungryDot.dir/requires
 

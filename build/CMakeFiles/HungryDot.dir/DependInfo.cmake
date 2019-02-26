@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/roland/HungryDot/src/Arrow.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/Arrow.cpp.o"
-  "/home/roland/HungryDot/src/ArrowsPool.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o"
-  "/home/roland/HungryDot/src/FpsRegulator.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o"
-  "/home/roland/HungryDot/src/Game.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/Game.cpp.o"
-  "/home/roland/HungryDot/src/HungryDot.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o"
-  "/home/roland/HungryDot/src/StateIntro.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o"
-  "/home/roland/HungryDot/src/Window.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/Window.cpp.o"
-  "/home/roland/HungryDot/src/World.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/World.cpp.o"
-  "/home/roland/HungryDot/src/main.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/src/main.cpp.o"
+  "/home/roland/HungryDot/sources/Arrow.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o"
+  "/home/roland/HungryDot/sources/ArrowsPool.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o"
+  "/home/roland/HungryDot/sources/FpsRegulator.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o"
+  "/home/roland/HungryDot/sources/Game.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/Game.cpp.o"
+  "/home/roland/HungryDot/sources/HungryDot.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o"
+  "/home/roland/HungryDot/sources/StateIntro.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o"
+  "/home/roland/HungryDot/sources/Window.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/Window.cpp.o"
+  "/home/roland/HungryDot/sources/World.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/World.cpp.o"
+  "/home/roland/HungryDot/sources/main.cpp" "/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir/sources/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

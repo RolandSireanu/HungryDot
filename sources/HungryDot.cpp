@@ -1,0 +1,160 @@
+#include "HungryDot.h"
+#include "FpsRegulator.h"
+#include <iostream>
+
+
+/* Initiaize the internal state */
+HungryDot::HungryDot()
+{
+	m_hungryDotTextures.resize(NR_OF_SPRITES);
+
+	m_hungryDotTextures[(unsigned int)Direction::LEFT].loadFromFile("Media/LeftDot.png");
+	m_hungryDotTextures[(unsigned int)Direction::LEFT+1].loadFromFile("Media/MiddleLeft.png");
+	m_hungryDotTextures[(unsigned int)Direction::RIGHT].loadFromFile("Media/RightDot.png");
+	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
+	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)Direction::RIGHT]);	
+	
+
+
+	Reset();
+}
+
+void HungryDot::KeepTheDotInPlay(int& arg_xSpeed , int& arg_ySpeed)
+{
+	if(wallsCollision & RIGHT_WALL_MASK)
+		arg_xSpeed = arg_xSpeed > 0 ? 0 : arg_xSpeed;
+
+	if(wallsCollision & LEFT_WALL_MASK)
+		arg_xSpeed = arg_xSpeed < 0 ? 0 : arg_xSpeed;		
+
+	if(wallsCollision & UP_WALL_MASK)
+		arg_ySpeed = arg_ySpeed < 0 ? 0 : arg_ySpeed;
+
+	if(wallsCollision & DOWN_WALL_MASK)
+		arg_ySpeed = arg_ySpeed > 0 ? 0 : arg_ySpeed;
+}
+
+void HungryDot::Move()
+{
+	static unsigned int counter = 1;
+
+	if(counter % FpsRegulator::GetFpsDivDot() == 0)
+	{
+		if(direction == Direction::LEFT)
+		{
+			xSpeed = -DEFAULT_X_SPEED;
+			ySpeed = 0;
+		}
+		else if(direction == Direction::RIGHT)
+		{
+			xSpeed = DEFAULT_X_SPEED;
+			ySpeed = 0;	
+		}
+		else if(direction == Direction::UP)
+		{
+			xSpeed = 0;
+			ySpeed = -DEFAULT_Y_SPEED;
+		}
+		else if(direction == Direction::DOWN)
+		{
+			xSpeed = 0;
+			ySpeed = DEFAULT_Y_SPEED;
+		}
+		counter = 0;
+	}
+	else
+	{
+		xSpeed = 0;
+		ySpeed = 0;
+	}
+
+	counter++;
+
+
+	KeepTheDotInPlay(xSpeed , ySpeed);
+	m_hungryDotSprite.move(sf::Vector2f(xSpeed,ySpeed));
+}
+
+void HungryDot::WallCollision()
+{	
+	sf::Vector2f tempPos = m_hungryDotSprite.getPosition();
+	sf::Vector2u sizeOfSprite = m_hungryDotSprite.getTexture()->getSize();
+
+//	std::cout<<"sizeOfSprite.x = "<<sizeOfSprite.x<<std::endl;
+//	std::cout<<"tempPos.x = "<<tempPos.x<<" and resolution.x = "<<FpsRegulator::resolution.x<<std::endl;
+	if(tempPos.x >= FpsRegulator::resolution.x - sizeOfSprite.x)
+		wallsCollision |= RIGHT_WALL_MASK;	
+	else
+		wallsCollision &= (~RIGHT_WALL_MASK);		
+
+	if(tempPos.x <= 0)
+		wallsCollision |= LEFT_WALL_MASK;	
+	else
+		wallsCollision &= (~LEFT_WALL_MASK);
+
+	if(tempPos.y >= FpsRegulator::resolution.y - sizeOfSprite.y)
+		wallsCollision |= DOWN_WALL_MASK;		
+	else
+		wallsCollision &= (~DOWN_WALL_MASK);
+
+	if(tempPos.y <= 0)
+		wallsCollision |= UP_WALL_MASK;		
+	else
+		wallsCollision &= (~UP_WALL_MASK);		
+}
+
+
+
+
+void HungryDot::Update()
+{
+	Move();
+	WallCollision();
+		
+}
+
+void HungryDot::Reset()
+{
+
+	direction = Direction::RIGHT;
+	score = 0;
+	lives = DEFAULT_NR_OF_LIVES;
+	xSpeed = 10.0f;
+	ySpeed = 0.0f;
+
+	m_hungryDotSprite.setPosition(sf::Vector2f(0.0f , 0.0f));
+
+}
+
+void HungryDot::Render(sf::RenderWindow& window)
+{	
+	static bool middle = false;
+	static unsigned int fpsDivider = 0;
+	unsigned int tempDirection = static_cast<unsigned int>(direction) % NR_OF_SPRITES;
+
+	fpsDivider++;
+	if(fpsDivider % FpsRegulator::GetFpsDivDotTexture() == 0)
+	{
+		if(middle)
+		{
+			tempDirection++;		
+		}
+	
+		m_hungryDotSprite.setTexture(m_hungryDotTextures[tempDirection]);
+
+		
+		window.draw(m_hungryDotSprite);
+		middle = !middle;
+		fpsDivider = 0;
+	}
+	else
+	{		
+		window.draw(m_hungryDotSprite);
+	}
+
+}
+
+sf::Vector2f HungryDot::GetCurrentPosition() const
+{
+	return m_hungryDotSprite.getPosition();
+}

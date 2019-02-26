@@ -123,248 +123,248 @@ HungryDot/fast:
 	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/build
 .PHONY : HungryDot/fast
 
-src/Arrow.o: src/Arrow.cpp.o
+sources/Arrow.o: sources/Arrow.cpp.o
 
-.PHONY : src/Arrow.o
-
-# target to build an object file
-src/Arrow.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Arrow.cpp.o
-.PHONY : src/Arrow.cpp.o
-
-src/Arrow.i: src/Arrow.cpp.i
-
-.PHONY : src/Arrow.i
-
-# target to preprocess a source file
-src/Arrow.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Arrow.cpp.i
-.PHONY : src/Arrow.cpp.i
-
-src/Arrow.s: src/Arrow.cpp.s
-
-.PHONY : src/Arrow.s
-
-# target to generate assembly for a file
-src/Arrow.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Arrow.cpp.s
-.PHONY : src/Arrow.cpp.s
-
-src/ArrowsPool.o: src/ArrowsPool.cpp.o
-
-.PHONY : src/ArrowsPool.o
+.PHONY : sources/Arrow.o
 
 # target to build an object file
-src/ArrowsPool.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.o
-.PHONY : src/ArrowsPool.cpp.o
+sources/Arrow.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Arrow.cpp.o
+.PHONY : sources/Arrow.cpp.o
 
-src/ArrowsPool.i: src/ArrowsPool.cpp.i
+sources/Arrow.i: sources/Arrow.cpp.i
 
-.PHONY : src/ArrowsPool.i
+.PHONY : sources/Arrow.i
 
 # target to preprocess a source file
-src/ArrowsPool.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.i
-.PHONY : src/ArrowsPool.cpp.i
+sources/Arrow.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Arrow.cpp.i
+.PHONY : sources/Arrow.cpp.i
 
-src/ArrowsPool.s: src/ArrowsPool.cpp.s
+sources/Arrow.s: sources/Arrow.cpp.s
 
-.PHONY : src/ArrowsPool.s
+.PHONY : sources/Arrow.s
 
 # target to generate assembly for a file
-src/ArrowsPool.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/ArrowsPool.cpp.s
-.PHONY : src/ArrowsPool.cpp.s
+sources/Arrow.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Arrow.cpp.s
+.PHONY : sources/Arrow.cpp.s
 
-src/FpsRegulator.o: src/FpsRegulator.cpp.o
+sources/ArrowsPool.o: sources/ArrowsPool.cpp.o
 
-.PHONY : src/FpsRegulator.o
+.PHONY : sources/ArrowsPool.o
 
 # target to build an object file
-src/FpsRegulator.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.o
-.PHONY : src/FpsRegulator.cpp.o
+sources/ArrowsPool.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.o
+.PHONY : sources/ArrowsPool.cpp.o
 
-src/FpsRegulator.i: src/FpsRegulator.cpp.i
+sources/ArrowsPool.i: sources/ArrowsPool.cpp.i
 
-.PHONY : src/FpsRegulator.i
+.PHONY : sources/ArrowsPool.i
 
 # target to preprocess a source file
-src/FpsRegulator.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.i
-.PHONY : src/FpsRegulator.cpp.i
+sources/ArrowsPool.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.i
+.PHONY : sources/ArrowsPool.cpp.i
 
-src/FpsRegulator.s: src/FpsRegulator.cpp.s
+sources/ArrowsPool.s: sources/ArrowsPool.cpp.s
 
-.PHONY : src/FpsRegulator.s
+.PHONY : sources/ArrowsPool.s
 
 # target to generate assembly for a file
-src/FpsRegulator.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/FpsRegulator.cpp.s
-.PHONY : src/FpsRegulator.cpp.s
+sources/ArrowsPool.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.s
+.PHONY : sources/ArrowsPool.cpp.s
 
-src/Game.o: src/Game.cpp.o
+sources/FpsRegulator.o: sources/FpsRegulator.cpp.o
 
-.PHONY : src/Game.o
+.PHONY : sources/FpsRegulator.o
 
 # target to build an object file
-src/Game.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Game.cpp.o
-.PHONY : src/Game.cpp.o
+sources/FpsRegulator.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.o
+.PHONY : sources/FpsRegulator.cpp.o
 
-src/Game.i: src/Game.cpp.i
+sources/FpsRegulator.i: sources/FpsRegulator.cpp.i
 
-.PHONY : src/Game.i
+.PHONY : sources/FpsRegulator.i
 
 # target to preprocess a source file
-src/Game.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Game.cpp.i
-.PHONY : src/Game.cpp.i
+sources/FpsRegulator.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.i
+.PHONY : sources/FpsRegulator.cpp.i
 
-src/Game.s: src/Game.cpp.s
+sources/FpsRegulator.s: sources/FpsRegulator.cpp.s
 
-.PHONY : src/Game.s
+.PHONY : sources/FpsRegulator.s
 
 # target to generate assembly for a file
-src/Game.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Game.cpp.s
-.PHONY : src/Game.cpp.s
+sources/FpsRegulator.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/FpsRegulator.cpp.s
+.PHONY : sources/FpsRegulator.cpp.s
 
-src/HungryDot.o: src/HungryDot.cpp.o
+sources/Game.o: sources/Game.cpp.o
 
-.PHONY : src/HungryDot.o
+.PHONY : sources/Game.o
 
 # target to build an object file
-src/HungryDot.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/HungryDot.cpp.o
-.PHONY : src/HungryDot.cpp.o
+sources/Game.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Game.cpp.o
+.PHONY : sources/Game.cpp.o
 
-src/HungryDot.i: src/HungryDot.cpp.i
+sources/Game.i: sources/Game.cpp.i
 
-.PHONY : src/HungryDot.i
+.PHONY : sources/Game.i
 
 # target to preprocess a source file
-src/HungryDot.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/HungryDot.cpp.i
-.PHONY : src/HungryDot.cpp.i
+sources/Game.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Game.cpp.i
+.PHONY : sources/Game.cpp.i
 
-src/HungryDot.s: src/HungryDot.cpp.s
+sources/Game.s: sources/Game.cpp.s
 
-.PHONY : src/HungryDot.s
+.PHONY : sources/Game.s
 
 # target to generate assembly for a file
-src/HungryDot.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/HungryDot.cpp.s
-.PHONY : src/HungryDot.cpp.s
+sources/Game.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Game.cpp.s
+.PHONY : sources/Game.cpp.s
 
-src/StateIntro.o: src/StateIntro.cpp.o
+sources/HungryDot.o: sources/HungryDot.cpp.o
 
-.PHONY : src/StateIntro.o
+.PHONY : sources/HungryDot.o
 
 # target to build an object file
-src/StateIntro.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/StateIntro.cpp.o
-.PHONY : src/StateIntro.cpp.o
+sources/HungryDot.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o
+.PHONY : sources/HungryDot.cpp.o
 
-src/StateIntro.i: src/StateIntro.cpp.i
+sources/HungryDot.i: sources/HungryDot.cpp.i
 
-.PHONY : src/StateIntro.i
+.PHONY : sources/HungryDot.i
 
 # target to preprocess a source file
-src/StateIntro.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/StateIntro.cpp.i
-.PHONY : src/StateIntro.cpp.i
+sources/HungryDot.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.i
+.PHONY : sources/HungryDot.cpp.i
 
-src/StateIntro.s: src/StateIntro.cpp.s
+sources/HungryDot.s: sources/HungryDot.cpp.s
 
-.PHONY : src/StateIntro.s
+.PHONY : sources/HungryDot.s
 
 # target to generate assembly for a file
-src/StateIntro.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/StateIntro.cpp.s
-.PHONY : src/StateIntro.cpp.s
+sources/HungryDot.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.s
+.PHONY : sources/HungryDot.cpp.s
 
-src/Window.o: src/Window.cpp.o
+sources/StateIntro.o: sources/StateIntro.cpp.o
 
-.PHONY : src/Window.o
+.PHONY : sources/StateIntro.o
 
 # target to build an object file
-src/Window.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Window.cpp.o
-.PHONY : src/Window.cpp.o
+sources/StateIntro.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o
+.PHONY : sources/StateIntro.cpp.o
 
-src/Window.i: src/Window.cpp.i
+sources/StateIntro.i: sources/StateIntro.cpp.i
 
-.PHONY : src/Window.i
+.PHONY : sources/StateIntro.i
 
 # target to preprocess a source file
-src/Window.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Window.cpp.i
-.PHONY : src/Window.cpp.i
+sources/StateIntro.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.i
+.PHONY : sources/StateIntro.cpp.i
 
-src/Window.s: src/Window.cpp.s
+sources/StateIntro.s: sources/StateIntro.cpp.s
 
-.PHONY : src/Window.s
+.PHONY : sources/StateIntro.s
 
 # target to generate assembly for a file
-src/Window.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/Window.cpp.s
-.PHONY : src/Window.cpp.s
+sources/StateIntro.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.s
+.PHONY : sources/StateIntro.cpp.s
 
-src/World.o: src/World.cpp.o
+sources/Window.o: sources/Window.cpp.o
 
-.PHONY : src/World.o
+.PHONY : sources/Window.o
 
 # target to build an object file
-src/World.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/World.cpp.o
-.PHONY : src/World.cpp.o
+sources/Window.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Window.cpp.o
+.PHONY : sources/Window.cpp.o
 
-src/World.i: src/World.cpp.i
+sources/Window.i: sources/Window.cpp.i
 
-.PHONY : src/World.i
+.PHONY : sources/Window.i
 
 # target to preprocess a source file
-src/World.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/World.cpp.i
-.PHONY : src/World.cpp.i
+sources/Window.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Window.cpp.i
+.PHONY : sources/Window.cpp.i
 
-src/World.s: src/World.cpp.s
+sources/Window.s: sources/Window.cpp.s
 
-.PHONY : src/World.s
+.PHONY : sources/Window.s
 
 # target to generate assembly for a file
-src/World.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/World.cpp.s
-.PHONY : src/World.cpp.s
+sources/Window.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Window.cpp.s
+.PHONY : sources/Window.cpp.s
 
-src/main.o: src/main.cpp.o
+sources/World.o: sources/World.cpp.o
 
-.PHONY : src/main.o
+.PHONY : sources/World.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+sources/World.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/World.cpp.o
+.PHONY : sources/World.cpp.o
 
-src/main.i: src/main.cpp.i
+sources/World.i: sources/World.cpp.i
 
-.PHONY : src/main.i
+.PHONY : sources/World.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+sources/World.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/World.cpp.i
+.PHONY : sources/World.cpp.i
 
-src/main.s: src/main.cpp.s
+sources/World.s: sources/World.cpp.s
 
-.PHONY : src/main.s
+.PHONY : sources/World.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+sources/World.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/World.cpp.s
+.PHONY : sources/World.cpp.s
+
+sources/main.o: sources/main.cpp.o
+
+.PHONY : sources/main.o
+
+# target to build an object file
+sources/main.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/main.cpp.o
+.PHONY : sources/main.cpp.o
+
+sources/main.i: sources/main.cpp.i
+
+.PHONY : sources/main.i
+
+# target to preprocess a source file
+sources/main.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/main.cpp.i
+.PHONY : sources/main.cpp.i
+
+sources/main.s: sources/main.cpp.s
+
+.PHONY : sources/main.s
+
+# target to generate assembly for a file
+sources/main.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/main.cpp.s
+.PHONY : sources/main.cpp.s
 
 # Help Target
 help:
@@ -375,33 +375,33 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... HungryDot"
 	@echo "... edit_cache"
-	@echo "... src/Arrow.o"
-	@echo "... src/Arrow.i"
-	@echo "... src/Arrow.s"
-	@echo "... src/ArrowsPool.o"
-	@echo "... src/ArrowsPool.i"
-	@echo "... src/ArrowsPool.s"
-	@echo "... src/FpsRegulator.o"
-	@echo "... src/FpsRegulator.i"
-	@echo "... src/FpsRegulator.s"
-	@echo "... src/Game.o"
-	@echo "... src/Game.i"
-	@echo "... src/Game.s"
-	@echo "... src/HungryDot.o"
-	@echo "... src/HungryDot.i"
-	@echo "... src/HungryDot.s"
-	@echo "... src/StateIntro.o"
-	@echo "... src/StateIntro.i"
-	@echo "... src/StateIntro.s"
-	@echo "... src/Window.o"
-	@echo "... src/Window.i"
-	@echo "... src/Window.s"
-	@echo "... src/World.o"
-	@echo "... src/World.i"
-	@echo "... src/World.s"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... sources/Arrow.o"
+	@echo "... sources/Arrow.i"
+	@echo "... sources/Arrow.s"
+	@echo "... sources/ArrowsPool.o"
+	@echo "... sources/ArrowsPool.i"
+	@echo "... sources/ArrowsPool.s"
+	@echo "... sources/FpsRegulator.o"
+	@echo "... sources/FpsRegulator.i"
+	@echo "... sources/FpsRegulator.s"
+	@echo "... sources/Game.o"
+	@echo "... sources/Game.i"
+	@echo "... sources/Game.s"
+	@echo "... sources/HungryDot.o"
+	@echo "... sources/HungryDot.i"
+	@echo "... sources/HungryDot.s"
+	@echo "... sources/StateIntro.o"
+	@echo "... sources/StateIntro.i"
+	@echo "... sources/StateIntro.s"
+	@echo "... sources/Window.o"
+	@echo "... sources/Window.i"
+	@echo "... sources/Window.s"
+	@echo "... sources/World.o"
+	@echo "... sources/World.i"
+	@echo "... sources/World.s"
+	@echo "... sources/main.o"
+	@echo "... sources/main.i"
+	@echo "... sources/main.s"
 .PHONY : help
 
 

@@ -58,71 +58,71 @@ HungryDot.h
 ArrowsPool.h
 ../include/ArrowsPool.h
 
-/home/roland/HungryDot/src/Arrow.cpp
+/home/roland/HungryDot/sources/Arrow.cpp
 Arrow.h
-/home/roland/HungryDot/src/Arrow.h
+/home/roland/HungryDot/sources/Arrow.h
 stdlib.h
 -
 time.h
 -
 FpsRegulator.h
-/home/roland/HungryDot/src/FpsRegulator.h
+/home/roland/HungryDot/sources/FpsRegulator.h
 iostream
 -
 
-/home/roland/HungryDot/src/ArrowsPool.cpp
+/home/roland/HungryDot/sources/ArrowsPool.cpp
 ArrowsPool.h
-/home/roland/HungryDot/src/ArrowsPool.h
+/home/roland/HungryDot/sources/ArrowsPool.h
 
-/home/roland/HungryDot/src/FpsRegulator.cpp
+/home/roland/HungryDot/sources/FpsRegulator.cpp
 FpsRegulator.h
-/home/roland/HungryDot/src/FpsRegulator.h
+/home/roland/HungryDot/sources/FpsRegulator.h
 
-/home/roland/HungryDot/src/Game.cpp
+/home/roland/HungryDot/sources/Game.cpp
 Game.h
-/home/roland/HungryDot/src/Game.h
+/home/roland/HungryDot/sources/Game.h
 
-/home/roland/HungryDot/src/HungryDot.cpp
+/home/roland/HungryDot/sources/HungryDot.cpp
 HungryDot.h
-/home/roland/HungryDot/src/HungryDot.h
+/home/roland/HungryDot/sources/HungryDot.h
 FpsRegulator.h
-/home/roland/HungryDot/src/FpsRegulator.h
+/home/roland/HungryDot/sources/FpsRegulator.h
 iostream
 -
 
-/home/roland/HungryDot/src/StateIntro.cpp
+/home/roland/HungryDot/sources/StateIntro.cpp
 StateIntro.h
-/home/roland/HungryDot/src/StateIntro.h
+/home/roland/HungryDot/sources/StateIntro.h
 
-/home/roland/HungryDot/src/Window.cpp
+/home/roland/HungryDot/sources/Window.cpp
 Window.h
-/home/roland/HungryDot/src/Window.h
+/home/roland/HungryDot/sources/Window.h
 FpsRegulator.h
-/home/roland/HungryDot/src/FpsRegulator.h
+/home/roland/HungryDot/sources/FpsRegulator.h
 
-/home/roland/HungryDot/src/World.cpp
+/home/roland/HungryDot/sources/World.cpp
 World.h
-/home/roland/HungryDot/src/World.h
+/home/roland/HungryDot/sources/World.h
 stdlib.h
 -
 time.h
 -
 FpsRegulator.h
-/home/roland/HungryDot/src/FpsRegulator.h
+/home/roland/HungryDot/sources/FpsRegulator.h
 iostream
 -
 Arrow.h
-/home/roland/HungryDot/src/Arrow.h
+/home/roland/HungryDot/sources/Arrow.h
 
-/home/roland/HungryDot/src/main.cpp
+/home/roland/HungryDot/sources/main.cpp
 iostream
 -
 Window.h
-/home/roland/HungryDot/src/Window.h
+/home/roland/HungryDot/sources/Window.h
 Game.h
-/home/roland/HungryDot/src/Game.h
+/home/roland/HungryDot/sources/Game.h
 HungryDot.h
-/home/roland/HungryDot/src/HungryDot.h
+/home/roland/HungryDot/sources/HungryDot.h
 FpsRegulator.h
-/home/roland/HungryDot/src/FpsRegulator.h
+/home/roland/HungryDot/sources/FpsRegulator.h
 
