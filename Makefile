@@ -6,9 +6,6 @@ CPP_SOURCE_FILES += World.cpp
 CPP_SOURCE_FILES += FpsRegulator.cpp 
 CPP_SOURCE_FILES += Arrow.cpp 
 CPP_SOURCE_FILES += ArrowsPool.cpp 
-CPP_SOURCE_FILES += EventManager.cpp
-CPP_SOURCE_FILES += StateManager.cpp
-CPP_SOURCE_FILES += StateIntro.cpp
 
 EXECUTABLE = HungryDot
 

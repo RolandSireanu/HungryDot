@@ -3,7 +3,7 @@
 #include "Game.h"
 #include "HungryDot.h"
 #include "FpsRegulator.h"
-#include "EventManager.h"
+
 using namespace std;
 
 FpsRegulator useless;

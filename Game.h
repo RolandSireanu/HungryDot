@@ -5,14 +5,15 @@
 #include "World.h"
 #include "FpsRegulator.h"
 #include "Arrow.h"
+#include "BaseState.h"
 
-class Game
+class Game : public BaseState
 {
 	public: 
 		//Call the world constructor here with all the properties
 		Game() : m_window("Hungry dot" , FpsRegulator::resolution) , stop(false)
 		{
-			
+
 		}
 		~Game(){}
 
@@ -28,6 +29,7 @@ class Game
 		HungryDot m_hungryDot;
 		World m_world;
 		bool stop;
+
 		
 
 

@@ -1,32 +1,23 @@
-#ifndef STATE_INTRO
-#define STATE_INTRO
+/*
+ * BaseState.h
+ *
+ *  Created on: Feb 25, 2019
+ *      Author: roland
+ */
 
-#include "StateManager.h"
+#ifndef STATE_INTRO_H
+#define STATE_INTRO_H
 
-class State_Intro : public BaseState
+class StateIntro
 {
+
 	public:
 
-		void OnCreate();
-		void OnDestroy();
-		void Activate();
-		void Deactivate();
-		void Update(const sf::Time& l_time);
-		void Draw();
-
-		void Continue(EventDetails* arg_details);
-
-	private:
-
-		sf::Texture m_introTexture;
-		sf::Sprite m_introSprite;
-		sf::Text m_text;
-		float m_timePassed;
+		virtual void Update() = 0;
+		virtual void Render() = 0;
 
 };
 
 
 
-
-
-#endif
+#endif /* BASESTATE_H_ */
