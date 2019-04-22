@@ -1,3 +1,0 @@
-/home/roland/HungryDot/build/CMakeFiles/rebuild_cache.dir
-/home/roland/HungryDot/build/CMakeFiles/HungryDot.dir
-/home/roland/HungryDot/build/CMakeFiles/edit_cache.dir

@@ -1,0 +1,5 @@
+*.o
+*.bin
+*.cmake
+*.txt
+*.log
