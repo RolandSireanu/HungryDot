@@ -18,7 +18,7 @@ class Game : public BaseState
 		~Game(){}
 
 		void HandleInput();
-		void Update();
+		void Update(long long deltaT);
 		void Render();
 		Window* GetWindow();
 

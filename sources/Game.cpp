@@ -9,14 +9,14 @@ void Game::Render()
 	m_window.EndDraw();
 }
 
-void Game::Update()
+void Game::Update(long long deltaT)
 {
 	if(stop == false)
 	{
 		HandleInput();
 		m_window.Update();
-		m_hungryDot.Update();
-		stop = m_world.Update(m_hungryDot);
+		m_hungryDot.Update(deltaT);
+		stop = m_world.Update(m_hungryDot , deltaT);
 
 	}
 	else

@@ -56,9 +56,25 @@ HungryDot.h
 ArrowsPool.h
 ../include/ArrowsPool.h
 
-/home/roland/HungryDot/sources/Game.cpp
+/home/roland/HungryDot/sources/HungryDot.cpp
+HungryDot.h
+/home/roland/HungryDot/sources/HungryDot.h
+FpsRegulator.h
+/home/roland/HungryDot/sources/FpsRegulator.h
+iostream
+-
+
+/home/roland/HungryDot/sources/main.cpp
+iostream
+-
+Window.h
+/home/roland/HungryDot/sources/Window.h
 Game.h
 /home/roland/HungryDot/sources/Game.h
-SFML/Window/Joystick.hpp
-/home/roland/HungryDot/sources/SFML/Window/Joystick.hpp
+HungryDot.h
+/home/roland/HungryDot/sources/HungryDot.h
+FpsRegulator.h
+/home/roland/HungryDot/sources/FpsRegulator.h
+SFML/System/Clock.hpp
+/home/roland/HungryDot/sources/SFML/System/Clock.hpp
 

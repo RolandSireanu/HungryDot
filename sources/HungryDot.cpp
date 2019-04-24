@@ -34,33 +34,46 @@ void HungryDot::KeepTheDotInPlay(int& arg_xSpeed , int& arg_ySpeed)
 		arg_ySpeed = arg_ySpeed > 0 ? 0 : arg_ySpeed;
 }
 
-void HungryDot::Move()
+void HungryDot::Move(long long arg_deltaTiming)
 {
 	static unsigned int counter = 1;
+	static double shadowSpeed = 0.00;
+	static double shadow_ySpeed = 0.00;
 
-	if(counter % FpsRegulator::GetFpsDivDot() == 0)
+	//std::cout<<"computation result = "<<((float)arg_deltaTiming / (1000000 / FpsRegulator::fps))*DEFAULT_X_SPEED<<std::endl;
+	shadowSpeed = shadowSpeed + (((float)arg_deltaTiming / (1000000 / FpsRegulator::fps)) * DEFAULT_X_SPEED);
+	//std::cout<<"shadowSpeed = "<<shadowSpeed<<std::endl;
+
+	if(shadowSpeed >= 1.0000)
 	{
+
 		if(direction == Direction::LEFT)
 		{
-			xSpeed = -DEFAULT_X_SPEED;
+
+			//xSpeed = -DEFAULT_X_SPEED;
+			xSpeed = -(unsigned int)shadowSpeed;
 			ySpeed = 0;
 		}
 		else if(direction == Direction::RIGHT)
 		{
-			xSpeed = DEFAULT_X_SPEED;
+			//xSpeed = DEFAULT_X_SPEED;
+			xSpeed = (unsigned int)shadowSpeed;
 			ySpeed = 0;	
 		}
 		else if(direction == Direction::UP)
 		{
 			xSpeed = 0;
-			ySpeed = -DEFAULT_Y_SPEED;
+			//ySpeed = -DEFAULT_Y_SPEED;
+			ySpeed = -(unsigned int)shadowSpeed;
 		}
 		else if(direction == Direction::DOWN)
 		{
 			xSpeed = 0;
-			ySpeed = DEFAULT_Y_SPEED;
+			//ySpeed = DEFAULT_Y_SPEED;
+			ySpeed = (unsigned int)shadowSpeed;
 		}
-		counter = 0;
+		//counter = 0;
+		shadowSpeed = 0.000;
 	}
 	else
 	{
@@ -106,9 +119,9 @@ void HungryDot::WallCollision()
 
 
 
-void HungryDot::Update()
+void HungryDot::Update(long long arg_deltaT)
 {
-	Move();
+	Move(arg_deltaT);
 	WallCollision();
 		
 }

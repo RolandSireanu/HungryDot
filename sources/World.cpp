@@ -4,6 +4,8 @@
 #include "FpsRegulator.h"
 #include <iostream>
 #include "Arrow.h"
+#include "SFML/Graphics/Rect.hpp"
+#include "SFML/System/Vector2.hpp"
 
 //Lungime latime 4341 x 1804  DUSTER
 //Golf 5 : 4204 1759
@@ -70,21 +72,44 @@ void World::Reset()
 
 }
 
-bool World::Update(const HungryDot& arg_hungryDot)
+bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 {
 	//std::cout<<"vegSprites.size = "<<vegSprites.size()<<std::endl;
 
 	//Check collision between moaca and fruits
 	for(int counter = 0; counter < vegSprites.size(); counter++)
 	{
-		if(arg_hungryDot.GetCurrentPosition().x == (vegSprites[counter].getPosition().x - 10))
+		sf::Vector2f vegPosition = vegSprites[counter].getPosition();
+		sf::Vector2f hungryDotPosition = arg_hungryDot.GetCurrentPosition();
+
+		if(hungryDotPosition.x >= vegPosition.x && hungryDotPosition.x <= vegPosition.x+25.0)
+			if(hungryDotPosition.y >= vegPosition.y && hungryDotPosition.y <= vegPosition.y+25.0)
+			{
+				std::cout<<"ERASE !!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
+				vegSprites.erase(vegSprites.begin() + counter);
+				break;
+			}
+
+
+
+
+
+		/*if(rct.contains(arg_hungryDot.GetCurrentPosition().x , arg_hungryDot.GetCurrentPosition().y))
 		{
-			if(arg_hungryDot.GetCurrentPosition().y == (vegSprites[counter].getPosition().y - 10))	
+			std::cout<<"ERASE !!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
+			vegSprites.erase(vegSprites.begin() + counter);
+			break;
+		}
+
+		/*
+		if(arg_hungryDot.GetCurrentPosition().x == (vegSprites[counter].getPosition().x ))
+		{
+			if(arg_hungryDot.GetCurrentPosition().y == (vegSprites[counter].getPosition().y))
 			{
 				vegSprites.erase(vegSprites.begin() + counter);
 				break;
 			}
-		}
+		}*/
 	}
 
 	//Search collision between moaca and arrows
@@ -136,7 +161,7 @@ bool World::Update(const HungryDot& arg_hungryDot)
 	{
 		bool wasMoved;
 
-		wasMoved = (*it)->MoveArrow();
+		wasMoved = (*it)->MoveArrow(dt);
 
 		if(wasMoved == false)
 		{

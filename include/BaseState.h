@@ -43,7 +43,7 @@ class BaseState
 
 		}
 
-		virtual void Update() = 0;
+		virtual void Update(long long) = 0;
 		virtual void Render() = 0;
 
 		//struct SharedContext& sharedContext;

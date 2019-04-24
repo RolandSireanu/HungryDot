@@ -9,9 +9,18 @@
 	2 - DOWN_UP
 	3 - UP_DOWN	
 */
-const std::vector<sf::IntRect> Arrow::originPositions = {{50,0,17,11} , {31,0,17,11} , {0,0,8,17} , {16,0,10,17}};
 
-const std::vector<sf::Vector2f> Arrow::arrowMoves = {{-10.0,0.0} , {10.0,0.0} , {0.0 ,-10.0} , {0.0,10.0}};
+namespace
+{
+	double arrowSpeed = 10;
+	double shadowSpeed = 0.0;
+	const double defaultArrowSpeed = 10.0;
+
+};
+const std::vector<sf::IntRect> Arrow::originPositions = {{50,0,17,11} , {31,0,17,11} , {0,0,8,17} , {16,0,10,17}};
+const std::vector<sf::Vector2f> Arrow::arrowMoves = {{-1.0,0.0} , {1.0,0.0} , {0.0 ,-1.0} , {0.0,1.0}};
+
+
 
 /*
 	direction : 1 arrow is poiting to the left
@@ -32,25 +41,32 @@ Arrow::Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture)
 }
 
 
-bool Arrow::MoveArrow()
+bool Arrow::MoveArrow(long long arg_dt)
 {
 	bool retStatus = true;
 
 	unsigned int dr = (unsigned int)direction;
-	arrowSprite.move(arrowMoves[dr]);
 
-	sf::Vector2u tempPosition = (sf::Vector2u)arrowSprite.getPosition();
-	if(tempPosition.x >= FpsRegulator::resolution.x || tempPosition.x <= 0)
+	shadowSpeed += (((float)arg_dt / (1000000 / FpsRegulator::fps)) * defaultArrowSpeed);
+
+	if(shadowSpeed >= 1.00000)
 	{
+		arrowSprite.move(arrowMoves[dr]);
 
-		retStatus = false;
+		sf::Vector2u tempPosition = (sf::Vector2u)arrowSprite.getPosition();
+		if(tempPosition.x >= FpsRegulator::resolution.x || tempPosition.x <= 0)
+		{
+
+			retStatus = false;
+		}
+		else if(tempPosition.y >= FpsRegulator::resolution.y || tempPosition.y <= 0)
+		{
+			retStatus = false;
+		}
+
+		shadowSpeed = 0.00;
+
 	}
-	else if(tempPosition.y >= FpsRegulator::resolution.y || tempPosition.y <= 0)
-	{
-		retStatus = false;
-	}
-
-
 	return retStatus;
 }
 

@@ -13,7 +13,7 @@ class World
 		World();
 
 		void Render(sf::RenderWindow&);
-		bool Update(const HungryDot& arg_hungryDot);
+		bool Update(const HungryDot& arg_hungryDot , long long);
 		void Reset();
 		void Level1();
 
