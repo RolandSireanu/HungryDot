@@ -138,6 +138,7 @@ bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 	}
 
 	//Remove all arrows who reaches end of the screen
+	//Test comment
 	arrowsToDraw.erase( std::remove_if(arrowsToDraw.begin() , arrowsToDraw.end(), [&](Arrow* pArrow)
 			{
 				bool wasMoved;
