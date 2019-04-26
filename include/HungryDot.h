@@ -13,7 +13,7 @@ class HungryDot
 
 	public:
 
-		HungryDot();
+		HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos , float arg_ypos);
 
 		/* Handle DIRECTION */
 		void SetDirection(Direction arg_direction) { direction = arg_direction; }
@@ -57,8 +57,10 @@ class HungryDot
 
 		const unsigned int DEFAULT_NR_OF_LIVES = 3;
 		const unsigned int NR_OF_SPRITES = 4;
-		const float DEFAULT_X_SPEED = 30.0f;
-		const float DEFAULT_Y_SPEED = 30.0f;
+		unsigned int DEFAULT_X_SPEED;
+		unsigned int DEFAULT_Y_SPEED;
+		const sf::Vector2f POSITION;
+		const Direction DIRECTION;
 		const unsigned int LEFT_WALL_MASK = 0x01;
 		const unsigned int RIGHT_WALL_MASK = 0x02;
 		const unsigned int UP_WALL_MASK = 0x04;

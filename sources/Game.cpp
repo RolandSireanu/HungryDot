@@ -22,6 +22,7 @@ void Game::Update(long long deltaT)
 	else
 	{
 		m_hungryDot.Reset();
+//		m_hungryDot2.Reset();
 		m_world.Reset();
 		stop = false;
 	}

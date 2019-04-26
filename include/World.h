@@ -31,7 +31,7 @@ class World
 
 		ArrowsObjectPool arrowsPool;
 
-		const unsigned int DEFAULT_NR_OF_VEG = 60;
+		const unsigned int DEFAULT_NR_OF_VEG = 100;
 		const unsigned int DEFAULT_NR_OF_ARROWS = 4;		
 
 };

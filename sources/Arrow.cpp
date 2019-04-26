@@ -14,7 +14,7 @@ namespace
 {
 	double arrowSpeed = 10;
 	double shadowSpeed = 0.0;
-	const double defaultArrowSpeed = 10.0;
+	const double defaultArrowSpeed = 5.0;
 
 };
 const std::vector<sf::IntRect> Arrow::originPositions = {{50,0,17,11} , {31,0,17,11} , {0,0,8,17} , {16,0,10,17}};
@@ -28,7 +28,7 @@ const std::vector<sf::Vector2f> Arrow::arrowMoves = {{-1.0,0.0} , {1.0,0.0} , {0
 	direction : 3 arrow is poiting to the up
 	direction : 4 arrow is poiting to the down
 */
-Arrow::Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture)
+Arrow::Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed) : defaultArrowSpeed(arg_arrowSpeed)
 {
 	texture = arg_arrowTexture;
 	this->direction = arg_direction;	

@@ -4,7 +4,8 @@
 #include "SFML/System/Vector2.hpp"
 
 /* Initiaize the internal state */
-HungryDot::HungryDot()
+HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos , float arg_ypos)
+	: DIRECTION(arg_dr) , DEFAULT_X_SPEED(arg_xs) , DEFAULT_Y_SPEED(arg_ys) , POSITION(arg_xpos , arg_ypos)
 {
 	m_hungryDotTextures.resize(NR_OF_SPRITES);
 
@@ -12,10 +13,8 @@ HungryDot::HungryDot()
 	m_hungryDotTextures[(unsigned int)Direction::LEFT+1].loadFromFile("Media/MiddleLeft.png");
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT].loadFromFile("Media/RightDot.png");
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
-	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)Direction::RIGHT]);	
+	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)DIRECTION]);
 	
-
-
 	Reset();
 }
 
@@ -129,13 +128,13 @@ void HungryDot::Update(long long arg_deltaT)
 void HungryDot::Reset()
 {
 
-	direction = Direction::RIGHT;
+	direction = DIRECTION;
 	score = 0;
 	lives = DEFAULT_NR_OF_LIVES;
-	xSpeed = 10.0f;
-	ySpeed = 0.0f;
+	xSpeed = DEFAULT_X_SPEED;
+	ySpeed = DEFAULT_Y_SPEED;
 
-	m_hungryDotSprite.setPosition(sf::Vector2f(0.0f , 0.0f));
+	m_hungryDotSprite.setPosition(POSITION);
 
 }
 
@@ -146,7 +145,8 @@ void HungryDot::Render(sf::RenderWindow& window)
 	unsigned int tempDirection = static_cast<unsigned int>(direction) % NR_OF_SPRITES;
 
 	fpsDivider++;
-	if(fpsDivider % FpsRegulator::GetFpsDivDotTexture() == 0)
+	//if(fpsDivider % FpsRegulator::GetFpsDivDotTexture() == 0)
+	if(true)
 	{
 		if(middle)
 		{

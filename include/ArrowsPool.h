@@ -16,6 +16,7 @@ class ArrowsObjectPool
 
 	private:
 
+		const double DEFAULT_ARROW_SPEED = 3.0;
 		const sf::Texture& texture;
 		std::vector<Arrow*> pool;
 		const unsigned int MAX_NR_OF_ARROWS = 8;			

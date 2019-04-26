@@ -11,7 +11,8 @@ class Game : public BaseState
 {
 	public: 
 		//Call the world constructor here with all the properties
-		Game() : m_window("Hungry dot" , FpsRegulator::resolution) , stop(false)
+		Game() : m_window("Hungry dot" , FpsRegulator::resolution) , stop(false) ,
+		m_hungryDot(HungryDot::Direction::RIGHT , 10 , 10 , 0.0f , 0.0f)
 		{
 
 		}
@@ -27,6 +28,7 @@ class Game : public BaseState
 		void MoveHungryDot();
 		Window m_window;
 		HungryDot m_hungryDot;
+		//HungryDot m_hungryDot2;
 		World m_world;
 		bool stop;
 

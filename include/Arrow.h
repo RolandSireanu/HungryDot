@@ -10,7 +10,7 @@ class Arrow
 
 		enum class DIRECTION : unsigned int { RIGHT_LEFT = 0 , LEFT_RIGHT = 1 , DOWN_UP = 2 , UP_DOWN = 3};
 
-		Arrow(DIRECTION direction , const sf::Texture& arg_arrowTexture);
+		Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed);
 
 		bool MoveArrow(long long);
 
@@ -31,6 +31,7 @@ class Arrow
 		sf::Texture texture;
 		static const std::vector<sf::IntRect> originPositions;
 		static const std::vector<sf::Vector2f> arrowMoves;
+		double defaultArrowSpeed;
 		//static std::vector<
 };
 

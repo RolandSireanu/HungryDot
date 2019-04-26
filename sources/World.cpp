@@ -113,6 +113,7 @@ bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 		return true;
 
 
+	//If there are less than 4 arrows in play add 4 more
 	if(arrowsToDraw.size() < 4)
 	{
 		Arrow *tempPtr;

@@ -9,7 +9,7 @@ ArrowsObjectPool::ArrowsObjectPool(const sf::Texture& arg_texture) : texture(arg
 
 	for(int c = 0; c < MAX_NR_OF_ARROWS; c++)
 	{
-		Arrow* tempArrow = new Arrow((Arrow::DIRECTION) (indexer % 4) , texture);
+		Arrow* tempArrow = new Arrow((Arrow::DIRECTION) (indexer % 4) , texture , DEFAULT_ARROW_SPEED);
 
 		pool.push_back(tempArrow);
 		indexer++;
