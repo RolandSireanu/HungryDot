@@ -1,7 +1,7 @@
 #include "HungryDot.h"
 #include "FpsRegulator.h"
 #include <iostream>
-
+#include "SFML/System/Vector2.hpp"
 
 /* Initiaize the internal state */
 HungryDot::HungryDot()
@@ -169,5 +169,7 @@ void HungryDot::Render(sf::RenderWindow& window)
 
 sf::Vector2f HungryDot::GetCurrentPosition() const
 {
-	return m_hungryDotSprite.getPosition();
+	sf::Vector2f p = m_hungryDotSprite.getPosition();
+	p.y += 5;
+	return p;
 }

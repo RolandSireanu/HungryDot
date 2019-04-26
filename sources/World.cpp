@@ -74,25 +74,21 @@ void World::Reset()
 
 bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 {
-	//std::cout<<"vegSprites.size = "<<vegSprites.size()<<std::endl;
 
-	//Check collision between moaca and fruits
-	for(int counter = 0; counter < vegSprites.size(); counter++)
-	{
-		sf::Vector2f vegPosition = vegSprites[counter].getPosition();
-		sf::Vector2f hungryDotPosition = arg_hungryDot.GetCurrentPosition();
-
-
-
-
-		if(hungryDotPosition.x >= vegPosition.x && hungryDotPosition.x <= vegPosition.x+25.0)
-			if(hungryDotPosition.y >= vegPosition.y && hungryDotPosition.y <= vegPosition.y+25.0)
+	vegSprites.erase(std::remove_if(vegSprites.begin() , vegSprites.end() , [&](sf::Sprite& arg_sprite)
 			{
-				//std::cout<<"ERASE !!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
-				vegSprites.erase(vegSprites.begin() + counter);
-				break;
-			}
-	}
+				sf::Vector2f vegPosition = arg_sprite.getPosition();
+				sf::Vector2f hungryDotPosition = arg_hungryDot.GetCurrentPosition();
+
+				if(vegPosition.x > hungryDotPosition.x+40 || vegPosition.x+25 < hungryDotPosition.x)
+					return false;
+				else if(vegPosition.y > hungryDotPosition.y + 40 || vegPosition.y + 25 < hungryDotPosition.y)
+					return false;
+				else
+					return true;
+
+			}) , vegSprites.end());
+
 
 	//Search collision between moaca and arrows
 	auto it = std::find_if(arrowsToDraw.begin() , arrowsToDraw.end() , [=](Arrow* a){
@@ -138,7 +134,6 @@ bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 	}
 
 	//Remove all arrows who reaches end of the screen
-	//Test comment
 	arrowsToDraw.erase( std::remove_if(arrowsToDraw.begin() , arrowsToDraw.end(), [&](Arrow* pArrow)
 			{
 				bool wasMoved;
