@@ -82,34 +82,16 @@ bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 		sf::Vector2f vegPosition = vegSprites[counter].getPosition();
 		sf::Vector2f hungryDotPosition = arg_hungryDot.GetCurrentPosition();
 
+
+
+
 		if(hungryDotPosition.x >= vegPosition.x && hungryDotPosition.x <= vegPosition.x+25.0)
 			if(hungryDotPosition.y >= vegPosition.y && hungryDotPosition.y <= vegPosition.y+25.0)
 			{
-				std::cout<<"ERASE !!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
+				//std::cout<<"ERASE !!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
 				vegSprites.erase(vegSprites.begin() + counter);
 				break;
 			}
-
-
-
-
-
-		/*if(rct.contains(arg_hungryDot.GetCurrentPosition().x , arg_hungryDot.GetCurrentPosition().y))
-		{
-			std::cout<<"ERASE !!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
-			vegSprites.erase(vegSprites.begin() + counter);
-			break;
-		}
-
-		/*
-		if(arg_hungryDot.GetCurrentPosition().x == (vegSprites[counter].getPosition().x ))
-		{
-			if(arg_hungryDot.GetCurrentPosition().y == (vegSprites[counter].getPosition().y))
-			{
-				vegSprites.erase(vegSprites.begin() + counter);
-				break;
-			}
-		}*/
 	}
 
 	//Search collision between moaca and arrows
@@ -155,20 +137,20 @@ bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 		}
 	}
 
+	//Remove all arrows who reaches end of the screen
+	arrowsToDraw.erase( std::remove_if(arrowsToDraw.begin() , arrowsToDraw.end(), [&](Arrow* pArrow)
+			{
+				bool wasMoved;
 
-	//Draw all arrows in tolba
-	for(auto it = arrowsToDraw.begin(); it != arrowsToDraw.end(); it++)
-	{
-		bool wasMoved;
+				wasMoved = pArrow->MoveArrow(dt);
+				if(wasMoved == false)
+				{
+					arrowsPool.ReleaseArrow(pArrow);
+					return true;
+				}
 
-		wasMoved = (*it)->MoveArrow(dt);
-
-		if(wasMoved == false)
-		{
-			arrowsPool.ReleaseArrow((*it));
-			arrowsToDraw.erase(it);
-		}
-	}
+				return false;
+			}) , arrowsToDraw.end());
 
 	return false;
 }
