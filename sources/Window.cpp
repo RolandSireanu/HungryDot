@@ -1,5 +1,7 @@
 #include "Window.h"
 #include "FpsRegulator.h"
+#include <iostream>
+#include <string>
 
 Window::Window()
 {
@@ -9,6 +11,7 @@ Window::Window()
 Window::Window(const std::string& title , const sf::Vector2u& windowSize )
 {
 	Setup(title , windowSize);
+
 }
 
 
@@ -35,10 +38,12 @@ void Window::Destroy()
 	m_window.close();
 }
 
-void Window::Update()
+void Window::Update(unsigned int argScore)
 {
 
 	sf::Event event;
+
+
 
 	while(m_window.pollEvent(event))
 	{

@@ -12,8 +12,8 @@ class World
 
 		World();
 
-		void Render(sf::RenderWindow&);
-		bool Update(const HungryDot& arg_hungryDot , long long);
+		void Render(sf::RenderWindow& , const HungryDot& arg_hungryDot);
+		bool Update(HungryDot& arg_hungryDot , long long);
 		void Reset();
 		void Level1();
 
@@ -22,17 +22,21 @@ class World
 
 
 		sf::Vector2u GenNewArrowPos(unsigned int startingDirection);
+		void ReloadVegetables();
 
 		sf::Texture fruitsTexture;
 		sf::Texture arrowsTexture;
 		
+		sf::Font font;
+		sf::Text textScore;
+
 		std::vector<sf::Sprite> vegSprites;
 		std::vector<Arrow*> arrowsToDraw;
 
 		ArrowsObjectPool arrowsPool;
 
-		const unsigned int DEFAULT_NR_OF_VEG = 100;
-		const unsigned int DEFAULT_NR_OF_ARROWS = 4;		
+		unsigned int DEFAULT_NR_OF_VEG = 100;
+		unsigned int DEFAULT_NR_OF_ARROWS = 4;
 
 };
 

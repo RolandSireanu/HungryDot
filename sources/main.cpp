@@ -20,6 +20,7 @@ int main()
 		clock.restart();
 		game.Update(oldTimeStamp);
 		game.Render();
+
 		//sf::sleep(sf::milliseconds(FpsRegulator::GetMsOfSleepApp()));
 		oldTimeStamp = clock.getElapsedTime().asMicroseconds();
 	}

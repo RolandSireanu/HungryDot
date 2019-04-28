@@ -145,3 +145,9 @@ sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 			break;
 	}
 }
+
+void Arrow::IncreaseSpeedOfArrow()
+{
+	arrowSpeed++;
+}
+

@@ -10,7 +10,7 @@ class Window{
 		Window(const std::string& l_title,const sf::Vector2u& l_size);		
 		void BeginDraw(); // Clear the window.
 		void EndDraw(); // Display the changes.
-		void Update();
+		void Update(unsigned int);
 		bool IsDone();
 		bool IsFullscreen();
 		sf::Vector2u GetWindowSize();
@@ -26,6 +26,7 @@ class Window{
 		std::string m_windowTitle;
 		bool m_isDone;
 		bool m_isFullscreen;
+
 };
 
 

@@ -19,24 +19,29 @@ World::World() : arrowsPool(arrowsTexture)
 	fruitsTexture.loadFromFile("Media/Vegetable.png");
 	arrowsTexture.loadFromFile("Media/Arrows.png");
 
-	vegSprites.resize(DEFAULT_NR_OF_VEG);
-	arrowsToDraw.resize(0);		//Tolba este goala	
+	if (!font.loadFromFile("Media/arial.ttf"))
+	{
+		std::cout<<"Can't load font !"<<std::endl;
+	}
+	else
+	{
+		std::cout<<"Font was loaded ! "<<std::endl;
+		textScore.setFont(font);
+		textScore.setCharacterSize(16);
+		textScore.setPosition(475,10);
+		textScore.setFillColor(sf::Color::Red);
+		textScore.setColor(sf::Color::White);
+	}
+
+
+	arrowsToDraw.resize(0);		//Tolba este goala
+
+	ReloadVegetables();
 	
 	srand(time(NULL));
 
 
-	for(int counter = 0; counter < DEFAULT_NR_OF_VEG; counter++)
-	{
-		unsigned int randXPos = rand() % xBoundery;
-		unsigned int randYPos = rand() % yBoundery;
-		
-		randXPos -= (randXPos % FpsRegulator::sizeOfHungryDot.x);
-		randYPos -= (randYPos % FpsRegulator::sizeOfHungryDot.y);
 
-		vegSprites[counter].setTexture(fruitsTexture);
-		vegSprites[counter].setTextureRect(sf::IntRect(0,0,25,25));
-		vegSprites[counter].setPosition((float)randXPos+10 , (float)randYPos+10);
-	}
 }
 
 void World::Reset()
@@ -46,6 +51,7 @@ void World::Reset()
 	const unsigned int yBoundery = FpsRegulator::resolution.y - FpsRegulator::sizeOfHungryDot.y;
 
 	vegSprites.clear();
+
 
 	for(int counter = 0; counter < DEFAULT_NR_OF_VEG; counter++)
 	{
@@ -72,22 +78,43 @@ void World::Reset()
 
 }
 
-bool World::Update(const HungryDot& arg_hungryDot , long long dt)
+bool World::Update(HungryDot& arg_hungryDot , long long dt)
 {
 
-	vegSprites.erase(std::remove_if(vegSprites.begin() , vegSprites.end() , [&](sf::Sprite& arg_sprite)
-			{
-				sf::Vector2f vegPosition = arg_sprite.getPosition();
-				sf::Vector2f hungryDotPosition = arg_hungryDot.GetCurrentPosition();
+	//Search collisions between HungryDot and vegetables
+	unsigned int nrOfVegetablesOnMap = vegSprites.size();
+	if(nrOfVegetablesOnMap == 0)
+	{
+		ReloadVegetables();
+		arg_hungryDot.IncreaseSpeed();
+	}
+	else
+	{
+		auto newEnd = std::remove_if(vegSprites.begin() , vegSprites.end() , [&](sf::Sprite& arg_sprite)
+				{
+					sf::Vector2f vegPosition = arg_sprite.getPosition();
+					sf::Vector2f hungryDotPosition = arg_hungryDot.GetCurrentPosition();
 
-				if(vegPosition.x > hungryDotPosition.x+40 || vegPosition.x+25 < hungryDotPosition.x)
-					return false;
-				else if(vegPosition.y > hungryDotPosition.y + 40 || vegPosition.y + 25 < hungryDotPosition.y)
-					return false;
-				else
-					return true;
+					if(vegPosition.x > hungryDotPosition.x+40 || vegPosition.x+25 < hungryDotPosition.x)
+						return false;
+					else if(vegPosition.y > hungryDotPosition.y + 40 || vegPosition.y + 25 < hungryDotPosition.y)
+						return false;
+					else
+						return true;
 
-			}) , vegSprites.end());
+				});
+
+		vegSprites.erase(newEnd , vegSprites.end());
+		/*if(nrOfVegetablesOnMap > vegSprites.size())
+		{
+			std::cout<<"nrOfVegetablesOnMap = "<<nrOfVegetablesOnMap<<" , vegSprites.size() = "<<vegSprites.size()<<std::endl;
+			std::cout<<"Increase score with : "<<nrOfVegetablesOnMap - (vegSprites.size())<<std::endl;
+		}*/
+		arg_hungryDot.IncreaseScore(nrOfVegetablesOnMap - (vegSprites.size()));
+
+	}
+
+
 
 
 	//Search collision between moaca and arrows
@@ -99,8 +126,8 @@ bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 		{
 			if((arrowP.y >= hungryDotP.y) && (arrowP.y <= (hungryDotP.y+arg_hungryDot.GetHeight())))
 			{
-				std::cout<<"arrowP = "<<arrowP.x<<" , "<<arrowP.y<<std::endl;
-				std::cout<<"hungryDotP="<<hungryDotP.x<<" , "<<hungryDotP.y<<std::endl;
+				//std::cout<<"arrowP = "<<arrowP.x<<" , "<<arrowP.y<<std::endl;
+				//std::cout<<"hungryDotP="<<hungryDotP.x<<" , "<<hungryDotP.y<<std::endl;
 				return true;
 			}
 		}
@@ -152,8 +179,11 @@ bool World::Update(const HungryDot& arg_hungryDot , long long dt)
 	return false;
 }
 
-void World::Render(sf::RenderWindow& arg_window)
+void World::Render(sf::RenderWindow& arg_window , const HungryDot& arg_hungryDot)
 {
+
+	textScore.setString("Current score : "+std::to_string(arg_hungryDot.GetScore())+"\n"+"Best score :"+std::to_string(arg_hungryDot.GetBestScoreSoFar()));
+
 	//arg_window.draw(fruit);
 	for(int counter = 0; counter < vegSprites.size(); counter++)
 	{
@@ -164,6 +194,8 @@ void World::Render(sf::RenderWindow& arg_window)
 	{
 		arg_window.draw((*itr)->GetSprite());		
 	}
+
+	arg_window.draw(textScore);
 }
 
 
@@ -171,4 +203,25 @@ void World::Level1()
 {
 
 
+}
+
+void World::ReloadVegetables()
+{
+	const unsigned int xBoundery = FpsRegulator::resolution.x - FpsRegulator::sizeOfHungryDot.x;
+	const unsigned int yBoundery = FpsRegulator::resolution.y - FpsRegulator::sizeOfHungryDot.y;
+
+	vegSprites.resize(DEFAULT_NR_OF_VEG);
+
+	for(int counter = 0; counter < DEFAULT_NR_OF_VEG; counter++)
+	{
+		unsigned int randXPos = rand() % xBoundery;
+		unsigned int randYPos = rand() % yBoundery;
+
+		randXPos -= (randXPos % FpsRegulator::sizeOfHungryDot.x);
+		randYPos -= (randYPos % FpsRegulator::sizeOfHungryDot.y);
+
+		vegSprites[counter].setTexture(fruitsTexture);
+		vegSprites[counter].setTextureRect(sf::IntRect(0,0,25,25));
+		vegSprites[counter].setPosition((float)randXPos+10 , (float)randYPos+10);
+	}
 }

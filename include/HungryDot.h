@@ -25,8 +25,13 @@ class HungryDot
 		void DecreaseNrOfLives() { lives--; }
 
 		/* Handle SCORE */
-		void IncreaseScore() { score++; }
-		unsigned int GetScore() { return score; }
+		void IncreaseScore(unsigned int arg_deltaScore)
+		{
+			score+=arg_deltaScore;
+			bestScoreSoFar = std::max(bestScoreSoFar , score);
+		}
+		unsigned int GetScore() const { return score; }
+		unsigned int GetBestScoreSoFar() const {return bestScoreSoFar;}
 		unsigned int ResetScore() { score = 0; }
 		unsigned int GetHeight() const { return HEIGHT_OF_HUNGRYDOT;}
 		unsigned int GetWidth() const { return WIDTH_OF_HUNGRYDOT;}
@@ -38,6 +43,8 @@ class HungryDot
 		void Render(sf::RenderWindow& window);
 		void WallCollision();
 
+		void IncreaseSpeed();
+
 		sf::Vector2f GetCurrentPosition() const;
 
 
@@ -45,8 +52,10 @@ class HungryDot
 
 		void KeepTheDotInPlay(int& , int&);
 
+
 		Direction direction;
 		unsigned int score;
+		unsigned int bestScoreSoFar;
 		unsigned int lives;
 		unsigned int wallsCollision;		
 		int xSpeed;

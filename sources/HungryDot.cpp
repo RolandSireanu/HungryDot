@@ -5,7 +5,7 @@
 
 /* Initiaize the internal state */
 HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos , float arg_ypos)
-	: DIRECTION(arg_dr) , DEFAULT_X_SPEED(arg_xs) , DEFAULT_Y_SPEED(arg_ys) , POSITION(arg_xpos , arg_ypos)
+	: DIRECTION(arg_dr) , DEFAULT_X_SPEED(arg_xs) , DEFAULT_Y_SPEED(arg_ys) , POSITION(arg_xpos , arg_ypos) , bestScoreSoFar(0)
 {
 	m_hungryDotTextures.resize(NR_OF_SPRITES);
 
@@ -127,9 +127,11 @@ void HungryDot::Update(long long arg_deltaT)
 
 void HungryDot::Reset()
 {
+	DEFAULT_X_SPEED = 5;
+	DEFAULT_Y_SPEED = 5;
 
 	direction = DIRECTION;
-	score = 0;
+	ResetScore();
 	lives = DEFAULT_NR_OF_LIVES;
 	xSpeed = DEFAULT_X_SPEED;
 	ySpeed = DEFAULT_Y_SPEED;
@@ -173,3 +175,11 @@ sf::Vector2f HungryDot::GetCurrentPosition() const
 	p.y += 5;
 	return p;
 }
+
+void HungryDot::IncreaseSpeed()
+{
+	DEFAULT_X_SPEED+=5;
+	DEFAULT_Y_SPEED+=5;
+}
+
+

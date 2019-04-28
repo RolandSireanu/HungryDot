@@ -12,7 +12,7 @@ class Game : public BaseState
 	public: 
 		//Call the world constructor here with all the properties
 		Game() : m_window("Hungry dot" , FpsRegulator::resolution) , stop(false) ,
-		m_hungryDot(HungryDot::Direction::RIGHT , 10 , 10 , 0.0f , 0.0f)
+		m_hungryDot(HungryDot::Direction::RIGHT , 6 , 6 , 0.0f , 0.0f)
 		{
 
 		}

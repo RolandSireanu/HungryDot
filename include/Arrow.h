@@ -27,6 +27,8 @@ class Arrow
 
 	private:
 
+		void IncreaseSpeedOfArrow();
+
 		sf::Sprite arrowSprite;
 		sf::Texture texture;
 		static const std::vector<sf::IntRect> originPositions;
