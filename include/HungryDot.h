@@ -2,6 +2,7 @@
 #define HUNGRY_DOT
 
 #include "SFML/Graphics.hpp"
+#include <map>
 
 class HungryDot
 {
@@ -76,6 +77,10 @@ class HungryDot
 		const unsigned int DOWN_WALL_MASK = 0x08;
 		const unsigned int WIDTH_OF_HUNGRYDOT = 50;
 		const unsigned int HEIGHT_OF_HUNGRYDOT = 50;
+
+
+
+
 
 };
 
