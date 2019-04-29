@@ -3,6 +3,8 @@
 
 #include "SFML/Graphics.hpp"
 #include <map>
+#include <functional>
+
 
 class HungryDot
 {
@@ -10,6 +12,7 @@ class HungryDot
 	public:
 
 		enum class Direction : unsigned int {LEFT=0x00 , RIGHT=0x02 , UP=0x06 , DOWN=0x0A};
+		enum class JoystickButtons : unsigned int {CROSS = 0x00 , CIRCLE=0x01 , TRIANGLE=0x02 , RECTANGLE=0x03 };
 
 
 	public:
@@ -43,8 +46,11 @@ class HungryDot
 		void Reset();
 		void Render(sf::RenderWindow& window);
 		void WallCollision();
-
 		void IncreaseSpeed();
+
+		void HanddleJoystickButton(unsigned int);
+		void HandleKeyboardButton(sf::Keyboard::Key arg_key);
+
 
 		sf::Vector2f GetCurrentPosition() const;
 
@@ -79,6 +85,10 @@ class HungryDot
 		const unsigned int HEIGHT_OF_HUNGRYDOT = 50;
 
 
+		std::map<unsigned int , JoystickButtons> joystickKeyBinding;
+		std::map<JoystickButtons , std::function<void(void)>> joystickActionBinding;
+
+		std::map<sf::Keyboard::Key , std::function<void(void)> > keyboardActionBinding;
 
 
 

@@ -15,6 +15,22 @@ HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
 	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)DIRECTION]);
 	
+	joystickKeyBinding[0] = JoystickButtons::CROSS;
+	joystickKeyBinding[1] = JoystickButtons::CIRCLE;
+	joystickKeyBinding[2] = JoystickButtons::TRIANGLE;
+	joystickKeyBinding[3] = JoystickButtons::RECTANGLE;
+
+	joystickActionBinding[JoystickButtons::CROSS] 		= [&]() { direction = Direction::DOWN; };
+	joystickActionBinding[JoystickButtons::CIRCLE] 		= [&]() { direction = Direction::RIGHT; };
+	joystickActionBinding[JoystickButtons::TRIANGLE] 	= [&]() { direction = Direction::UP; };
+	joystickActionBinding[JoystickButtons::RECTANGLE] 	= [&]() { direction = Direction::LEFT; };
+
+
+	keyboardActionBinding[sf::Keyboard::Down] =  [&]() { direction = Direction::DOWN; };
+	keyboardActionBinding[sf::Keyboard::Right] =  [&]() { direction = Direction::RIGHT; };
+	keyboardActionBinding[sf::Keyboard::Up] =  [&]() { direction = Direction::UP; };
+	keyboardActionBinding[sf::Keyboard::Left] =  [&]() { direction = Direction::LEFT; };
+
 	Reset();
 }
 
@@ -181,5 +197,36 @@ void HungryDot::IncreaseSpeed()
 	DEFAULT_X_SPEED+=5;
 	DEFAULT_Y_SPEED+=5;
 }
+
+
+void HungryDot::HanddleJoystickButton(unsigned int arg_buttonNr)
+{
+	std::map<unsigned int , JoystickButtons>::iterator it = joystickKeyBinding.find(arg_buttonNr);
+	if(it != joystickKeyBinding.end())
+	{
+		joystickActionBinding[it->second]();
+	}
+}
+
+void HungryDot::HandleKeyboardButton(sf::Keyboard::Key arg_key)
+{
+	std::map<sf::Keyboard::Key , std::function<void(void)> >::iterator it = keyboardActionBinding.find(arg_key);
+	if(it != keyboardActionBinding.end())
+	{
+		it->second();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
