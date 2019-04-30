@@ -15,21 +15,15 @@ HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
 	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)DIRECTION]);
 	
-	joystickKeyBinding[0] = JoystickButtons::CROSS;
-	joystickKeyBinding[1] = JoystickButtons::CIRCLE;
-	joystickKeyBinding[2] = JoystickButtons::TRIANGLE;
-	joystickKeyBinding[3] = JoystickButtons::RECTANGLE;
+	generalActionBinding[Ev((unsigned int)JoystickButtons::CROSS, sf::Keyboard::Unknown)] = [&]() { direction = Direction::DOWN; };
+	generalActionBinding[Ev((unsigned int)JoystickButtons::CIRCLE, sf::Keyboard::Unknown)] = [&]() { direction = Direction::RIGHT; };
+	generalActionBinding[Ev((unsigned int)JoystickButtons::TRIANGLE, sf::Keyboard::Unknown)] = [&]() { direction = Direction::UP; };
+	generalActionBinding[Ev((unsigned int)JoystickButtons::RECTANGLE, sf::Keyboard::Unknown)] = [&]() { direction = Direction::LEFT; };
+	generalActionBinding[Ev(0xFF, sf::Keyboard::Down)] = [&]() { direction = Direction::DOWN; };
+	generalActionBinding[Ev(0xFF, sf::Keyboard::Right)] = [&]() { direction = Direction::RIGHT; };
+	generalActionBinding[Ev(0xFF, sf::Keyboard::Up)] = [&]() { direction = Direction::UP; };
+	generalActionBinding[Ev(0xFF, sf::Keyboard::Left)] = [&]() { direction = Direction::LEFT; };
 
-	joystickActionBinding[JoystickButtons::CROSS] 		= [&]() { direction = Direction::DOWN; };
-	joystickActionBinding[JoystickButtons::CIRCLE] 		= [&]() { direction = Direction::RIGHT; };
-	joystickActionBinding[JoystickButtons::TRIANGLE] 	= [&]() { direction = Direction::UP; };
-	joystickActionBinding[JoystickButtons::RECTANGLE] 	= [&]() { direction = Direction::LEFT; };
-
-
-	keyboardActionBinding[sf::Keyboard::Down] =  [&]() { direction = Direction::DOWN; };
-	keyboardActionBinding[sf::Keyboard::Right] =  [&]() { direction = Direction::RIGHT; };
-	keyboardActionBinding[sf::Keyboard::Up] =  [&]() { direction = Direction::UP; };
-	keyboardActionBinding[sf::Keyboard::Left] =  [&]() { direction = Direction::LEFT; };
 
 	Reset();
 }
@@ -199,27 +193,17 @@ void HungryDot::IncreaseSpeed()
 }
 
 
-void HungryDot::HanddleJoystickButton(unsigned int arg_buttonNr)
-{
-	std::map<unsigned int , JoystickButtons>::iterator it = joystickKeyBinding.find(arg_buttonNr);
-	if(it != joystickKeyBinding.end())
-	{
-		joystickActionBinding[it->second]();
-	}
-}
 
-void HungryDot::HandleKeyboardButton(sf::Keyboard::Key arg_key)
+void HungryDot::HandleInput(Ev arg_ev)
 {
-	std::map<sf::Keyboard::Key , std::function<void(void)> >::iterator it = keyboardActionBinding.find(arg_key);
-	if(it != keyboardActionBinding.end())
-	{
+
+	auto it = generalActionBinding.find(arg_ev);
+	if(it != generalActionBinding.end())
 		it->second();
-	}
+	else
+		std::cout<<"Command not found !"<<std::endl;
+
 }
-
-
-
-
 
 
 

@@ -42,20 +42,24 @@ void Game::HandleInput()
 {
 
 	sf::Event event;
-	bool joystickConnected = sf::Joystick::isConnected(0);
+	HungryDot::Ev inputEvent = {0xFF,sf::Keyboard::Key::Unknown};
+	//bool joystickConnected = sf::Joystick::isConnected(0);
 
 	while(m_window.GetRenderWindow().pollEvent(event))
 	{		
 
 		if(event.type == sf::Event::JoystickButtonPressed)
 		{
-			m_hungryDot.HanddleJoystickButton(event.joystickButton.button);
+			inputEvent.joystickButton = event.joystickButton.button;
 		}
 
 		if(event.type == sf::Event::KeyPressed)
 		{
-			m_hungryDot.HandleKeyboardButton(event.key.code);
+			inputEvent.keyboardKey = event.key.code;
 		}
+
+		std::cout<<"inputEvent = "<<inputEvent.joystickButton<<" , "<<(unsigned int)inputEvent.keyboardKey<<std::endl;
+		m_hungryDot.HandleInput(inputEvent);
 	}
 		
 }

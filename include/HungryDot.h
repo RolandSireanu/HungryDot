@@ -3,17 +3,20 @@
 
 #include "SFML/Graphics.hpp"
 #include <map>
+#include <unordered_map>
 #include <functional>
 
 
 class HungryDot
 {
+
 	
+
 	public:
 
 		enum class Direction : unsigned int {LEFT=0x00 , RIGHT=0x02 , UP=0x06 , DOWN=0x0A};
 		enum class JoystickButtons : unsigned int {CROSS = 0x00 , CIRCLE=0x01 , TRIANGLE=0x02 , RECTANGLE=0x03 };
-
+		struct Ev;
 
 	public:
 
@@ -48,14 +51,45 @@ class HungryDot
 		void WallCollision();
 		void IncreaseSpeed();
 
-		void HanddleJoystickButton(unsigned int);
-		void HandleKeyboardButton(sf::Keyboard::Key arg_key);
-
+		void HandleInput(Ev arg_event);
 
 		sf::Vector2f GetCurrentPosition() const;
 
 
-	private:		
+
+
+
+
+		struct Ev
+		{
+			Ev(unsigned int arg_jb , sf::Keyboard::Key arg_kk): joystickButton(arg_jb) , keyboardKey(arg_kk)
+			{
+
+			}
+
+			bool operator==(const Ev& arg1)const
+			{
+				if(this->joystickButton == arg1.joystickButton && this->keyboardKey == arg1.keyboardKey)
+					return true ;
+				else
+					return false;
+
+			}
+
+			unsigned int joystickButton;
+			sf::Keyboard::Key keyboardKey;
+		};
+		struct hashFunctorEv
+		{
+			size_t operator()(const Ev& arg_ev) const
+			{
+				int temporary = static_cast<int>(arg_ev.keyboardKey);
+
+				return (std::hash<unsigned int>()(arg_ev.joystickButton)  ^ std::hash<int>()(temporary));
+			}
+		};
+
+	private:
 
 		void KeepTheDotInPlay(int& , int&);
 
@@ -84,13 +118,7 @@ class HungryDot
 		const unsigned int WIDTH_OF_HUNGRYDOT = 50;
 		const unsigned int HEIGHT_OF_HUNGRYDOT = 50;
 
-
-		std::map<unsigned int , JoystickButtons> joystickKeyBinding;
-		std::map<JoystickButtons , std::function<void(void)>> joystickActionBinding;
-
-		std::map<sf::Keyboard::Key , std::function<void(void)> > keyboardActionBinding;
-
-
+		std::unordered_map<Ev , std::function<void(void)> , hashFunctorEv> generalActionBinding;
 
 };
 
