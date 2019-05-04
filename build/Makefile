@@ -285,6 +285,33 @@ sources/StateIntro.cpp.s:
 	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.s
 .PHONY : sources/StateIntro.cpp.s
 
+sources/StateStack.o: sources/StateStack.cpp.o
+
+.PHONY : sources/StateStack.o
+
+# target to build an object file
+sources/StateStack.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateStack.cpp.o
+.PHONY : sources/StateStack.cpp.o
+
+sources/StateStack.i: sources/StateStack.cpp.i
+
+.PHONY : sources/StateStack.i
+
+# target to preprocess a source file
+sources/StateStack.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateStack.cpp.i
+.PHONY : sources/StateStack.cpp.i
+
+sources/StateStack.s: sources/StateStack.cpp.s
+
+.PHONY : sources/StateStack.s
+
+# target to generate assembly for a file
+sources/StateStack.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateStack.cpp.s
+.PHONY : sources/StateStack.cpp.s
+
 sources/Window.o: sources/Window.cpp.o
 
 .PHONY : sources/Window.o
@@ -393,6 +420,9 @@ help:
 	@echo "... sources/StateIntro.o"
 	@echo "... sources/StateIntro.i"
 	@echo "... sources/StateIntro.s"
+	@echo "... sources/StateStack.o"
+	@echo "... sources/StateStack.i"
+	@echo "... sources/StateStack.s"
 	@echo "... sources/Window.o"
 	@echo "... sources/Window.i"
 	@echo "... sources/Window.s"

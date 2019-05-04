@@ -6,15 +6,18 @@
 #include "FpsRegulator.h"
 #include "Arrow.h"
 #include "BaseState.h"
+#include "StateStack.h"
 
-class Game : public BaseState
+class Game
 {
 	public: 
 		//Call the world constructor here with all the properties
 		Game() : m_window("Hungry dot" , FpsRegulator::resolution) , stop(false) ,
-		m_hungryDot(HungryDot::Direction::RIGHT , 6 , 6 , 0.0f , 0.0f)
+		m_hungryDot(HungryDot::Direction::RIGHT , 6 , 6 , 0.0f , 0.0f) ,
+		sharedContext(m_window.GetRenderWindow()),
+		stateStack(sharedContext)
 		{
-
+			stateStack.addStateToStack(BaseState::STATES::STATE_INTRO);
 		}
 		~Game(){}
 
@@ -26,6 +29,8 @@ class Game : public BaseState
 	private:
 
 		void MoveHungryDot();
+		struct BaseState::SharedContext sharedContext;
+		StateStack stateStack;
 		Window m_window;
 		HungryDot m_hungryDot;
 		//HungryDot m_hungryDot2;

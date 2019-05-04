@@ -7,13 +7,16 @@
 void Game::Render()
 {
 	m_window.BeginDraw();
-	m_hungryDot.Render(m_window.GetRenderWindow());
-	m_world.Render(m_window.GetRenderWindow() , m_hungryDot);
+	stateStack.render();
+	//m_hungryDot.Render(m_window.GetRenderWindow());
+	//m_world.Render(m_window.GetRenderWindow() , m_hungryDot);
 	m_window.EndDraw();
 }
 
 void Game::Update(long long deltaT)
 {
+	stateStack.update();
+	/*
 	if(stop == false)
 	{
 		HandleInput();
@@ -31,6 +34,7 @@ void Game::Update(long long deltaT)
 		m_world.Reset();
 		stop = false;
 	}
+*/
 }
 
 Window* Game::GetWindow()

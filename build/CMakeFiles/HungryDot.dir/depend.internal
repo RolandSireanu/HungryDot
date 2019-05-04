@@ -19,6 +19,7 @@ CMakeFiles/HungryDot.dir/sources/Game.cpp.o
  ../include/FpsRegulator.h
  ../include/Game.h
  ../include/HungryDot.h
+ ../include/StateStack.h
  ../include/Window.h
  ../include/World.h
  /home/roland/HungryDot/sources/Game.cpp
@@ -27,8 +28,14 @@ CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o
  ../include/HungryDot.h
  /home/roland/HungryDot/sources/HungryDot.cpp
 CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o
+ ../include/BaseState.h
  ../include/StateIntro.h
  /home/roland/HungryDot/sources/StateIntro.cpp
+CMakeFiles/HungryDot.dir/sources/StateStack.cpp.o
+ ../include/BaseState.h
+ ../include/StateIntro.h
+ ../include/StateStack.h
+ /home/roland/HungryDot/sources/StateStack.cpp
 CMakeFiles/HungryDot.dir/sources/Window.cpp.o
  ../include/FpsRegulator.h
  ../include/Window.h
@@ -47,6 +54,7 @@ CMakeFiles/HungryDot.dir/sources/main.cpp.o
  ../include/FpsRegulator.h
  ../include/Game.h
  ../include/HungryDot.h
+ ../include/StateStack.h
  ../include/Window.h
  ../include/World.h
  /home/roland/HungryDot/sources/main.cpp
