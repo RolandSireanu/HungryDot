@@ -28,10 +28,12 @@ CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o: ../include/HungryDot.h
 CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o: ../sources/HungryDot.cpp
 
 CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o: ../include/BaseState.h
+CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o: ../include/FpsRegulator.h
 CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o: ../include/StateIntro.h
 CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o: ../sources/StateIntro.cpp
 
 CMakeFiles/HungryDot.dir/sources/StateStack.cpp.o: ../include/BaseState.h
+CMakeFiles/HungryDot.dir/sources/StateStack.cpp.o: ../include/FpsRegulator.h
 CMakeFiles/HungryDot.dir/sources/StateStack.cpp.o: ../include/StateIntro.h
 CMakeFiles/HungryDot.dir/sources/StateStack.cpp.o: ../include/StateStack.h
 CMakeFiles/HungryDot.dir/sources/StateStack.cpp.o: ../sources/StateStack.cpp

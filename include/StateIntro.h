@@ -10,26 +10,42 @@
 
 #include "BaseState.h"
 #include "SFML/Graphics.hpp"
+#include "FpsRegulator.h"
 
 class StateIntro : public BaseState
 {
 
 	public:
 
-		StateIntro(BaseState::SharedContext& arg_sharedContext , StateStack& arg_stateStack) : BaseState(arg_sharedContext , arg_stateStack)
+		StateIntro(BaseState::SharedContext& arg_sharedContext , StateStack& arg_stateStack) : BaseState(arg_sharedContext , arg_stateStack) , spritesToDraw(),
+		dotSprite(new sf::Sprite()) , greenBeanSprite(new sf::Sprite()) , introSprite(new sf::Sprite()) , text(new sf::Text())
 		{
 			font.loadFromFile("Media/arial.ttf");
+			dotTexture.loadFromFile("Media/MiddleRight.png");
+			dotTextureOpen.loadFromFile("Media/RightDot.png");
+			greenBeanTexture.loadFromFile("Media/Vegetable.png" , sf::IntRect(0,0,25,25));
+			dotSprite->setTexture(dotTexture);
+			dotSprite->setPosition(FpsRegulator::resolution.x * 0.10 ,335);
+			greenBeanSprite->setTexture(greenBeanTexture);
+			greenBeanSprite->setPosition(FpsRegulator::resolution.x * 0.80,350);
 
-			text.setFont(font);
-			text.setCharacterSize(18);
-			text.setPosition(50,50);
-			text.setFillColor(sf::Color::Red);
-			text.setColor(sf::Color::Blue);
+			text->setFont(font);
+			text->setCharacterSize(24);
+			text->setPosition(100,250);
+			text->setFillColor(sf::Color::Blue);
+			text->setColor(sf::Color::White);
+			text->setString("Press ENTER key to start the game !");
 
-			text.setString("WELCOME !");
+			introTexture.loadFromFile("Media/IntroPic.png");
+			introSprite->setTexture(introTexture);
+			introSprite->setPosition(35,50);
+
+			spritesToDraw.push_back(dotSprite);
+			spritesToDraw.push_back(greenBeanSprite);
+			spritesToDraw.push_back(introSprite);
 		}
 
-		void Update();
+		void Update(sf::Time);
 		void Render();
 		void HandleInput();
 
@@ -38,7 +54,17 @@ class StateIntro : public BaseState
 	private :
 
 		sf::Font font;
-		sf::Text text;
+		std::shared_ptr<sf::Text> text;
+		sf::Texture dotTextureOpen;
+		sf::Texture dotTexture;
+		sf::Texture greenBeanTexture;
+		std::shared_ptr<sf::Sprite> dotSprite;
+		std::shared_ptr<sf::Sprite> greenBeanSprite;
+		sf::Texture introTexture;
+		std::shared_ptr<sf::Sprite> introSprite;
+		const unsigned int dotXSpeed = 175;
+
+		std::vector<std::shared_ptr<sf::Drawable> > spritesToDraw;
 
 };
 

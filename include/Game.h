@@ -22,7 +22,7 @@ class Game
 		~Game(){}
 
 		void HandleInput();
-		void Update(long long deltaT);
+		void Update(sf::Time deltaT);
 		void Render();
 		Window* GetWindow();
 

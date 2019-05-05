@@ -29,10 +29,12 @@ CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.o
  /home/roland/HungryDot/sources/HungryDot.cpp
 CMakeFiles/HungryDot.dir/sources/StateIntro.cpp.o
  ../include/BaseState.h
+ ../include/FpsRegulator.h
  ../include/StateIntro.h
  /home/roland/HungryDot/sources/StateIntro.cpp
 CMakeFiles/HungryDot.dir/sources/StateStack.cpp.o
  ../include/BaseState.h
+ ../include/FpsRegulator.h
  ../include/StateIntro.h
  ../include/StateStack.h
  /home/roland/HungryDot/sources/StateStack.cpp

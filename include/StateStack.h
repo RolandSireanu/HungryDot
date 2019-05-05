@@ -25,9 +25,9 @@ class StateStack
 			currentState = statesFactory[arg_state]();
 		}
 
-		void update()
+		void update(sf::Time deltaT)
 		{
-			currentState->Update();
+			currentState->Update(deltaT);
 		}
 
 		void render()

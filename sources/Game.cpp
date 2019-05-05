@@ -3,7 +3,6 @@
 #include <iostream>
 
 
-
 void Game::Render()
 {
 	m_window.BeginDraw();
@@ -13,9 +12,9 @@ void Game::Render()
 	m_window.EndDraw();
 }
 
-void Game::Update(long long deltaT)
+void Game::Update(sf::Time deltaT)
 {
-	stateStack.update();
+	stateStack.update(deltaT);
 	/*
 	if(stop == false)
 	{

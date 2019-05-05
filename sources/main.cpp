@@ -14,15 +14,19 @@ int main()
 	Game game;
 	sf::Clock clock;
 	long long oldTimeStamp = 0;
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
 	while(!game.GetWindow()->IsDone())
 	{
-		clock.restart();
-		game.Update(oldTimeStamp);
-		game.Render();
+		sf::Time dt = clock.restart();
+		timeSinceLastUpdate += dt;
+		while(timeSinceLastUpdate > FpsRegulator::timePerFrame)
+		{
+			timeSinceLastUpdate -= FpsRegulator::timePerFrame;
+			game.Update(FpsRegulator::timePerFrame);
 
-		//sf::sleep(sf::milliseconds(FpsRegulator::GetMsOfSleepApp()));
-		oldTimeStamp = clock.getElapsedTime().asMicroseconds();
+		}
+		game.Render();
 	}
 
 

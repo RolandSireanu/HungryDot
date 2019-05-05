@@ -39,7 +39,7 @@ class BaseState
 
 		}
 
-		virtual void Update() = 0;
+		virtual void Update(sf::Time) = 0;
 		virtual void Render() = 0;
 		virtual void HandleInput() =0;
 
