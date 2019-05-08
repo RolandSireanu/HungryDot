@@ -4,6 +4,8 @@
 #include "HungryDot.h"
 #include "FpsRegulator.h"
 #include "SFML/System/Clock.hpp"
+#include "Application.h"
+
 
 using namespace std;
 
@@ -11,24 +13,9 @@ FpsRegulator useless;
 
 int main()
 {
-	Game game;
-	sf::Clock clock;
-	long long oldTimeStamp = 0;
-	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	Application application;
 
-	while(!game.GetWindow()->IsDone())
-	{
-		sf::Time dt = clock.restart();
-		timeSinceLastUpdate += dt;
-		while(timeSinceLastUpdate > FpsRegulator::timePerFrame)
-		{
-			timeSinceLastUpdate -= FpsRegulator::timePerFrame;
-			game.Update(FpsRegulator::timePerFrame);
-
-		}
-		game.Render();
-	}
-
+	application.run();
 
 	return 0;
 }

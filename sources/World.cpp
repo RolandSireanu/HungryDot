@@ -78,7 +78,7 @@ void World::Reset()
 
 }
 
-bool World::Update(HungryDot& arg_hungryDot , long long dt)
+bool World::Update(HungryDot& arg_hungryDot , sf::Time dt)
 {
 
 	//Search collisions between HungryDot and vegetables

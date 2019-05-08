@@ -123,6 +123,33 @@ HungryDot/fast:
 	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/build
 .PHONY : HungryDot/fast
 
+sources/Application.o: sources/Application.cpp.o
+
+.PHONY : sources/Application.o
+
+# target to build an object file
+sources/Application.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Application.cpp.o
+.PHONY : sources/Application.cpp.o
+
+sources/Application.i: sources/Application.cpp.i
+
+.PHONY : sources/Application.i
+
+# target to preprocess a source file
+sources/Application.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Application.cpp.i
+.PHONY : sources/Application.cpp.i
+
+sources/Application.s: sources/Application.cpp.s
+
+.PHONY : sources/Application.s
+
+# target to generate assembly for a file
+sources/Application.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/Application.cpp.s
+.PHONY : sources/Application.cpp.s
+
 sources/Arrow.o: sources/Arrow.cpp.o
 
 .PHONY : sources/Arrow.o
@@ -257,6 +284,33 @@ sources/HungryDot.s: sources/HungryDot.cpp.s
 sources/HungryDot.cpp.s:
 	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/HungryDot.cpp.s
 .PHONY : sources/HungryDot.cpp.s
+
+sources/StateGame.o: sources/StateGame.cpp.o
+
+.PHONY : sources/StateGame.o
+
+# target to build an object file
+sources/StateGame.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateGame.cpp.o
+.PHONY : sources/StateGame.cpp.o
+
+sources/StateGame.i: sources/StateGame.cpp.i
+
+.PHONY : sources/StateGame.i
+
+# target to preprocess a source file
+sources/StateGame.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateGame.cpp.i
+.PHONY : sources/StateGame.cpp.i
+
+sources/StateGame.s: sources/StateGame.cpp.s
+
+.PHONY : sources/StateGame.s
+
+# target to generate assembly for a file
+sources/StateGame.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateGame.cpp.s
+.PHONY : sources/StateGame.cpp.s
 
 sources/StateIntro.o: sources/StateIntro.cpp.o
 
@@ -402,6 +456,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... HungryDot"
 	@echo "... edit_cache"
+	@echo "... sources/Application.o"
+	@echo "... sources/Application.i"
+	@echo "... sources/Application.s"
 	@echo "... sources/Arrow.o"
 	@echo "... sources/Arrow.i"
 	@echo "... sources/Arrow.s"
@@ -417,6 +474,9 @@ help:
 	@echo "... sources/HungryDot.o"
 	@echo "... sources/HungryDot.i"
 	@echo "... sources/HungryDot.s"
+	@echo "... sources/StateGame.o"
+	@echo "... sources/StateGame.i"
+	@echo "... sources/StateGame.s"
 	@echo "... sources/StateIntro.o"
 	@echo "... sources/StateIntro.i"
 	@echo "... sources/StateIntro.s"

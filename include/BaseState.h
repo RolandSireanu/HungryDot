@@ -10,6 +10,7 @@
 
 #include "SFML/Graphics.hpp"
 #include <memory>
+#include "InputEvents.h"
 
 class StateStack;
 
@@ -41,7 +42,7 @@ class BaseState
 
 		virtual void Update(sf::Time) = 0;
 		virtual void Render() = 0;
-		virtual void HandleInput() =0;
+		virtual void HandleInput(InputEvents::Ev) =0;
 
 		virtual ~BaseState(){}
 

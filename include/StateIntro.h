@@ -47,7 +47,7 @@ class StateIntro : public BaseState
 
 		void Update(sf::Time);
 		void Render();
-		void HandleInput();
+		void HandleInput(InputEvents::Ev);
 
 		~StateIntro();
 

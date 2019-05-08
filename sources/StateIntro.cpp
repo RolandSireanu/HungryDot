@@ -37,15 +37,12 @@ void StateIntro::Update(sf::Time deltaT)
 		}
 		else
 			dotSprite->setTexture(dotTexture);
-
-
 	}
 
 }
 
 void StateIntro::Render()
 {
-
 	std::for_each(spritesToDraw.begin() , spritesToDraw.end() , [&](std::shared_ptr<sf::Drawable> sprite){
 		sharedContext.sharedRenderWindow.draw(*sprite);
 	});
@@ -53,9 +50,9 @@ void StateIntro::Render()
 }
 
 
-void StateIntro::HandleInput()
+void StateIntro::HandleInput(InputEvents::Ev)
 {
-
+	std::cout<<"StateIntro has just received an event !"<<std::endl;
 
 
 }

@@ -27,3 +27,9 @@ void StateStack::registerState(BaseState::STATES arg_stateID)
 	};
 }
 
+
+void StateStack::handleInput(InputEvents::Ev arg_ev)
+{
+	currentState->HandleInput(arg_ev);
+
+}

@@ -41,9 +41,9 @@ Window* Game::GetWindow()
 	return &m_window;
 }
 
-void Game::HandleInput()
+void Game::HandleInput(InputEvents::Ev arg_event)
 {
-
+	/*
 	sf::Event event;
 	HungryDot::Ev inputEvent = {0xFF,sf::Keyboard::Key::Unknown};
 	//bool joystickConnected = sf::Joystick::isConnected(0);
@@ -62,8 +62,8 @@ void Game::HandleInput()
 		}
 
 		std::cout<<"inputEvent = "<<inputEvent.joystickButton<<" , "<<(unsigned int)inputEvent.keyboardKey<<std::endl;
-		m_hungryDot.HandleInput(inputEvent);
-	}
+		*/
+		m_hungryDot.HandleInput(arg_event);
 		
 }
 

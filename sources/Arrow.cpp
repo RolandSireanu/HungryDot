@@ -41,13 +41,14 @@ Arrow::Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , dou
 }
 
 
-bool Arrow::MoveArrow(long long arg_dt)
+bool Arrow::MoveArrow(sf::Time arg_dt)
 {
 	bool retStatus = true;
 
 	unsigned int dr = (unsigned int)direction;
+	float deltaT = arg_dt.asSeconds();
 
-	shadowSpeed += (((float)arg_dt / (1000000 / FpsRegulator::fps)) * defaultArrowSpeed);
+	shadowSpeed += (((float)deltaT / (1000000 / FpsRegulator::fps)) * defaultArrowSpeed);
 
 	if(shadowSpeed >= 1.00000)
 	{

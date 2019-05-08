@@ -5,7 +5,7 @@
 #include <map>
 #include <unordered_map>
 #include <functional>
-
+#include "InputEvents.h"
 
 class HungryDot
 {
@@ -16,7 +16,6 @@ class HungryDot
 
 		enum class Direction : unsigned int {LEFT=0x00 , RIGHT=0x02 , UP=0x06 , DOWN=0x0A};
 		enum class JoystickButtons : unsigned int {CROSS = 0x00 , CIRCLE=0x01 , TRIANGLE=0x02 , RECTANGLE=0x03 };
-		struct Ev;
 
 	public:
 
@@ -44,44 +43,20 @@ class HungryDot
 		unsigned int GetWidth() const { return WIDTH_OF_HUNGRYDOT;}
 
 
-		void Move(long long);
-		void Update(long long);
+		void Move(sf::Time);
+		void Update(sf::Time);
 		void Reset();
 		void Render(sf::RenderWindow& window);
 		void WallCollision();
 		void IncreaseSpeed();
 
-		void HandleInput(Ev arg_event);
+		void HandleInput(InputEvents::Ev arg_event);
 
 		sf::Vector2f GetCurrentPosition() const;
 
-
-
-
-
-
-		struct Ev
-		{
-			Ev(unsigned int arg_jb , sf::Keyboard::Key arg_kk): joystickButton(arg_jb) , keyboardKey(arg_kk)
-			{
-
-			}
-
-			bool operator==(const Ev& arg1)const
-			{
-				if(this->joystickButton == arg1.joystickButton && this->keyboardKey == arg1.keyboardKey)
-					return true ;
-				else
-					return false;
-
-			}
-
-			unsigned int joystickButton;
-			sf::Keyboard::Key keyboardKey;
-		};
 		struct hashFunctorEv
 		{
-			size_t operator()(const Ev& arg_ev) const
+			size_t operator()(const InputEvents::Ev& arg_ev) const
 			{
 				int temporary = static_cast<int>(arg_ev.keyboardKey);
 
@@ -118,7 +93,7 @@ class HungryDot
 		const unsigned int WIDTH_OF_HUNGRYDOT = 50;
 		const unsigned int HEIGHT_OF_HUNGRYDOT = 50;
 
-		std::unordered_map<Ev , std::function<void(void)> , hashFunctorEv> generalActionBinding;
+		std::unordered_map<InputEvents::Ev , std::function<void(void)> , hashFunctorEv> generalActionBinding;
 
 };
 

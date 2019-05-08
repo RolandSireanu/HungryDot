@@ -11,6 +11,7 @@
 #include "BaseState.h"
 #include <map>
 #include <functional>
+#include "InputEvents.h"
 
 class StateStack
 {
@@ -35,8 +36,10 @@ class StateStack
 			currentState->Render();
 		}
 
+		void handleInput(InputEvents::Ev);
+
 	private:
-		struct BaseState::SharedContext context;
+		struct BaseState::SharedContext& context;
 
 		template<typename StateType>
 		void registerState(BaseState::STATES arg_stateID);

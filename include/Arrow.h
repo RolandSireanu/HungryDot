@@ -12,7 +12,7 @@ class Arrow
 
 		Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed);
 
-		bool MoveArrow(long long);
+		bool MoveArrow(sf::Time);
 
 		void ResetArrow();
 

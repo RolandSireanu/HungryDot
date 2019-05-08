@@ -13,7 +13,7 @@ class World
 		World();
 
 		void Render(sf::RenderWindow& , const HungryDot& arg_hungryDot);
-		bool Update(HungryDot& arg_hungryDot , long long);
+		bool Update(HungryDot& arg_hungryDot , sf::Time);
 		void Reset();
 		void Level1();
 

@@ -7,6 +7,7 @@
 #include "Arrow.h"
 #include "BaseState.h"
 #include "StateStack.h"
+#include "InputEvents.h"
 
 class Game
 {
@@ -21,7 +22,7 @@ class Game
 		}
 		~Game(){}
 
-		void HandleInput();
+		void HandleInput(InputEvents::Ev);
 		void Update(sf::Time deltaT);
 		void Render();
 		Window* GetWindow();
