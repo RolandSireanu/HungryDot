@@ -48,8 +48,8 @@ bool Arrow::MoveArrow(sf::Time arg_dt)
 	unsigned int dr = (unsigned int)direction;
 	float deltaT = arg_dt.asSeconds();
 
-	shadowSpeed += (((float)deltaT / (1000000 / FpsRegulator::fps)) * defaultArrowSpeed);
-
+	//shadowSpeed += (((float)deltaT / (1000000 / FpsRegulator::fps)) * defaultArrowSpeed);
+	shadowSpeed += defaultArrowSpeed;
 	if(shadowSpeed >= 1.00000)
 	{
 		arrowSprite.move(arrowMoves[dr]);

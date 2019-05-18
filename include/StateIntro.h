@@ -11,13 +11,14 @@
 #include "BaseState.h"
 #include "SFML/Graphics.hpp"
 #include "FpsRegulator.h"
+#include "StateStack.h"
 
 class StateIntro : public BaseState
 {
 
 	public:
 
-		StateIntro(BaseState::SharedContext& arg_sharedContext , StateStack& arg_stateStack) : BaseState(arg_sharedContext , arg_stateStack) , spritesToDraw(),
+		StateIntro(BaseState::SharedContext& arg_sharedContext , StateStack* arg_stateStack) : BaseState(arg_sharedContext , arg_stateStack) , spritesToDraw(),
 		dotSprite(new sf::Sprite()) , greenBeanSprite(new sf::Sprite()) , introSprite(new sf::Sprite()) , text(new sf::Text())
 		{
 			font.loadFromFile("Media/arial.ttf");
@@ -63,7 +64,7 @@ class StateIntro : public BaseState
 		sf::Texture introTexture;
 		std::shared_ptr<sf::Sprite> introSprite;
 		const unsigned int dotXSpeed = 175;
-
+		bool readyToSwitchState = false;
 		std::vector<std::shared_ptr<sf::Drawable> > spritesToDraw;
 
 };

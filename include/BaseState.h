@@ -33,9 +33,9 @@ class BaseState
 				sf::RenderWindow& sharedRenderWindow;
 		};
 
-		enum class STATES: unsigned int {STATE_INTRO=0x00};
+		enum class STATES: unsigned int {STATE_INTRO=0x00 , STATE_GAME=0x01};
 
-		BaseState(SharedContext& arg_context , StateStack& arg_stateStack) : sharedContext(arg_context) , stateStack(arg_stateStack)
+		BaseState(SharedContext& arg_context , StateStack* arg_stateStack) : sharedContext(arg_context) , m_stateStack(arg_stateStack)
 		{
 
 		}
@@ -48,7 +48,7 @@ class BaseState
 
 	protected :
 		struct SharedContext& sharedContext;
-		StateStack& stateStack;
+		StateStack* m_stateStack;
 
 
 };

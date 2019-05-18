@@ -14,6 +14,7 @@ void StateIntro::Update(sf::Time deltaT)
 		}) , spritesToDraw.end());
 
 		spritesToDraw.push_back(text);
+		readyToSwitchState = true;
 	}
 	else
 	{
@@ -50,10 +51,17 @@ void StateIntro::Render()
 }
 
 
-void StateIntro::HandleInput(InputEvents::Ev)
+void StateIntro::HandleInput(InputEvents::Ev arg_ev)
 {
 	std::cout<<"StateIntro has just received an event !"<<std::endl;
+	if(arg_ev.joystickButton == sf::Joystick::X || arg_ev.keyboardKey == sf::Keyboard::Return)
+	{
+		if(readyToSwitchState == true)
+		{
+			m_stateStack->addStateToStack(BaseState::STATES::STATE_GAME);
+		}
 
+	}
 
 }
 

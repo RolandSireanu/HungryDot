@@ -51,8 +51,11 @@ void HungryDot::Move(sf::Time arg_deltaTiming)
 
 	//std::cout<<"computation result = "<<((float)arg_deltaTiming / (1000000 / FpsRegulator::fps))*DEFAULT_X_SPEED<<std::endl;
 	float deltaTiming = arg_deltaTiming.asSeconds();
-	shadowSpeed = shadowSpeed + (((float)deltaTiming / (1000000 / FpsRegulator::fps)) * DEFAULT_X_SPEED);
-	//std::cout<<"shadowSpeed = "<<shadowSpeed<<std::endl;
+	//std::cout<<"deltaTiming = "<<deltaTiming<<std::endl;
+	//shadowSpeed = shadowSpeed + (((float)deltaTiming / (1000000 / FpsRegulator::fps)) * DEFAULT_X_SPEED);
+
+	shadowSpeed += DEFAULT_X_SPEED; //* deltaTiming;
+	std::cout<<"shadowSpeed = "<<shadowSpeed<<std::endl;
 
 	if(shadowSpeed >= 1.0000)
 	{

@@ -6,28 +6,33 @@
  */
 
 
-#include "StateGame.hpp"
+#include "../include/StateGame.h"
 
 
-StateGame::StateGame(SharedContext& arg_context , StateStack& arg_stateStack):
+StateGame::StateGame(SharedContext& arg_context , StateStack* arg_stateStack):
 	BaseState(arg_context , arg_stateStack),
-	m_hungryDot(HungryDot::Direction::RIGHT , 6 , 6 , 0.0f , 0.0f)
+	m_hungryDot(HungryDot::Direction::RIGHT , 6 , 6 , 0.0f , 0.0f),
+	m_world()
 {
 
 }
 
 
-void StateGame::update(sf::Time dt)
+void StateGame::Update(sf::Time dt)
 {
 	m_hungryDot.Update(dt);
-	m_world.Update(m_hungryDot , dt);
+	if(m_world.Update(m_hungryDot , dt) == true)
+	{
+		m_stateStack->addStateToStack(BaseState::STATES::STATE_GAME);
+	}
 }
-void StateGame::render()
+void StateGame::Render()
 {
-
+	m_hungryDot.Render(sharedContext.sharedRenderWindow);
+	m_world.Render(sharedContext.sharedRenderWindow , m_hungryDot);
 }
 
-void StateGame::handleInput(InputEvents::Ev arg_event)
+void StateGame::HandleInput(InputEvents::Ev arg_event)
 {
 	/*sf::Event event;
 	HungryDot::Ev inputEvent = {0xFF,sf::Keyboard::Key::Unknown};

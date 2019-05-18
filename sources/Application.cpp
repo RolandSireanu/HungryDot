@@ -32,11 +32,13 @@ void Application::run()
 	{
 		sf::Time dt = clock.restart();
 		timeSinceLastUpdate += dt;
+		handleInputs();
 		while(timeSinceLastUpdate > FpsRegulator::timePerFrame)
 		{
 			timeSinceLastUpdate -= FpsRegulator::timePerFrame;
 			update(FpsRegulator::timePerFrame);
 		}
+
 		render();
 	}
 }
@@ -73,11 +75,13 @@ void Application::handleInputs()
 		if(event.type == sf::Event::JoystickButtonPressed)
 		{
 			inputEvent.joystickButton = event.joystickButton.button;
+			stateStack.handleInput(inputEvent);
 		}
 
 		if(event.type == sf::Event::KeyPressed)
 		{
 			inputEvent.keyboardKey = event.key.code;
+			stateStack.handleInput(inputEvent);
 		}
 
 		std::cout<<"inputEvent = "<<inputEvent.joystickButton<<" , "<<(unsigned int)inputEvent.keyboardKey<<std::endl;

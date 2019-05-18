@@ -8,10 +8,11 @@
 #ifndef HUNGRYDOT_INCLUDE_STATESTACK_H_
 #define HUNGRYDOT_INCLUDE_STATESTACK_H_
 
-#include "BaseState.h"
+//#include "BaseState.h"
 #include <map>
 #include <functional>
 #include "InputEvents.h"
+#include "BaseState.h"
 
 class StateStack
 {
@@ -23,6 +24,8 @@ class StateStack
 
 		void addStateToStack(BaseState::STATES arg_state)
 		{
+			currentState.release();
+			currentState.reset();
 			currentState = statesFactory[arg_state]();
 		}
 
