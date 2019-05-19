@@ -47,6 +47,7 @@ void Window::Update(unsigned int argScore)
 
 	while(m_window.pollEvent(event))
 	{
+		std::cout<<"==================================================================="<<std::endl;
 		if(event.type == sf::Event::Closed)
 			m_isDone = true;
 		else if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F5)
@@ -95,3 +96,11 @@ sf::RenderWindow& Window::GetRenderWindow()
 {
 	return m_window;
 }
+
+void Window::Exit()
+{
+	m_isDone = true;
+}
+
+
+

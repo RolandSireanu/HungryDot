@@ -7,7 +7,8 @@
 
 
 #include "../include/StateGame.h"
-
+#include "DataBase.h"
+#include <fstream>
 
 StateGame::StateGame(SharedContext& arg_context , StateStack* arg_stateStack):
 	BaseState(arg_context , arg_stateStack),
@@ -23,7 +24,23 @@ void StateGame::Update(sf::Time dt)
 	m_hungryDot.Update(dt);
 	if(m_world.Update(m_hungryDot , dt) == true)
 	{
-		m_stateStack->addStateToStack(BaseState::STATES::STATE_GAME);
+		int currentBestScoreFromDb;
+		unsigned int currentBestScore;
+		//sharedContext.refDataBase>>currentBestScoreFromDb;
+
+		currentBestScore = m_hungryDot.GetBestScoreSoFar();
+		currentBestScoreFromDb = DataBase::GetObject()->ReadBestScore();
+		std::cout<<"Current best score from DB is = "<<currentBestScoreFromDb<<std::endl;
+		std::cout<<"Current best score from HungryDot is  = "<<currentBestScore<<std::endl;
+
+		if(currentBestScoreFromDb < currentBestScore)
+		{
+			std::cout<<"Write best score in db !"<<std::endl;
+			DataBase::GetObject()->WriteBestScore(currentBestScore);
+			//sharedContext.refDataBase<<currentBestScore<<std::endl;
+		}
+
+		m_stateStack->addStateToStack(BaseState::STATES::STATE_GAME_OVER);
 	}
 }
 void StateGame::Render()
@@ -34,25 +51,5 @@ void StateGame::Render()
 
 void StateGame::HandleInput(InputEvents::Ev arg_event)
 {
-	/*sf::Event event;
-	HungryDot::Ev inputEvent = {0xFF,sf::Keyboard::Key::Unknown};
-	//bool joystickConnected = sf::Joystick::isConnected(0);
-
-	//while(m_window.GetRenderWindow().pollEvent(event))
-	while(sharedContext.sharedRenderWindow.pollEvent(event))
-	{
-
-		if(event.type == sf::Event::JoystickButtonPressed)
-		{
-			inputEvent.joystickButton = event.joystickButton.button;
-		}
-
-		if(event.type == sf::Event::KeyPressed)
-		{
-			inputEvent.keyboardKey = event.key.code;
-		}
-
-		std::cout<<"inputEvent = "<<inputEvent.joystickButton<<" , "<<(unsigned int)inputEvent.keyboardKey<<std::endl;
-		*/
-		m_hungryDot.HandleInput(arg_event);
+	m_hungryDot.HandleInput(arg_event);
 }

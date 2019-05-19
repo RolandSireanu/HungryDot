@@ -2,6 +2,7 @@
 #include "FpsRegulator.h"
 #include <iostream>
 #include "SFML/System/Vector2.hpp"
+#include "DataBase.h"
 
 /* Initiaize the internal state */
 HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos , float arg_ypos)
@@ -24,6 +25,7 @@ HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos
 	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Up)] = [&]() { direction = Direction::UP; };
 	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Left)] = [&]() { direction = Direction::LEFT; };
 
+	bestScoreSoFar = DataBase::GetObject()->ReadBestScore();
 
 	Reset();
 }
@@ -55,7 +57,7 @@ void HungryDot::Move(sf::Time arg_deltaTiming)
 	//shadowSpeed = shadowSpeed + (((float)deltaTiming / (1000000 / FpsRegulator::fps)) * DEFAULT_X_SPEED);
 
 	shadowSpeed += DEFAULT_X_SPEED; //* deltaTiming;
-	std::cout<<"shadowSpeed = "<<shadowSpeed<<std::endl;
+	//std::cout<<"shadowSpeed = "<<shadowSpeed<<std::endl;
 
 	if(shadowSpeed >= 1.0000)
 	{

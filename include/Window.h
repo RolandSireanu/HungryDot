@@ -11,6 +11,7 @@ class Window{
 		void BeginDraw(); // Clear the window.
 		void EndDraw(); // Display the changes.
 		void Update(unsigned int);
+		void Exit();
 		bool IsDone();
 		bool IsFullscreen();
 		sf::Vector2u GetWindowSize();

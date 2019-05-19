@@ -12,7 +12,7 @@
 #include "Window.h"
 #include "World.h"
 #include "FpsRegulator.h"
-
+#include <fstream>
 
 
 class Application
@@ -20,7 +20,7 @@ class Application
 
 	public:
 		Application();
-
+		~Application();
 		void run();
 
 
@@ -34,6 +34,7 @@ class Application
 		Window m_window;
 		World m_world;
 		struct BaseState::SharedContext sharedContext;
+
 
 };
 

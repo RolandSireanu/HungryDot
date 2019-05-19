@@ -8,6 +8,7 @@
 #include "BaseState.h"
 #include "StateStack.h"
 #include "InputEvents.h"
+#include "fstream"
 
 class Game
 {

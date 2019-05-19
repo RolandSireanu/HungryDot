@@ -17,10 +17,16 @@ class StateGameOver : public BaseState
 {
 	public:
 
+		StateGameOver(BaseState::SharedContext& arg_sharedContext , StateStack* arg_stateStack);
+
 		void Update(sf::Time) override ;
 		void Render() override;
 		void HandleInput(InputEvents::Ev) override;
 
+	private:
+
+		sf::Text sgoGameOverText;
+		sf::Font sgoFont;
 
 };
 

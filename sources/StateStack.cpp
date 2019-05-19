@@ -9,14 +9,16 @@
 #include "StateStack.h"
 
 #include "../include/StateGame.h"
+#include "StateGameOver.h"
 #include "StateIntro.h"
+
 
 StateStack::StateStack(BaseState::SharedContext& arg_sharedContext) : context(arg_sharedContext) , statesFactory()
 {
 
 	registerState<StateIntro>(BaseState::STATES::STATE_INTRO);
 	registerState<StateGame>(BaseState::STATES::STATE_GAME);
-
+	registerState<StateGameOver>(BaseState::STATES::STATE_GAME_OVER);
 }
 
 

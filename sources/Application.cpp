@@ -9,16 +9,21 @@
 
 
 #include "Application.h"
-
+#include "DataBase.h"
 
 
 Application::Application():m_window("Hungry dot" , FpsRegulator::resolution),
 						   sharedContext(m_window.GetRenderWindow()),
 						   stateStack(sharedContext)
 {
+
 	stateStack.addStateToStack(BaseState::STATES::STATE_INTRO);
+
 }
 
+Application::~Application()
+{
+}
 
 void Application::run()
 {
@@ -26,6 +31,13 @@ void Application::run()
 	sf::Clock clock;
 	long long oldTimeStamp = 0;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+
+
+		std::shared_ptr<DataBase> db = DataBase::GetObject();
+		if(db != nullptr)
+			std::cout<<"Best score so far from DB = "<<db->ReadBestScore()<<std::endl;
+		else
+			std::cout<<"Bad shared ptr"<<std::endl;
 
 
 	while(!m_window.IsDone())
@@ -46,7 +58,7 @@ void Application::run()
 
 void Application::update(sf::Time deltaT)
 {
-
+	m_window.Update(1);
 	stateStack.update(deltaT);
 
 }
@@ -84,7 +96,10 @@ void Application::handleInputs()
 			stateStack.handleInput(inputEvent);
 		}
 
-		std::cout<<"inputEvent = "<<inputEvent.joystickButton<<" , "<<(unsigned int)inputEvent.keyboardKey<<std::endl;
+		if(event.type == sf::Event::Closed)
+			m_window.Exit();
+
+		//std::cout<<"inputEvent = "<<inputEvent.joystickButton<<" , "<<(unsigned int)inputEvent.keyboardKey<<std::endl;
 
 	}
 }
