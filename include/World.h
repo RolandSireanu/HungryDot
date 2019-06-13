@@ -17,6 +17,11 @@ class World
 		void Reset();
 		void Level1();
 
+		~World()
+		{
+			std::cout<<"World destructor"<<std::endl;
+		}
+
 		
 	private:
 

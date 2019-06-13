@@ -11,13 +11,17 @@
 #include "../include/StateGame.h"
 #include "StateGameOver.h"
 #include "StateIntro.h"
+#include "StateMenu.h"
+#include "StateRegister.h"
 
 
-StateStack::StateStack(BaseState::SharedContext& arg_sharedContext) : context(arg_sharedContext) , statesFactory()
+StateStack::StateStack(BaseState::SharedContext& arg_sharedContext) : context(arg_sharedContext) , statesFactory() , currentState(nullptr)
 {
 
 	registerState<StateIntro>(BaseState::STATES::STATE_INTRO);
 	registerState<StateGame>(BaseState::STATES::STATE_GAME);
+	registerState<StateMenu>(BaseState::STATES::STATE_MENU);
+	registerState<StateRegister>(BaseState::STATES::STATE_REGISTER);
 	registerState<StateGameOver>(BaseState::STATES::STATE_GAME_OVER);
 }
 

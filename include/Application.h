@@ -13,7 +13,7 @@
 #include "World.h"
 #include "FpsRegulator.h"
 #include <fstream>
-
+#include "Globals.h"
 
 class Application
 {

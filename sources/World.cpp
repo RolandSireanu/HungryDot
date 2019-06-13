@@ -6,6 +6,7 @@
 #include "Arrow.h"
 #include "SFML/Graphics/Rect.hpp"
 #include "SFML/System/Vector2.hpp"
+#include "Globals.h"
 
 //Lungime latime 4341 x 1804  DUSTER
 //Golf 5 : 4204 1759
@@ -182,7 +183,7 @@ bool World::Update(HungryDot& arg_hungryDot , sf::Time dt)
 void World::Render(sf::RenderWindow& arg_window , const HungryDot& arg_hungryDot)
 {
 
-	textScore.setString("Current score : "+std::to_string(arg_hungryDot.GetScore())+"\n"+"Best score :"+std::to_string(arg_hungryDot.GetBestScoreSoFar()));
+	textScore.setString("Current score : "+std::to_string(arg_hungryDot.GetScore())+"\n"+"Best score :"+std::to_string(arg_hungryDot.GetBestScoreSoFar()) + "\nPlayer:"+Globals::currentPlayer);
 
 	//arg_window.draw(fruit);
 	for(int counter = 0; counter < vegSprites.size(); counter++)

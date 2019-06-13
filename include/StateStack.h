@@ -13,6 +13,7 @@
 #include <functional>
 #include "InputEvents.h"
 #include "BaseState.h"
+#include <iostream>
 
 class StateStack
 {
@@ -24,9 +25,17 @@ class StateStack
 
 		void addStateToStack(BaseState::STATES arg_state)
 		{
-			currentState.release();
-			currentState.reset();
+
+
+			//currentState.release();
+			if(currentState)
+			{
+				std::cout<<"Calling currentState destructor "<<std::endl;
+				currentState.reset();
+
+			}
 			currentState = statesFactory[arg_state]();
+
 		}
 
 		void update(sf::Time deltaT)

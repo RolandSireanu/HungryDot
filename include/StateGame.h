@@ -25,7 +25,10 @@ class StateGame : public BaseState
 		void Render() override;
 		void HandleInput(InputEvents::Ev) override;
 
-		virtual ~StateGame(){}
+		~StateGame()
+		{
+			std::cout<<"StateGame destructor"<<std::endl;
+		}
 
 	private:
 

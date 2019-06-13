@@ -17,6 +17,10 @@ ArrowsObjectPool::ArrowsObjectPool(const sf::Texture& arg_texture) : texture(arg
 
 }
 
+//Create new function for transition from GameOver -> GAME_STATE
+//Reset all arrows and not generate new ones who can hit MOACA from first frames
+
+
 bool ArrowsObjectPool::AcquireArrow(Arrow::DIRECTION arg_direction , Arrow** retArrow)
 {
 
@@ -28,6 +32,7 @@ bool ArrowsObjectPool::AcquireArrow(Arrow::DIRECTION arg_direction , Arrow** ret
 
 	if(it != pool.end())
 	{
+		(*it)->RandomizeArrowPos();
 		*retArrow = (*it);
 		pool.erase(it);
 		return true;
@@ -43,4 +48,13 @@ void ArrowsObjectPool::ReleaseArrow(Arrow* arg_arrow)
 {
 	arg_arrow->ResetArrow();
 	pool.push_back(arg_arrow);
+}
+
+ArrowsObjectPool::~ArrowsObjectPool()
+{
+	std::cout<<"ArrowsObjectPool destructor !"<<std::endl;
+
+	for(auto ptrArrow : pool)
+		delete ptrArrow;
+
 }

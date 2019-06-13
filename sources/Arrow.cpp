@@ -74,7 +74,10 @@ bool Arrow::MoveArrow(sf::Time arg_dt)
 
 void Arrow::ResetArrow()
 {
-	const sf::Vector2u tempPos = GenNewArrowPos(direction);
+	const sf::Vector2u topLeft {350,650};
+	const sf::Vector2u bottomLeft {FpsRegulator::resolution.x ,FpsRegulator::resolution.y};
+
+	const sf::Vector2u tempPos = GenNewArrowPos(direction , topLeft , bottomLeft);
 	arrowSprite.setPosition((float)tempPos.x , (float)tempPos.y);
 }
 
@@ -147,8 +150,87 @@ sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 	}
 }
 
+sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction , sf::Vector2u arg_topLeftOrigin, sf::Vector2u arg_bottomRightOrigin)
+{
+
+
+	switch(arg_direction)
+	{
+
+		//RIGHT_LEFT ARROW
+		case DIRECTION::RIGHT_LEFT:
+		{
+			//Generate random number and put it in [0 , resolution.y]
+			//unsigned int pos = rand() % FpsRegulator::resolution.y;
+			unsigned int pos = (rand() % (arg_bottomRightOrigin.y - arg_topLeftOrigin.y) + arg_topLeftOrigin.y);
+			//Modulate it to be inline with MOACA
+			unsigned int temp = (pos % FpsRegulator::sizeOfHungryDot.y);
+			//Put it in the middle of MOACA
+			pos = pos - temp + 23;
+
+			return sf::Vector2u(FpsRegulator::resolution.x , pos);
+
+			break;
+		}
+
+		//LEFT_RIGHT Arrow ->
+		case DIRECTION::LEFT_RIGHT:
+		{
+			//Generate random number
+			//unsigned int pos = rand() % FpsRegulator::resolution.y;
+			unsigned int pos = (rand() % (arg_bottomRightOrigin.y - arg_topLeftOrigin.y) + arg_topLeftOrigin.y);
+			//Modulate it to in in line with MOACA
+			unsigned int temp = (pos % FpsRegulator::sizeOfHungryDot.y);
+			//Put it in the middle of MOACA
+			pos = pos - temp + 23;
+
+			return sf::Vector2u(0 , pos);
+
+		}
+
+
+		case DIRECTION::UP_DOWN:
+		{
+			//Generate random number
+			//unsigned int pos = rand() % FpsRegulator::resolution.x;
+			unsigned int pos = (rand() % (arg_bottomRightOrigin.x - arg_topLeftOrigin.x) + arg_topLeftOrigin.x);
+			//Modulate it to in in line with MOACA
+			unsigned int temp = (pos % FpsRegulator::sizeOfHungryDot.x);
+			//Put it in the middle of MOACA
+			pos = pos - temp + 18;
+
+			return sf::Vector2u(pos , 0);
+
+
+		}
+
+		case DIRECTION::DOWN_UP:
+		{
+			//Generate random number
+			//unsigned int pos = rand() % FpsRegulator::resolution.x;
+			unsigned int pos = (rand() % (arg_bottomRightOrigin.x - arg_topLeftOrigin.x) + arg_topLeftOrigin.x);
+			//Modulate it to in in line with MOACA
+			unsigned int temp = (pos % FpsRegulator::sizeOfHungryDot.x);
+			//Put it in the middle of MOACA
+			pos = pos - temp + 18;
+
+
+			return sf::Vector2u(pos , FpsRegulator::resolution.y);
+		}
+
+		default :
+			break;
+	}
+}
+
+
 void Arrow::IncreaseSpeedOfArrow()
 {
 	arrowSpeed++;
 }
 
+void Arrow::RandomizeArrowPos()
+{
+	sf::Vector2u temporaryPosition = GenNewArrowPos(direction);
+	arrowSprite.setPosition(static_cast<sf::Vector2f>(temporaryPosition));
+}

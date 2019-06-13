@@ -11,9 +11,11 @@ using namespace std;
 
 FpsRegulator useless;
 
+Application application;
+
 int main()
 {
-	Application application;
+
 
 	application.run();
 

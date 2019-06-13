@@ -13,6 +13,7 @@ class ArrowsObjectPool
 		ArrowsObjectPool(const sf::Texture& arg_texture);
 		bool AcquireArrow(Arrow::DIRECTION arg_direction , Arrow** retArrow);
 		void ReleaseArrow(Arrow* arg_arrow);
+		~ArrowsObjectPool();
 
 	private:
 

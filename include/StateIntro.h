@@ -50,7 +50,7 @@ class StateIntro : public BaseState
 		void Render();
 		void HandleInput(InputEvents::Ev);
 
-		~StateIntro();
+		~StateIntro() = default;
 
 	private :
 

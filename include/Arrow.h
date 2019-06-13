@@ -17,6 +17,8 @@ class Arrow
 		void ResetArrow();
 
 		sf::Vector2u GenNewArrowPos(DIRECTION arg_direction);
+		sf::Vector2u GenNewArrowPos(DIRECTION arg_direction , sf::Vector2u , sf::Vector2u);
+		void RandomizeArrowPos();
 
 		DIRECTION direction;		
 

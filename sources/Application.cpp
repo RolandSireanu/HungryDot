@@ -17,7 +17,8 @@ Application::Application():m_window("Hungry dot" , FpsRegulator::resolution),
 						   stateStack(sharedContext)
 {
 
-	stateStack.addStateToStack(BaseState::STATES::STATE_INTRO);
+	//stateStack.addStateToStack(BaseState::STATES::STATE_INTRO);
+	stateStack.addStateToStack(BaseState::STATES::STATE_MENU);
 
 }
 
@@ -40,7 +41,7 @@ void Application::run()
 			std::cout<<"Bad shared ptr"<<std::endl;
 
 
-	while(!m_window.IsDone())
+	while(!m_window.IsDone() && Globals::closeGameNow != true)
 	{
 		sf::Time dt = clock.restart();
 		timeSinceLastUpdate += dt;

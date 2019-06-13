@@ -65,7 +65,6 @@ void StateIntro::HandleInput(InputEvents::Ev arg_ev)
 
 }
 
-StateIntro::~StateIntro()
-{
-
-}
+//{
+//	std::cout<<"StateIntro destructor !"<<std::endl;
+//}

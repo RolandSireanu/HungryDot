@@ -16,14 +16,14 @@ HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
 	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)DIRECTION]);
 	
-	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::CROSS, sf::Keyboard::Unknown)] = [&]() { direction = Direction::DOWN; };
-	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::CIRCLE, sf::Keyboard::Unknown)] = [&]() { direction = Direction::RIGHT; };
-	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::TRIANGLE, sf::Keyboard::Unknown)] = [&]() { direction = Direction::UP; };
-	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::RECTANGLE, sf::Keyboard::Unknown)] = [&]() { direction = Direction::LEFT; };
-	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Down)] = [&]() { direction = Direction::DOWN; };
-	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Right)] = [&]() { direction = Direction::RIGHT; };
-	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Up)] = [&]() { direction = Direction::UP; };
-	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Left)] = [&]() { direction = Direction::LEFT; };
+	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::CROSS, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::DOWN; };
+	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::CIRCLE, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::RIGHT; };
+	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::TRIANGLE, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::UP; };
+	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::RECTANGLE, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::LEFT; };
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Down)] = [this]() { this->direction = Direction::DOWN; };
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Right)] = [this]() { this->direction = Direction::RIGHT; };
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Up)] = [this]() { this->direction = Direction::UP; };
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Left)] = [this]() { this->direction = Direction::LEFT; };
 
 	bestScoreSoFar = DataBase::GetObject()->ReadBestScore();
 
