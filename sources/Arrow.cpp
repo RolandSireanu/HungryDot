@@ -28,16 +28,15 @@ const std::vector<sf::Vector2f> Arrow::arrowMoves = {{-1.0,0.0} , {1.0,0.0} , {0
 	direction : 3 arrow is poiting to the up
 	direction : 4 arrow is poiting to the down
 */
-Arrow::Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed) : defaultArrowSpeed(arg_arrowSpeed)
+Arrow::Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed , bool arg_firstRun) : defaultArrowSpeed(arg_arrowSpeed)
 {
 	texture = arg_arrowTexture;
 	this->direction = arg_direction;	
 
 
-	arrowSprite.setTexture(arg_arrowTexture);
-	arrowSprite.setTextureRect(originPositions[(unsigned int)direction]);
-
-	ResetArrow();
+	arrowSprite.setTexture(arg_arrowTexture);	
+	arrowSprite.setTextureRect(originPositions[(unsigned int)direction]);	
+	ResetArrow(arg_firstRun);
 }
 
 
@@ -54,7 +53,9 @@ bool Arrow::MoveArrow(sf::Time arg_dt)
 	{
 		arrowSprite.move(arrowMoves[dr]);
 
-		sf::Vector2u tempPosition = (sf::Vector2u)arrowSprite.getPosition();
+		sf::Vector2u tempPosition;
+		tempPosition.x = (unsigned int) arrowSprite.getPosition().x;
+		tempPosition.y = (unsigned int) arrowSprite.getPosition().y;		 
 		if(tempPosition.x >= FpsRegulator::resolution.x || tempPosition.x <= 0)
 		{
 
@@ -72,19 +73,27 @@ bool Arrow::MoveArrow(sf::Time arg_dt)
 }
 
 
-void Arrow::ResetArrow()
+void Arrow::ResetArrow(bool arg_firstRun)
 {
-	const sf::Vector2u topLeft {350,650};
-	const sf::Vector2u bottomLeft {FpsRegulator::resolution.x ,FpsRegulator::resolution.y};
+	
+	sf::Vector2u tempPos;
 
-	const sf::Vector2u tempPos = GenNewArrowPos(direction , topLeft , bottomLeft);
+	if(arg_firstRun)
+	{
+		const sf::Vector2u topLeft {220,0};
+		const sf::Vector2u bottomLeft {FpsRegulator::resolution.x ,FpsRegulator::resolution.y};
+		tempPos = GenNewArrowPos(direction , topLeft , bottomLeft);
+	}
+	else
+	{
+		tempPos = GenNewArrowPos(direction);
+	}
+	
 	arrowSprite.setPosition((float)tempPos.x , (float)tempPos.y);
 }
 
 sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 {
-
-
 	switch(arg_direction)
 	{
 
@@ -152,7 +161,6 @@ sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction)
 
 sf::Vector2u Arrow::GenNewArrowPos(DIRECTION arg_direction , sf::Vector2u arg_topLeftOrigin, sf::Vector2u arg_bottomRightOrigin)
 {
-
 
 	switch(arg_direction)
 	{

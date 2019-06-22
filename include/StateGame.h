@@ -34,6 +34,7 @@ class StateGame : public BaseState
 
 		HungryDot m_hungryDot;
 		World m_world;
+		bool firstRun;
 
 };
 

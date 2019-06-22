@@ -11,11 +11,12 @@
 //Lungime latime 4341 x 1804  DUSTER
 //Golf 5 : 4204 1759
 
-World::World() : arrowsPool(arrowsTexture)
+World::World() //: arrowsPool(new ArrowsObjectPool(arrowsTexture))
 {
 	const unsigned int xBoundery = FpsRegulator::resolution.x - FpsRegulator::sizeOfHungryDot.x;
 	const unsigned int yBoundery = FpsRegulator::resolution.y - FpsRegulator::sizeOfHungryDot.y;
 
+	arrowsPool = std::make_shared<ArrowsObjectPool>(arrowsTexture);
 
 	fruitsTexture.loadFromFile("Media/Vegetable.png");
 	arrowsTexture.loadFromFile("Media/Arrows.png");
@@ -35,7 +36,7 @@ World::World() : arrowsPool(arrowsTexture)
 	}
 
 
-	arrowsToDraw.resize(0);		//Tolba este goala
+	//arrowsToDraw.resize(0);		//Tolba este goala
 
 	ReloadVegetables();
 	
@@ -69,9 +70,9 @@ void World::Reset()
 		vegSprites.push_back(tempVeg);
 	}
 
-	for(std::vector<Arrow*>::iterator it = arrowsToDraw.begin(); it != arrowsToDraw.end(); it++)
+	for(auto& arrow : arrowsToDraw)
 	{
-		arrowsPool.ReleaseArrow((*it));
+		arrow.reset();
 	}
 
 	arrowsToDraw.clear();
@@ -79,7 +80,7 @@ void World::Reset()
 
 }
 
-bool World::Update(HungryDot& arg_hungryDot , sf::Time dt)
+bool World::Update(HungryDot& arg_hungryDot , sf::Time dt , bool arg_firstRun)
 {
 
 	//Search collisions between HungryDot and vegetables
@@ -105,21 +106,14 @@ bool World::Update(HungryDot& arg_hungryDot , sf::Time dt)
 
 				});
 
-		vegSprites.erase(newEnd , vegSprites.end());
-		/*if(nrOfVegetablesOnMap > vegSprites.size())
-		{
-			std::cout<<"nrOfVegetablesOnMap = "<<nrOfVegetablesOnMap<<" , vegSprites.size() = "<<vegSprites.size()<<std::endl;
-			std::cout<<"Increase score with : "<<nrOfVegetablesOnMap - (vegSprites.size())<<std::endl;
-		}*/
+		vegSprites.erase(newEnd , vegSprites.end());		
 		arg_hungryDot.IncreaseScore(nrOfVegetablesOnMap - (vegSprites.size()));
 
 	}
 
 
-
-
 	//Search collision between moaca and arrows
-	auto it = std::find_if(arrowsToDraw.begin() , arrowsToDraw.end() , [=](Arrow* a){
+	auto it = std::find_if(arrowsToDraw.begin() , arrowsToDraw.end() , [=](ArrowsObjectPool::arrowUniquePtr& a){
 		sf::Vector2u arrowP = (sf::Vector2u)a->GetSprite().getPosition();
 		sf::Vector2u hungryDotP = (sf::Vector2u) arg_hungryDot.GetCurrentPosition();
 
@@ -141,19 +135,39 @@ bool World::Update(HungryDot& arg_hungryDot , sf::Time dt)
 		return true;
 
 
+//Remove all arrows who reaches end of the screen
+	arrowsToDraw.erase( std::remove_if(arrowsToDraw.begin() , arrowsToDraw.end(), [&](ArrowsObjectPool::arrowUniquePtr& pArrow)
+			{
+				bool wasMoved;
+
+				wasMoved = pArrow->MoveArrow(dt);
+				if(wasMoved == false)
+				{					
+					pArrow.reset();
+					return true;
+				}
+
+				return false;
+			}) , arrowsToDraw.end());
+
+
 	//If there are less than 4 arrows in play add 4 more
-	if(arrowsToDraw.size() < 4)
+	if(arrowsToDraw.size() < DEFAULT_NR_OF_ARROWS)
 	{
-		Arrow *tempPtr;
+		//std::unique_ptr<Arrow>tempPtr;
 		bool acquired = false;
 
-		for(int index = 0; index < 4; index++)
+		for(int index = 0; index < DEFAULT_NR_OF_ARROWS; index++)
 		{
-			acquired = arrowsPool.AcquireArrow((Arrow::DIRECTION)index , &tempPtr);
+			//acquired = arrowsPool.AcquireArrow((Arrow::DIRECTION)index , &tempPtr);
+			//std::cout<<"arrowsPool = "<<arrowsPool<<std::endl;
 
+
+			ArrowsObjectPool::arrowUniquePtr tempPtr = arrowsPool->AcquireArrow((Arrow::DIRECTION)index , arg_firstRun , acquired);
 			if(acquired)
 			{
-				arrowsToDraw.push_back(tempPtr);
+				std::cout<<"push_back to arrowsToDraw:"<<(unsigned int)tempPtr->direction<<std::endl;
+				arrowsToDraw.push_back(std::move(tempPtr));
 			}
 			else
 			{
@@ -162,20 +176,7 @@ bool World::Update(HungryDot& arg_hungryDot , sf::Time dt)
 		}
 	}
 
-	//Remove all arrows who reaches end of the screen
-	arrowsToDraw.erase( std::remove_if(arrowsToDraw.begin() , arrowsToDraw.end(), [&](Arrow* pArrow)
-			{
-				bool wasMoved;
-
-				wasMoved = pArrow->MoveArrow(dt);
-				if(wasMoved == false)
-				{
-					arrowsPool.ReleaseArrow(pArrow);
-					return true;
-				}
-
-				return false;
-			}) , arrowsToDraw.end());
+	
 
 	return false;
 }

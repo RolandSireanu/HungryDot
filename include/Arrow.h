@@ -10,11 +10,14 @@ class Arrow
 
 		enum class DIRECTION : unsigned int { RIGHT_LEFT = 0 , LEFT_RIGHT = 1 , DOWN_UP = 2 , UP_DOWN = 3};
 
-		Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed);
+		Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed , bool);
+
+		//Arrow& operator = (Arrow&& arg_arrow) = default;
+
 
 		bool MoveArrow(sf::Time);
 
-		void ResetArrow();
+		void ResetArrow(bool);
 
 		sf::Vector2u GenNewArrowPos(DIRECTION arg_direction);
 		sf::Vector2u GenNewArrowPos(DIRECTION arg_direction , sf::Vector2u , sf::Vector2u);

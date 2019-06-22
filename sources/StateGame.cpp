@@ -13,7 +13,8 @@
 StateGame::StateGame(SharedContext& arg_context , StateStack* arg_stateStack):
 	BaseState(arg_context , arg_stateStack),
 	m_hungryDot(HungryDot::Direction::RIGHT , 6 , 6 , 0.0f , 0.0f),
-	m_world()
+	m_world(),
+	firstRun(true)
 {
 
 }
@@ -22,7 +23,7 @@ StateGame::StateGame(SharedContext& arg_context , StateStack* arg_stateStack):
 void StateGame::Update(sf::Time dt)
 {
 	m_hungryDot.Update(dt);
-	if(m_world.Update(m_hungryDot , dt) == true)
+	if(m_world.Update(m_hungryDot , dt , firstRun) == true)
 	{
 		int currentBestScoreFromDb;
 		unsigned int currentBestScore;
@@ -42,6 +43,11 @@ void StateGame::Update(sf::Time dt)
 
 		m_stateStack->addStateToStack(BaseState::STATES::STATE_GAME_OVER);
 	}
+	else
+	{
+		firstRun = false;
+	}
+	
 }
 void StateGame::Render()
 {

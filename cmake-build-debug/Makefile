@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /home/roland/Downloads/CLion-2019.1.3/clion-2019.1.3/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /home/roland/Downloads/CLion-2019.1.3/clion-2019.1.3/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -51,7 +51,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/roland/HungryDot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/roland/HungryDot/build
+CMAKE_BINARY_DIR = /home/roland/HungryDot/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/roland/HungryDot/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/roland/Downloads/CLion-2019.1.3/clion-2019.1.3/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/roland/Downloads/CLion-2019.1.3/clion-2019.1.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/roland/HungryDot/build/CMakeFiles /home/roland/HungryDot/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/roland/HungryDot/cmake-build-debug/CMakeFiles /home/roland/HungryDot/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/roland/HungryDot/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/roland/HungryDot/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,33 @@ sources/ArrowsPool.cpp.s:
 	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/ArrowsPool.cpp.s
 .PHONY : sources/ArrowsPool.cpp.s
 
+sources/DataBase.o: sources/DataBase.cpp.o
+
+.PHONY : sources/DataBase.o
+
+# target to build an object file
+sources/DataBase.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/DataBase.cpp.o
+.PHONY : sources/DataBase.cpp.o
+
+sources/DataBase.i: sources/DataBase.cpp.i
+
+.PHONY : sources/DataBase.i
+
+# target to preprocess a source file
+sources/DataBase.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/DataBase.cpp.i
+.PHONY : sources/DataBase.cpp.i
+
+sources/DataBase.s: sources/DataBase.cpp.s
+
+.PHONY : sources/DataBase.s
+
+# target to generate assembly for a file
+sources/DataBase.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/DataBase.cpp.s
+.PHONY : sources/DataBase.cpp.s
+
 sources/FpsRegulator.o: sources/FpsRegulator.cpp.o
 
 .PHONY : sources/FpsRegulator.o
@@ -311,6 +338,33 @@ sources/StateGame.s: sources/StateGame.cpp.s
 sources/StateGame.cpp.s:
 	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateGame.cpp.s
 .PHONY : sources/StateGame.cpp.s
+
+sources/StateGameOver.o: sources/StateGameOver.cpp.o
+
+.PHONY : sources/StateGameOver.o
+
+# target to build an object file
+sources/StateGameOver.cpp.o:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateGameOver.cpp.o
+.PHONY : sources/StateGameOver.cpp.o
+
+sources/StateGameOver.i: sources/StateGameOver.cpp.i
+
+.PHONY : sources/StateGameOver.i
+
+# target to preprocess a source file
+sources/StateGameOver.cpp.i:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateGameOver.cpp.i
+.PHONY : sources/StateGameOver.cpp.i
+
+sources/StateGameOver.s: sources/StateGameOver.cpp.s
+
+.PHONY : sources/StateGameOver.s
+
+# target to generate assembly for a file
+sources/StateGameOver.cpp.s:
+	$(MAKE) -f CMakeFiles/HungryDot.dir/build.make CMakeFiles/HungryDot.dir/sources/StateGameOver.cpp.s
+.PHONY : sources/StateGameOver.cpp.s
 
 sources/StateIntro.o: sources/StateIntro.cpp.o
 
@@ -465,6 +519,9 @@ help:
 	@echo "... sources/ArrowsPool.o"
 	@echo "... sources/ArrowsPool.i"
 	@echo "... sources/ArrowsPool.s"
+	@echo "... sources/DataBase.o"
+	@echo "... sources/DataBase.i"
+	@echo "... sources/DataBase.s"
 	@echo "... sources/FpsRegulator.o"
 	@echo "... sources/FpsRegulator.i"
 	@echo "... sources/FpsRegulator.s"
@@ -477,6 +534,9 @@ help:
 	@echo "... sources/StateGame.o"
 	@echo "... sources/StateGame.i"
 	@echo "... sources/StateGame.s"
+	@echo "... sources/StateGameOver.o"
+	@echo "... sources/StateGameOver.i"
+	@echo "... sources/StateGameOver.s"
 	@echo "... sources/StateIntro.o"
 	@echo "... sources/StateIntro.i"
 	@echo "... sources/StateIntro.s"

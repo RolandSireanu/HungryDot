@@ -13,7 +13,7 @@ class World
 		World();
 
 		void Render(sf::RenderWindow& , const HungryDot& arg_hungryDot);
-		bool Update(HungryDot& arg_hungryDot , sf::Time);
+		bool Update(HungryDot& arg_hungryDot , sf::Time , bool);
 		void Reset();
 		void Level1();
 
@@ -36,9 +36,10 @@ class World
 		sf::Text textScore;
 
 		std::vector<sf::Sprite> vegSprites;
-		std::vector<Arrow*> arrowsToDraw;
+		//std::vector<std::unique_ptr<Arrow> > arrowsToDraw;
+		std::vector<ArrowsObjectPool::arrowUniquePtr> arrowsToDraw;
 
-		ArrowsObjectPool arrowsPool;
+		std::shared_ptr<ArrowsObjectPool> arrowsPool;
 
 		unsigned int DEFAULT_NR_OF_VEG = 100;
 		unsigned int DEFAULT_NR_OF_ARROWS = 4;
