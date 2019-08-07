@@ -12,6 +12,7 @@
 #include "SFML/Graphics.hpp"
 #include "FpsRegulator.h"
 #include "StateStack.h"
+#include "AudioPlayer.h"
 
 class StateIntro : public BaseState
 {
@@ -19,7 +20,7 @@ class StateIntro : public BaseState
 	public:
 
 		StateIntro(BaseState::SharedContext& arg_sharedContext , StateStack* arg_stateStack) : BaseState(arg_sharedContext , arg_stateStack) , spritesToDraw(),
-		dotSprite(new sf::Sprite()) , greenBeanSprite(new sf::Sprite()) , introSprite(new sf::Sprite()) , text(new sf::Text())
+		dotSprite(new sf::Sprite()) , greenBeanSprite(new sf::Sprite()) , introSprite(new sf::Sprite()) , text(new sf::Text()) , player(Audio::AudioStates::STATE_INTRO_AUDIO)
 		{
 			font.loadFromFile("Media/arial.ttf");
 			dotTexture.loadFromFile("Media/MiddleRight.png");
@@ -44,6 +45,8 @@ class StateIntro : public BaseState
 			spritesToDraw.push_back(dotSprite);
 			spritesToDraw.push_back(greenBeanSprite);
 			spritesToDraw.push_back(introSprite);
+
+			player.Play();
 		}
 
 		void Update(sf::Time);
@@ -66,6 +69,7 @@ class StateIntro : public BaseState
 		const unsigned int dotXSpeed = 175;
 		bool readyToSwitchState = false;
 		std::vector<std::shared_ptr<sf::Drawable> > spritesToDraw;
+		Audio::Player player;
 
 };
 

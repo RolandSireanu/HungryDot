@@ -13,6 +13,8 @@
 #include "BaseState.h"
 #include "InputEvents.h"
 #include "StateStack.h"
+#include "AudioPlayer.h"
+#include <thread>
 
 class StateGame : public BaseState
 {
@@ -27,14 +29,16 @@ class StateGame : public BaseState
 
 		~StateGame()
 		{
-			std::cout<<"StateGame destructor"<<std::endl;
+			std::cout<<"StateGame destructor"<<std::endl;			
 		}
 
 	private:
 
 		HungryDot m_hungryDot;
+		Audio::Player audioPlayer;		
 		World m_world;
 		bool firstRun;
+		
 
 };
 

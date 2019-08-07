@@ -17,7 +17,7 @@ class DataBase
 	public:
 		static std::shared_ptr<DataBase> GetObject();
 		unsigned int ReadBestScore();
-		void WriteBestScore(unsigned int );
+		void WriteBestScore(unsigned int , const std::string&);
 		DataBase();
 		~DataBase();
 

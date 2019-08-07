@@ -11,7 +11,7 @@ namespace Globals
 {
 	bool closeGameNow = false;
 	std::string currentPlayer;
-
+	unsigned int bestScoreSoFar = 0;
 };
 
 

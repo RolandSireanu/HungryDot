@@ -13,7 +13,7 @@ namespace Globals
 {
 	extern bool closeGameNow;
 	extern std::string currentPlayer;
-
+	extern unsigned int bestScoreSoFar;
 
 };
 

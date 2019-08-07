@@ -15,25 +15,58 @@ std::weak_ptr<DataBase> DataBase::privateObject;
 
 DataBase::DataBase()
 {
+	/*
 	std::cout<<"DataBase constructor !"<<std::endl;
 	dataBase.open("Media/Score" , std::ios::out|std::ios::in);
+
+	if(dataBase.is_open())
+	{
+		std::cout<<"Succesfully opened the Score file "<<std::endl;
+		std::cout<<"dataBase addr = "<<&dataBase<<std::endl;
+	}
+	else
+	{
+		std::cout<<"Error at open Score file ! "<<std::endl;
+	}
+	*/	
 }
 
 
 unsigned int DataBase::ReadBestScore()
 {
 	unsigned int bs = 0;
-	dataBase>>bs;
+	std::string player;
+	std::string topPlayer;
+	unsigned int score = 0x00;
+	dataBase.open("Media/Score" , std::ios::in);
 	dataBase.seekg(0 , std::ios::beg);
-
+	while(dataBase>>player>>score)
+	{
+		if(score > bs)
+		{
+			bs = score;
+			topPlayer = player;
+		}
+		std::cout<<"player = "<<player<<" score = "<<score<<std::endl;
+	}
+	
+	dataBase.close();
 	return bs;
-
 }
 
-void DataBase::WriteBestScore(unsigned int arg_bestScore)
+void DataBase::WriteBestScore(unsigned int arg_bestScore , const std::string& arg_player)
 {
-	dataBase<<arg_bestScore<<std::endl;
-	dataBase.seekg(0 , std::ios::beg);
+	dataBase.open("Media/Score" , std::ios::app);	
+	
+	if(dataBase.is_open())
+	{
+		dataBase<<arg_player<<" "<<arg_bestScore<<std::endl;		
+	}
+	else
+	{
+		std::cout<<"Score file is not opened anymore !"<<std::endl;
+	}
+	dataBase.close();	
 }
 
 std::shared_ptr<DataBase> DataBase::GetObject()

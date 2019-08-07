@@ -36,7 +36,7 @@ void Application::run()
 
 		std::shared_ptr<DataBase> db = DataBase::GetObject();
 		if(db != nullptr)
-			std::cout<<"Best score so far from DB = "<<db->ReadBestScore()<<std::endl;
+			 std::cout<<"Best score so far from DB = "<<db->ReadBestScore()<<std::endl;
 		else
 			std::cout<<"Bad shared ptr"<<std::endl;
 

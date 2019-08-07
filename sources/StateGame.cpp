@@ -8,15 +8,18 @@
 
 #include "../include/StateGame.h"
 #include "DataBase.h"
+#include "Globals.h"
 #include <fstream>
 
 StateGame::StateGame(SharedContext& arg_context , StateStack* arg_stateStack):
 	BaseState(arg_context , arg_stateStack),
 	m_hungryDot(HungryDot::Direction::RIGHT , 6 , 6 , 0.0f , 0.0f),
 	m_world(),
-	firstRun(true)
+	firstRun(true),	
+	audioPlayer(Audio::AudioStates::STATE_GAME_AUDIO)
 {
-
+	audioPlayer.Play();
+	
 }
 
 
@@ -33,12 +36,11 @@ void StateGame::Update(sf::Time dt)
 		currentBestScoreFromDb = DataBase::GetObject()->ReadBestScore();
 		std::cout<<"Current best score from DB is = "<<currentBestScoreFromDb<<std::endl;
 		std::cout<<"Current best score from HungryDot is  = "<<currentBestScore<<std::endl;
-
+		
 		if(currentBestScoreFromDb < currentBestScore)
 		{
 			std::cout<<"Write best score in db !"<<std::endl;
-			DataBase::GetObject()->WriteBestScore(currentBestScore);
-			//sharedContext.refDataBase<<currentBestScore<<std::endl;
+			DataBase::GetObject()->WriteBestScore(currentBestScore , Globals::currentPlayer);			
 		}
 
 		m_stateStack->addStateToStack(BaseState::STATES::STATE_GAME_OVER);

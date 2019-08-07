@@ -79,7 +79,10 @@ void World::Reset()
 
 
 }
+/*
+	Returns true when is GAME OVER , false otherwise 
 
+*/
 bool World::Update(HungryDot& arg_hungryDot , sf::Time dt , bool arg_firstRun)
 {
 

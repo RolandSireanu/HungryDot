@@ -4,11 +4,8 @@
 #include "FpsRegulator.h"
 #include "SFML/System/Clock.hpp"
 #include "Application.h"
-
-
 using namespace std;
 
-FpsRegulator useless;
 
 Application application;
 

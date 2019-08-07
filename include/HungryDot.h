@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <functional>
 #include "InputEvents.h"
+#include "Globals.h"
 
 class HungryDot
 {
@@ -34,10 +35,10 @@ class HungryDot
 		void IncreaseScore(unsigned int arg_deltaScore)
 		{
 			score+=arg_deltaScore;
-			bestScoreSoFar = std::max(bestScoreSoFar , score);
+			Globals::bestScoreSoFar = std::max(Globals::bestScoreSoFar , score);
 		}
 		unsigned int GetScore() const { return score; }
-		unsigned int GetBestScoreSoFar() const {return bestScoreSoFar;}
+		unsigned int GetBestScoreSoFar() const {return Globals::bestScoreSoFar;}
 		unsigned int ResetScore() { score = 0; }
 		unsigned int GetHeight() const { return HEIGHT_OF_HUNGRYDOT;}
 		unsigned int GetWidth() const { return WIDTH_OF_HUNGRYDOT;}
@@ -71,7 +72,7 @@ class HungryDot
 
 		Direction direction;
 		unsigned int score;
-		unsigned int bestScoreSoFar;
+		//unsigned int bestScoreSoFar;
 		unsigned int lives;
 		unsigned int wallsCollision;		
 		int xSpeed;

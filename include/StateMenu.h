@@ -13,6 +13,8 @@
 #include "BaseState.h"
 #include <string>
 #include "Globals.h"
+#include "AudioPlayer.h"
+
 
 class StateMenu : public BaseState
 {
@@ -24,10 +26,7 @@ class StateMenu : public BaseState
 		void Render() override;
 		void HandleInput(InputEvents::Ev) override;
 
-		~StateMenu() = default;
-//		{
-//			std::cout<<"Calling StateMenu destructor !"<<std::endl;
-//		}
+		~StateMenu() = default;		
 
 	protected:
 
@@ -37,7 +36,8 @@ class StateMenu : public BaseState
 		int buttonCounter;
 		static constexpr unsigned int nrOfButtons = 3;
 		std::array<Button* , nrOfButtons> buttons;
-
+		Audio::Player audioPlayer;
+		
 };
 
 

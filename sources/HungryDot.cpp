@@ -6,7 +6,7 @@
 
 /* Initiaize the internal state */
 HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos , float arg_ypos)
-	: DIRECTION(arg_dr) , DEFAULT_X_SPEED(arg_xs) , DEFAULT_Y_SPEED(arg_ys) , POSITION(arg_xpos , arg_ypos) , bestScoreSoFar(0)
+	: DIRECTION(arg_dr) , DEFAULT_X_SPEED(arg_xs) , DEFAULT_Y_SPEED(arg_ys) , POSITION(arg_xpos , arg_ypos)
 {
 	m_hungryDotTextures.resize(NR_OF_SPRITES);
 
@@ -25,7 +25,8 @@ HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos
 	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Up)] = [this]() { this->direction = Direction::UP; };
 	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Left)] = [this]() { this->direction = Direction::LEFT; };
 
-	bestScoreSoFar = DataBase::GetObject()->ReadBestScore();
+	//bestScoreSoFar = DataBase::GetObject()->ReadBestScore();
+	//std::cout<<"Best score in database "<<bestScoreSoFar<<std::endl;
 
 	Reset();
 }
