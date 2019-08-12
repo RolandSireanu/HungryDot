@@ -13,7 +13,7 @@
 #include "StateIntro.h"
 #include "StateMenu.h"
 #include "StateRegister.h"
-
+#include "StateLeaderBoard.h"
 
 StateStack::StateStack(BaseState::SharedContext& arg_sharedContext) : context(arg_sharedContext) , statesFactory() , currentState(nullptr)
 {
@@ -23,6 +23,7 @@ StateStack::StateStack(BaseState::SharedContext& arg_sharedContext) : context(ar
 	registerState<StateMenu>(BaseState::STATES::STATE_MENU);
 	registerState<StateRegister>(BaseState::STATES::STATE_REGISTER);
 	registerState<StateGameOver>(BaseState::STATES::STATE_GAME_OVER);
+	registerState<StateLeaderBoard>(BaseState::STATES::STATE_LEADER);
 }
 
 

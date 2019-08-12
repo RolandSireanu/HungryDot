@@ -79,6 +79,8 @@ void World::Reset()
 
 
 }
+
+#include "Timer.h"
 /*
 	Returns true when is GAME OVER , false otherwise 
 
@@ -107,18 +109,21 @@ bool World::Update(HungryDot& arg_hungryDot , sf::Time dt , bool arg_firstRun)
 					else
 						return true;
 
-				});
-
-		vegSprites.erase(newEnd , vegSprites.end());		
+				});		
+		vegSprites.erase(newEnd , vegSprites.end());				
 		arg_hungryDot.IncreaseScore(nrOfVegetablesOnMap - (vegSprites.size()));
 
 	}
 
-
+	
 	//Search collision between moaca and arrows
-	auto it = std::find_if(arrowsToDraw.begin() , arrowsToDraw.end() , [=](ArrowsObjectPool::arrowUniquePtr& a){
+	
+	auto it = std::find_if(arrowsToDraw.begin() , arrowsToDraw.end() , [&arg_hungryDot](ArrowsObjectPool::arrowUniquePtr& a){
+		
 		sf::Vector2u arrowP = (sf::Vector2u)a->GetSprite().getPosition();
 		sf::Vector2u hungryDotP = (sf::Vector2u) arg_hungryDot.GetCurrentPosition();
+			
+		
 
 		if((arrowP.x >= hungryDotP.x) && (arrowP.x <= (hungryDotP.x+arg_hungryDot.GetWidth())))
 		{
@@ -131,8 +136,8 @@ bool World::Update(HungryDot& arg_hungryDot , sf::Time dt , bool arg_firstRun)
 		}
 
 		return false;
-	});
-
+	});	
+	
 
 	if(it != arrowsToDraw.end())
 		return true;

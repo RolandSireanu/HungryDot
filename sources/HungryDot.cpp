@@ -23,10 +23,7 @@ HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos
 	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Down)] = [this]() { this->direction = Direction::DOWN; };
 	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Right)] = [this]() { this->direction = Direction::RIGHT; };
 	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Up)] = [this]() { this->direction = Direction::UP; };
-	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Left)] = [this]() { this->direction = Direction::LEFT; };
-
-	//bestScoreSoFar = DataBase::GetObject()->ReadBestScore();
-	//std::cout<<"Best score in database "<<bestScoreSoFar<<std::endl;
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Left)] = [this]() { this->direction = Direction::LEFT; };	
 
 	Reset();
 }
@@ -133,13 +130,12 @@ void HungryDot::WallCollision()
 }
 
 
-
+#include "Timer.h"
 
 void HungryDot::Update(sf::Time arg_deltaT)
-{
+{	
 	Move(arg_deltaT);
-	WallCollision();
-		
+	WallCollision();			
 }
 
 void HungryDot::Reset()

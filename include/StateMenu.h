@@ -32,9 +32,10 @@ class StateMenu : public BaseState
 
 		Button newGameButton;
 		Button registerNameButton;
+		Button leaderBoardButton;
 		Button exitGameButton;
 		int buttonCounter;
-		static constexpr unsigned int nrOfButtons = 3;
+		static constexpr unsigned int nrOfButtons = 4;
 		std::array<Button* , nrOfButtons> buttons;
 		Audio::Player audioPlayer;
 		

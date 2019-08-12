@@ -8,9 +8,9 @@
 #include "StateMenu.h"
 
 StateMenu::StateMenu(SharedContext& arg_context , StateStack* arg_stateStack): BaseState(arg_context , arg_stateStack) ,
-	newGameButton(std::string("NEW GAME") , 190,200 , BaseState::STATES::STATE_INTRO) , exitGameButton(std::string("EXIT GAME") , 190 , 320 , BaseState::STATES::STATE_GAME_OVER) ,
-	registerNameButton(std::string("REGISTER") , 190,260 , BaseState::STATES::STATE_REGISTER),
-	buttonCounter(0) , buttons{&newGameButton , &registerNameButton , &exitGameButton} , audioPlayer(Audio::AudioStates::STATE_MENU_AUDIO)
+	newGameButton(std::string("NEW GAME") , 190,200 , BaseState::STATES::STATE_INTRO) , exitGameButton(std::string("EXIT GAME") , 190 , 380 , BaseState::STATES::STATE_GAME_OVER) ,
+	registerNameButton(std::string("REGISTER") , 190,260 , BaseState::STATES::STATE_REGISTER),leaderBoardButton(std::string("LEADERBOARDS") ,190,320 , BaseState::STATES::STATE_LEADER),
+	buttonCounter(0) , buttons{&newGameButton , &registerNameButton , &leaderBoardButton , &exitGameButton} , audioPlayer(Audio::AudioStates::STATE_MENU_AUDIO)
 {
 	std::cout<<"StateMenu constructor ! "<<std::endl;
 	newGameButton.setColor(sf::Color::Blue);	
@@ -27,6 +27,7 @@ void StateMenu::Render()
 {
 	sharedContext.sharedRenderWindow.draw(newGameButton);
 	sharedContext.sharedRenderWindow.draw(registerNameButton);
+	sharedContext.sharedRenderWindow.draw(leaderBoardButton);
 	sharedContext.sharedRenderWindow.draw(exitGameButton);
 }
 

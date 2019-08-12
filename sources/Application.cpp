@@ -10,6 +10,7 @@
 
 #include "Application.h"
 #include "DataBase.h"
+#include "Timer.h"
 
 
 Application::Application():m_window("Hungry dot" , FpsRegulator::resolution),
@@ -35,24 +36,28 @@ void Application::run()
 
 
 		std::shared_ptr<DataBase> db = DataBase::GetObject();
-		if(db != nullptr)
-			 std::cout<<"Best score so far from DB = "<<db->ReadBestScore()<<std::endl;
-		else
-			std::cout<<"Bad shared ptr"<<std::endl;
+		// if(db != nullptr)
+		// 	 std::cout<<"Best score so far from DB = "<<db->ReadBestScore()<<std::endl;
+		// else
+		// 	std::cout<<"Bad shared ptr"<<std::endl;
 
 
 	while(!m_window.IsDone() && Globals::closeGameNow != true)
-	{
+	{		
 		sf::Time dt = clock.restart();
 		timeSinceLastUpdate += dt;
 		handleInputs();
 		while(timeSinceLastUpdate > FpsRegulator::timePerFrame)
 		{
+			Timer::StartTimer();
 			timeSinceLastUpdate -= FpsRegulator::timePerFrame;
 			update(FpsRegulator::timePerFrame);
+			std::cout<<"Elapsed ms = "<<Timer::GetElapsedMs()<<std::endl;
 		}
 
 		render();
+
+		
 	}
 }
 

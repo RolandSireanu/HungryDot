@@ -34,7 +34,10 @@ class StateStack
 				currentState.reset();
 
 			}
+			std::cout<<"Now I will crash !"<<std::endl;
+			std::cout<<(unsigned int)arg_state<<std::endl;
 			currentState = statesFactory[arg_state]();
+			std::cout<<"Or not !"<<std::endl;
 
 		}
 
