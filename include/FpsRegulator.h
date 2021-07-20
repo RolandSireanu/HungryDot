@@ -33,6 +33,7 @@ class FpsRegulator
 		static unsigned int fpsDot;
 		static sf::Vector2u resolution;		
 		static sf::Vector2u sizeOfHungryDot;
+		static sf::Time timePerFrame;
 };
 
 

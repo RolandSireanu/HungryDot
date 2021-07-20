@@ -3,14 +3,20 @@
 
 #include "SFML/Graphics.hpp"
 #include <map>
+#include <unordered_map>
+#include <functional>
+#include "InputEvents.h"
+#include "Globals.h"
 
 class HungryDot
 {
+
 	
+
 	public:
 
 		enum class Direction : unsigned int {LEFT=0x00 , RIGHT=0x02 , UP=0x06 , DOWN=0x0A};
-
+		enum class JoystickButtons : unsigned int {CROSS = 0x00 , CIRCLE=0x01 , TRIANGLE=0x02 , RECTANGLE=0x03 };
 
 	public:
 
@@ -29,34 +35,44 @@ class HungryDot
 		void IncreaseScore(unsigned int arg_deltaScore)
 		{
 			score+=arg_deltaScore;
-			bestScoreSoFar = std::max(bestScoreSoFar , score);
+			Globals::bestScoreSoFar = std::max(Globals::bestScoreSoFar , score);
 		}
 		unsigned int GetScore() const { return score; }
-		unsigned int GetBestScoreSoFar() const {return bestScoreSoFar;}
+		unsigned int GetBestScoreSoFar() const {return Globals::bestScoreSoFar;}
 		unsigned int ResetScore() { score = 0; }
 		unsigned int GetHeight() const { return HEIGHT_OF_HUNGRYDOT;}
 		unsigned int GetWidth() const { return WIDTH_OF_HUNGRYDOT;}
 
 
-		void Move(long long);
-		void Update(long long);
+		void Move(sf::Time);
+		void Update(sf::Time);
 		void Reset();
 		void Render(sf::RenderWindow& window);
 		void WallCollision();
-
 		void IncreaseSpeed();
+
+		void HandleInput(InputEvents::Ev arg_event);
 
 		sf::Vector2f GetCurrentPosition() const;
 
+		struct hashFunctorEv
+		{
+			size_t operator()(const InputEvents::Ev& arg_ev) const
+			{
+				int temporary = static_cast<int>(arg_ev.keyboardKey);
 
-	private:		
+				return (std::hash<unsigned int>()(arg_ev.joystickButton)  ^ std::hash<int>()(temporary));
+			}
+		};
+
+	private:
 
 		void KeepTheDotInPlay(int& , int&);
 
 
 		Direction direction;
 		unsigned int score;
-		unsigned int bestScoreSoFar;
+		//unsigned int bestScoreSoFar;
 		unsigned int lives;
 		unsigned int wallsCollision;		
 		int xSpeed;
@@ -78,9 +94,7 @@ class HungryDot
 		const unsigned int WIDTH_OF_HUNGRYDOT = 50;
 		const unsigned int HEIGHT_OF_HUNGRYDOT = 50;
 
-
-
-
+		std::unordered_map<InputEvents::Ev , std::function<void(void)> , hashFunctorEv> generalActionBinding;
 
 };
 

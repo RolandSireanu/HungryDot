@@ -2,10 +2,11 @@
 #include "FpsRegulator.h"
 #include <iostream>
 #include "SFML/System/Vector2.hpp"
+#include "DataBase.h"
 
 /* Initiaize the internal state */
 HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos , float arg_ypos)
-	: DIRECTION(arg_dr) , DEFAULT_X_SPEED(arg_xs) , DEFAULT_Y_SPEED(arg_ys) , POSITION(arg_xpos , arg_ypos) , bestScoreSoFar(0)
+	: DIRECTION(arg_dr) , DEFAULT_X_SPEED(arg_xs) , DEFAULT_Y_SPEED(arg_ys) , POSITION(arg_xpos , arg_ypos)
 {
 	m_hungryDotTextures.resize(NR_OF_SPRITES);
 
@@ -15,6 +16,15 @@ HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos
 	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
 	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)DIRECTION]);
 	
+	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::CROSS, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::DOWN; };
+	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::CIRCLE, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::RIGHT; };
+	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::TRIANGLE, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::UP; };
+	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::RECTANGLE, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::LEFT; };
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Down)] = [this]() { this->direction = Direction::DOWN; };
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Right)] = [this]() { this->direction = Direction::RIGHT; };
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Up)] = [this]() { this->direction = Direction::UP; };
+	generalActionBinding[InputEvents::Ev(0xFF, sf::Keyboard::Left)] = [this]() { this->direction = Direction::LEFT; };	
+
 	Reset();
 }
 
@@ -33,14 +43,18 @@ void HungryDot::KeepTheDotInPlay(int& arg_xSpeed , int& arg_ySpeed)
 		arg_ySpeed = arg_ySpeed > 0 ? 0 : arg_ySpeed;
 }
 
-void HungryDot::Move(long long arg_deltaTiming)
+void HungryDot::Move(sf::Time arg_deltaTiming)
 {
 	static unsigned int counter = 1;
 	static double shadowSpeed = 0.00;
 	static double shadow_ySpeed = 0.00;
 
 	//std::cout<<"computation result = "<<((float)arg_deltaTiming / (1000000 / FpsRegulator::fps))*DEFAULT_X_SPEED<<std::endl;
-	shadowSpeed = shadowSpeed + (((float)arg_deltaTiming / (1000000 / FpsRegulator::fps)) * DEFAULT_X_SPEED);
+	float deltaTiming = arg_deltaTiming.asSeconds();
+	//std::cout<<"deltaTiming = "<<deltaTiming<<std::endl;
+	//shadowSpeed = shadowSpeed + (((float)deltaTiming / (1000000 / FpsRegulator::fps)) * DEFAULT_X_SPEED);
+
+	shadowSpeed += DEFAULT_X_SPEED; //* deltaTiming;
 	//std::cout<<"shadowSpeed = "<<shadowSpeed<<std::endl;
 
 	if(shadowSpeed >= 1.0000)
@@ -116,13 +130,12 @@ void HungryDot::WallCollision()
 }
 
 
+#include "Timer.h"
 
-
-void HungryDot::Update(long long arg_deltaT)
-{
+void HungryDot::Update(sf::Time arg_deltaT)
+{	
 	Move(arg_deltaT);
-	WallCollision();
-		
+	WallCollision();			
 }
 
 void HungryDot::Reset()
@@ -181,5 +194,26 @@ void HungryDot::IncreaseSpeed()
 	DEFAULT_X_SPEED+=5;
 	DEFAULT_Y_SPEED+=5;
 }
+
+
+
+void HungryDot::HandleInput(InputEvents::Ev arg_ev)
+{
+
+	auto it = generalActionBinding.find(arg_ev);
+	if(it != generalActionBinding.end())
+		it->second();
+	else
+		std::cout<<"Command not found !"<<std::endl;
+
+}
+
+
+
+
+
+
+
+
 
 

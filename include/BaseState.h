@@ -9,28 +9,10 @@
 #define BASESTATE_H_
 
 #include "SFML/Graphics.hpp"
+#include <memory>
+#include "InputEvents.h"
 
-class SharedContext
-{
-	private:
-		SharedContext();
-
-	public:
-		static SharedContext* GetInstance()
-		{
-			if(sharedContext == nullptr)
-			{
-				sharedContext = new SharedContext();
-			}
-
-			return sharedContext;
-		}
-
-
-	static sf::RenderWindow* sharedWindow;
-	static SharedContext* sharedContext;
-
-};
+class StateStack;
 
 
 class BaseState
@@ -38,15 +20,36 @@ class BaseState
 
 	public:
 
-		BaseState()
+
+		struct SharedContext
+		{
+				SharedContext(sf::RenderWindow& arg_renderWindow) : sharedRenderWindow(arg_renderWindow)
+				{
+
+				}
+
+			public:
+
+				sf::RenderWindow& sharedRenderWindow;
+		};
+
+		enum class STATES: unsigned int {STATE_INTRO=0x00 , STATE_GAME=0x01 , STATE_GAME_OVER=0x02 , STATE_MENU = 0x03 , STATE_REGISTER = 0x04 , STATE_LEADER = 5};
+
+		BaseState(SharedContext& arg_context , StateStack* arg_stateStack) : sharedContext(arg_context) , m_stateStack(arg_stateStack)
 		{
 
 		}
 
-		virtual void Update(long long) = 0;
+		virtual void Update(sf::Time) = 0;
 		virtual void Render() = 0;
+		virtual void HandleInput(InputEvents::Ev) =0;
 
-		//struct SharedContext& sharedContext;
+		virtual ~BaseState(){}
+
+	protected :
+		struct SharedContext& sharedContext;
+		StateStack* m_stateStack;
+
 
 };
 

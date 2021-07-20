@@ -10,15 +10,20 @@ class Arrow
 
 		enum class DIRECTION : unsigned int { RIGHT_LEFT = 0 , LEFT_RIGHT = 1 , DOWN_UP = 2 , UP_DOWN = 3};
 
-		Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed);
+		Arrow(DIRECTION arg_direction , const sf::Texture& arg_arrowTexture , double arg_arrowSpeed , bool);
 
-		bool MoveArrow(long long);
+		//Arrow& operator = (Arrow&& arg_arrow) = default;
 
-		void ResetArrow();
 
-		sf::Vector2u GenNewArrowPos(DIRECTION arg_direction);
+		bool MoveArrow(sf::Time);
+
+		void ResetArrow(bool);
+			
+		//void RandomizeArrowPos();
 
 		DIRECTION direction;		
+
+		void SetArrowPosition(float x, float y);
 
 		sf::Sprite GetSprite()
 		{
@@ -28,6 +33,8 @@ class Arrow
 	private:
 
 		void IncreaseSpeedOfArrow();
+		sf::Vector2u GenNewArrowPos(DIRECTION arg_direction , sf::Vector2u , sf::Vector2u);
+		sf::Vector2u GenNewArrowPos(DIRECTION arg_direction);	
 
 		sf::Sprite arrowSprite;
 		sf::Texture texture;

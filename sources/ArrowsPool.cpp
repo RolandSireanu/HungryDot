@@ -1,46 +1,48 @@
 #include "ArrowsPool.h"
 
-
 ArrowsObjectPool::ArrowsObjectPool(const sf::Texture& arg_texture) : texture(arg_texture)
 {
-	//pool.resize(MAX_NR_OF_ARROWS);
-	unsigned int indexer = 0;
-
-
-	for(int c = 0; c < MAX_NR_OF_ARROWS; c++)
-	{
-		Arrow* tempArrow = new Arrow((Arrow::DIRECTION) (indexer % 4) , texture , DEFAULT_ARROW_SPEED);
-
-		pool.push_back(tempArrow);
-		indexer++;
-	}   
 
 }
 
-bool ArrowsObjectPool::AcquireArrow(Arrow::DIRECTION arg_direction , Arrow** retArrow)
+//Create new function for transition from GameOver -> GAME_STATE
+//Reset all arrows and not generate new ones who can hit MOACA from first frames
+
+
+ArrowsObjectPool::arrowUniquePtr ArrowsObjectPool::AcquireArrow(Arrow::DIRECTION arg_direction , bool arg_firstRun , bool& arg_aquired)
 {
 
-	auto it = std::find_if(pool.begin() , pool.end() , [=](Arrow* a){
-		return (arg_direction == a->direction) ? true : false;
-	});
+	Arrow* ptrArrow = nullptr;
 
-
+	auto it = std::find_if(pool.begin() , pool.end() , [arg_direction](Arrow* a){
+			return (arg_direction == a->direction) ? true : false;
+		});
 
 	if(it != pool.end())
 	{
-		*retArrow = (*it);
+		ptrArrow = *it;
 		pool.erase(it);
-		return true;
+		arg_aquired = true;
 	}
 	else
-	{
-		return false;
+	{	std::cout<<"Create new arrow ! "<<(unsigned int)arg_direction<<std::endl;
+		ptrArrow = new Arrow((Arrow::DIRECTION) ((unsigned int)arg_direction % 4) , texture , DEFAULT_ARROW_SPEED , arg_firstRun);
+		arg_aquired = true;
 	}
+
+	arrowUniquePtr uptr(ptrArrow , ArrowsObjectPool::CustomArrowDeleter(this->shared_from_this()));
+
+	return std::move(uptr);
 
 }
 
-void ArrowsObjectPool::ReleaseArrow(Arrow* arg_arrow)
+
+ArrowsObjectPool::~ArrowsObjectPool()
 {
-	arg_arrow->ResetArrow();
-	pool.push_back(arg_arrow);
+	std::cout<<"ArrowsObjectPool destructor !"<<std::endl;
+	for(Arrow* p : pool)
+	{
+		delete p;
+	}
+
 }
