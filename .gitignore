@@ -1,7 +1,5 @@
 *.o
 *.bin
-*.cmake
-*.txt
 *.log
 HungryDot
 *.includecache
