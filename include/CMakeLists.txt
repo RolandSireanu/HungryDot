@@ -1,0 +1,4 @@
+add_subdirectory(gameElements)
+add_subdirectory(states)
+add_subdirectory(menuComponents)
+add_subdirectory(otherComponents)

@@ -1,0 +1,188 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						6
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "include",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "include"
+				},
+				{
+					"build" : "include/gameElements",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "include/gameElements"
+				},
+				{
+					"build" : "include/states",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "include/states"
+				},
+				{
+					"build" : "include/menuComponents",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "include/menuComponents"
+				},
+				{
+					"build" : "include/otherComponents",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "include/otherComponents"
+				},
+				{
+					"build" : "sources",
+					"childIndexes" : 
+					[
+						7,
+						8,
+						9,
+						10
+					],
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "sources"
+				},
+				{
+					"build" : "sources/gameElements",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "sources/gameElements"
+				},
+				{
+					"build" : "sources/menuComponents",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "sources/menuComponents"
+				},
+				{
+					"build" : "sources/otherComponents",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "sources/otherComponents"
+				},
+				{
+					"build" : "sources/states",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8.9"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 0,
+					"source" : "sources/states"
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					],
+					"name" : "HungryDot",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "HungryDot::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HungryDot-Debug-a5d302bad1e1d048aa5e.json",
+					"name" : "HungryDot",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/roland/HungryDot/build",
+		"source" : "/home/roland/HungryDot"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

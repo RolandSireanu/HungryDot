@@ -3,6 +3,7 @@
 #include <iostream>
 #include "SFML/System/Vector2.hpp"
 #include "DataBase.h"
+#include "MediaResources.h"
 
 /* Initiaize the internal state */
 HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos , float arg_ypos)
@@ -10,10 +11,10 @@ HungryDot::HungryDot(Direction arg_dr , int arg_xs , int arg_ys , float arg_xpos
 {
 	m_hungryDotTextures.resize(NR_OF_SPRITES);
 
-	m_hungryDotTextures[(unsigned int)Direction::LEFT].loadFromFile("Media/LeftDot.png");
-	m_hungryDotTextures[(unsigned int)Direction::LEFT+1].loadFromFile("Media/MiddleLeft.png");
-	m_hungryDotTextures[(unsigned int)Direction::RIGHT].loadFromFile("Media/RightDot.png");
-	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile("Media/MiddleRight.png");
+	m_hungryDotTextures[(unsigned int)Direction::LEFT].loadFromFile(MediaResources::getLeftDot());
+	m_hungryDotTextures[(unsigned int)Direction::LEFT+1].loadFromFile(MediaResources::getMiddleLeft());
+	m_hungryDotTextures[(unsigned int)Direction::RIGHT].loadFromFile(MediaResources::getRightDot());
+	m_hungryDotTextures[(unsigned int)Direction::RIGHT+1].loadFromFile(MediaResources::getMiddleRight());
 	m_hungryDotSprite.setTexture(m_hungryDotTextures[(unsigned int)DIRECTION]);
 	
 	generalActionBinding[InputEvents::Ev((unsigned int)JoystickButtons::CROSS, sf::Keyboard::Unknown)] = [this]() { this->direction = Direction::DOWN; };

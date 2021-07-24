@@ -1,0 +1,1 @@
+target_include_directories(HungryDot PRIVATE ${CMAKE_CURRENT_LIST_DIR})

@@ -13,6 +13,7 @@
 #include "FpsRegulator.h"
 #include "StateStack.h"
 #include "AudioPlayer.h"
+#include "MediaResources.h"
 
 class StateIntro : public BaseState
 {
@@ -22,10 +23,10 @@ class StateIntro : public BaseState
 		StateIntro(BaseState::SharedContext& arg_sharedContext , StateStack* arg_stateStack) : BaseState(arg_sharedContext , arg_stateStack) , spritesToDraw(),
 		dotSprite(new sf::Sprite()) , greenBeanSprite(new sf::Sprite()) , introSprite(new sf::Sprite()) , text(new sf::Text()) , player(Audio::AudioStates::STATE_INTRO_AUDIO)
 		{
-			font.loadFromFile("Media/arial.ttf");
-			dotTexture.loadFromFile("Media/MiddleRight.png");
-			dotTextureOpen.loadFromFile("Media/RightDot.png");
-			greenBeanTexture.loadFromFile("Media/Vegetable.png" , sf::IntRect(0,0,25,25));
+			font.loadFromFile(MediaResources::getFont());
+			dotTexture.loadFromFile(MediaResources::getMiddleRight());
+			dotTextureOpen.loadFromFile(MediaResources::getRightDot());
+			greenBeanTexture.loadFromFile(MediaResources::getVegetable() , sf::IntRect(0,0,25,25));
 			dotSprite->setTexture(dotTexture);
 			dotSprite->setPosition(FpsRegulator::resolution.x * 0.10 ,335);
 			greenBeanSprite->setTexture(greenBeanTexture);
@@ -38,7 +39,7 @@ class StateIntro : public BaseState
 			text->setColor(sf::Color::White);
 			text->setString("Press ENTER key to start the game !");
 
-			introTexture.loadFromFile("Media/IntroPic.png");
+			introTexture.loadFromFile(MediaResources::getIntroPic());
 			introSprite->setTexture(introTexture);
 			introSprite->setPosition(35,50);
 

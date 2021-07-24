@@ -6,7 +6,7 @@
  */
 
 
-#include "../include/StateGame.h"
+#include "StateGame.h"
 #include "DataBase.h"
 #include "Globals.h"
 #include <fstream>

@@ -1,0 +1,5 @@
+target_sources(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/main.cpp)
+add_subdirectory(gameElements)
+add_subdirectory(menuComponents)
+add_subdirectory(otherComponents)
+add_subdirectory(states)

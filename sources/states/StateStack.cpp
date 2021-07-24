@@ -8,7 +8,7 @@
 
 #include "StateStack.h"
 
-#include "../include/StateGame.h"
+#include "StateGame.h"
 #include "StateGameOver.h"
 #include "StateIntro.h"
 #include "StateMenu.h"

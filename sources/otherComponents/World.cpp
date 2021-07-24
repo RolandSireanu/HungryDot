@@ -7,6 +7,7 @@
 #include "SFML/Graphics/Rect.hpp"
 #include "SFML/System/Vector2.hpp"
 #include "Globals.h"
+#include "MediaResources.h"
 
 //Lungime latime 4341 x 1804  DUSTER
 //Golf 5 : 4204 1759
@@ -18,12 +19,12 @@ World::World() //: arrowsPool(new ArrowsObjectPool(arrowsTexture))
 
 	arrowsPool = std::make_shared<ArrowsObjectPool>(arrowsTexture);
 
-	fruitsTexture.loadFromFile("Media/Vegetable.png");
-	arrowsTexture.loadFromFile("Media/Arrows.png");
-	cannonTextureLeft.loadFromFile("Media/CannonLeft.png");
-	cannonTextureRight.loadFromFile("Media/CannonRight.png");
-	cannonTextureUp.loadFromFile("Media/CannonUp.png");
-	cannonTextureDown.loadFromFile("Media/CannonDown.png");
+	fruitsTexture.loadFromFile(MediaResources::getVegetable());
+	arrowsTexture.loadFromFile(MediaResources::getArrows());
+	cannonTextureLeft.loadFromFile(MediaResources::getCannonLeft());
+	cannonTextureRight.loadFromFile(MediaResources::getCannonRight());
+	cannonTextureUp.loadFromFile(MediaResources::getCannonUp());
+	cannonTextureDown.loadFromFile(MediaResources::getCannonDown());
 	
 
 
