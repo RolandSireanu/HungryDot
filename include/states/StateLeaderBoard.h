@@ -4,6 +4,8 @@
 #include "BaseState.h"
 #include "DataBase.h"
 #include <iostream>
+#include "SFML/System.hpp"
+#include "MediaResources.h"
 
 class StateLeaderBoard : public BaseState
 {
@@ -21,7 +23,7 @@ class StateLeaderBoard : public BaseState
         const unsigned int MAX_PLAYERS_LEADRBOARD = 5;
         unsigned int nr_of_players_leaderboards=5;
         sf::Font font;
-		std::shared_ptr<sf::Text[]> text;
+		std::unique_ptr<sf::Text[]> text;
 };
 
 

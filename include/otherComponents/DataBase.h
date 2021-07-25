@@ -14,6 +14,7 @@
 #include <map>
 #include <vector>
 #include <algorithm>
+#include "MediaResources.h"
 
 
 class DataBase

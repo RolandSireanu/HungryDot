@@ -29,6 +29,7 @@ void Window::Create()
 {
 	auto windowStyle = (m_isFullscreen ? sf::Style::Fullscreen : sf::Style::Close | sf::Style::Default | sf::Style::Resize);
 
+	std::cout << "Window has been created !" << std::endl;
 	m_window.create(sf::VideoMode(m_windowSize.x , m_windowSize.y) , m_windowTitle ,  windowStyle);
 
 }

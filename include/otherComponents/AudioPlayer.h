@@ -4,6 +4,7 @@
 #include <string>
 #include <SFML/Audio/Music.hpp>
 #include <thread> 
+#include "MediaResources.h"
 
 
 namespace Audio

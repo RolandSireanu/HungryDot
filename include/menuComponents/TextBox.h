@@ -13,6 +13,8 @@
 #include <string>
 #include "Globals.h"
 #include "StateStack.h"
+#include <array>
+#include "MediaResources.h"
 
 class TextBox : public Component
 {

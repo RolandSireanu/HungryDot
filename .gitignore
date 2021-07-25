@@ -3,3 +3,4 @@
 *.log
 HungryDot
 *.includecache
+include/sfmlIncludes/

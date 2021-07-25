@@ -10,7 +10,7 @@
 TextBox::TextBox(unsigned int arg_x_pos , unsigned int arg_y_pos) :
 	enteredText("")
 {
-	font.loadFromFile("Media/arial.ttf");
+	font.loadFromFile(MediaResources::getFont());
 	text.setFont(font);
 	text.setCharacterSize(36);
 	text.setString("");

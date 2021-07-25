@@ -7,7 +7,7 @@ namespace MediaResources
 {
     using namespace std;
 
-    void init();
+    
     string getFont();
     string getLeftDot();
     string getMiddleLeft();
@@ -22,11 +22,17 @@ namespace MediaResources
     string getCannonUp();    
     string getCannonDown();  
 
+    string getMenuMusic();
+    string getGameMusic();
+    string getScore();
+
+    string getConfigFile();
+
 
 
     extern const string CONFIG_PATH;
     extern const string RES_FONT;
-    extern string config_file;
+    const extern string config_file;
 };
 
 

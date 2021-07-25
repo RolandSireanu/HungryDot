@@ -49,7 +49,7 @@ World::World() //: arrowsPool(new ArrowsObjectPool(arrowsTexture))
 	
 	
 
-	if (!font.loadFromFile("Media/arial.ttf"))
+	if (!font.loadFromFile(MediaResources::getFont()))
 	{
 		std::cout<<"Can't load font !"<<std::endl;
 	}

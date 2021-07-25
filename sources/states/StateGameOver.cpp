@@ -11,7 +11,7 @@
 
 StateGameOver::StateGameOver(BaseState::SharedContext& arg_sharedContext , StateStack* arg_stateStack):BaseState(arg_sharedContext , arg_stateStack)
 {
-	sgoFont.loadFromFile("Media/arial.ttf");
+	sgoFont.loadFromFile(MediaResources::getFont());
 	sgoGameOverText.setFont(sgoFont);
 	sgoGameOverText.setCharacterSize(60);
 	sgoGameOverText.setPosition(140,180);

@@ -12,6 +12,7 @@
 #include "SFML/Graphics.hpp"
 #include "FpsRegulator.h"
 #include "StateStack.h"
+#include "MediaResources.h"
 
 class StateGameOver : public BaseState
 {

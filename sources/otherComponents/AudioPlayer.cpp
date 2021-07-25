@@ -2,7 +2,7 @@
 
 namespace Audio
 {
-    Player::Player(AudioStates arg_audioState) : stateMenuAudio("Media/StateMenuMusic.ogg") , stateGameAudio("Media/StateGameMusic.ogg") , stateIntroAudio("Media/StateMenuMusic.ogg")
+    Player::Player(AudioStates arg_audioState) : stateMenuAudio(MediaResources::getMenuMusic()) , stateGameAudio(MediaResources::getGameMusic()) , stateIntroAudio(MediaResources::getMenuMusic())
     {         
 
         switch (arg_audioState)

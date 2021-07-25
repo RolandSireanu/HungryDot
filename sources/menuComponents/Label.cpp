@@ -15,7 +15,7 @@ void Label::handleEvent(InputEvents::Ev)
 
 Label::Label(std::string arg_text , unsigned int arg_x_pos , unsigned int arg_y_pos)
 {
-	labelFont.loadFromFile("Media/arial.ttf");
+	labelFont.loadFromFile(MediaResources::getFont());
 	labelText.setFont(labelFont);
 	labelText.setCharacterSize(36);
 	labelText.setColor(sf::Color::White);

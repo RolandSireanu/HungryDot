@@ -22,7 +22,7 @@ StateLeaderBoard::StateLeaderBoard(SharedContext& arg_context , StateStack* arg_
 
     nr_of_players_leaderboards = std::min(MAX_PLAYERS_LEADRBOARD , (unsigned int)topPlayer.size());
 
-    font.loadFromFile("Media/arial.ttf");
+    font.loadFromFile(MediaResources::getFont());
 
     for(int i=0; i<nr_of_players_leaderboards; i++)
     {
@@ -44,7 +44,7 @@ void StateLeaderBoard::Render()
 {
     for(int i = 0; i < nr_of_players_leaderboards; i++)
     {
-        sharedContext.sharedRenderWindow.draw(text[i]);
+        sharedContext.sharedRenderWindow.draw(text.get()[i]);
     }
 }
 

@@ -6,7 +6,7 @@
  */
 
 
-//dataBase.open("Media/Score" , std::ios::out|std::ios::in);
+
 
 #include "DataBase.h"
 #include <iostream>
@@ -15,42 +15,13 @@ std::weak_ptr<DataBase> DataBase::privateObject;
 
 DataBase::DataBase()
 {
-	/*
-	std::cout<<"DataBase constructor !"<<std::endl;
-	dataBase.open("Media/Score" , std::ios::out|std::ios::in);
 
-	if(dataBase.is_open())
-	{
-		std::cout<<"Succesfully opened the Score file "<<std::endl;
-		std::cout<<"dataBase addr = "<<&dataBase<<std::endl;
-	}
-	else
-	{
-		std::cout<<"Error at open Score file ! "<<std::endl;
-	}
-	*/	
 }
 
 
 unsigned int DataBase::ReadBestScore()
 {
-	// unsigned int bs = 0;
-	// std::string player;
-	// std::string topPlayer;
-	// unsigned int score = 0x00;
-	// dataBase.open("Media/Score" , std::ios::in);
-	// dataBase.seekg(0 , std::ios::beg);
-	// while(dataBase>>player>>score)
-	// {
-	// 	if(score > bs)
-	// 	{
-	// 		bs = score;
-	// 		topPlayer = player;
-	// 	}
-	// 	std::cout<<"player = "<<player<<" score = "<<score<<std::endl;
-	// }
-	
-	// dataBase.close();
+
 	return 0;
 }
 
@@ -105,7 +76,7 @@ void DataBase::LoadDbInternalRep()
 {
 	std::string pname;
 	unsigned int pscore;
-	dataBase.open("Media/Score" , std::ios::in);
+	dataBase.open(MediaResources::getScore() , std::ios::in);
 	dataBase.seekg(0 , std::ios::beg);
 
 	while(dataBase>>pname>>pscore)
@@ -128,7 +99,7 @@ void DataBase::LoadDbInternalRep()
 
 void DataBase::ClearDataBase()
 {	
-	dataBase.open("Media/Score" , std::ios::out | std::ios::trunc);
+	dataBase.open(MediaResources::getScore() , std::ios::out | std::ios::trunc);
 	dataBase.close();
 
 }
@@ -136,7 +107,7 @@ void DataBase::ClearDataBase()
 DataBase::~DataBase()
 {
 	std::cout<<"DataBase destructor !"<<std::endl;
-	dataBase.open("Media/Score" , std::ios::out | std::ios::trunc);
+	dataBase.open(MediaResources::getScore() , std::ios::out | std::ios::trunc);
 	for(const auto& p : db)
 	{
 		dataBase<<p.first<<" "<<p.second<<std::endl;

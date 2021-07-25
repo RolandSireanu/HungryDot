@@ -9,7 +9,7 @@
 
 Button::Button(const std::string& arg_t , unsigned int arg_x_pos , unsigned int arg_y_pos , BaseState::STATES arg_state) : buttonState(arg_state)
 {
-	buttonFont.loadFromFile("Media/arial.ttf");
+	buttonFont.loadFromFile(MediaResources::getFont());
 	buttonText.setFont(buttonFont);
 	buttonText.setCharacterSize(42);
 	buttonText.setPosition(arg_x_pos,arg_y_pos);

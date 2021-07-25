@@ -9,6 +9,7 @@
 #define HUNGRYDOT_INCLUDE_LABEL_H_
 #include "Component.h"
 #include <string>
+#include "MediaResources.h"
 
 class Label : public Component
 {

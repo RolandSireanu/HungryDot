@@ -15,6 +15,7 @@
 #include <iostream>
 #include "BaseState.h"
 #include "StateStack.h"
+#include "MediaResources.h"
 
 class Button : public Component
 {

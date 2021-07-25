@@ -11,9 +11,10 @@
 #include "Application.h"
 #include "DataBase.h"
 #include "Timer.h"
+#include "MediaResources.h"
 
 
-Application::Application():m_window("Hungry dot" , FpsRegulator::resolution),
+Application::Application():m_window("Hungry dot" , {650,450}),
 						   sharedContext(m_window.GetRenderWindow()),
 						   stateStack(sharedContext)
 {
@@ -33,14 +34,7 @@ void Application::run()
 	sf::Clock clock;
 	long long oldTimeStamp = 0;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
-
-
-		std::shared_ptr<DataBase> db = DataBase::GetObject();
-		// if(db != nullptr)
-		// 	 std::cout<<"Best score so far from DB = "<<db->ReadBestScore()<<std::endl;
-		// else
-		// 	std::cout<<"Bad shared ptr"<<std::endl;
-
+	std::shared_ptr<DataBase> db = DataBase::GetObject();
 
 	while(!m_window.IsDone() && Globals::closeGameNow != true)
 	{		
@@ -56,8 +50,6 @@ void Application::run()
 		}
 
 		render();
-
-		
 	}
 }
 
