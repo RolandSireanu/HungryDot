@@ -4,3 +4,4 @@
 HungryDot
 *.includecache
 include/sfmlIncludes/
+.vscode
